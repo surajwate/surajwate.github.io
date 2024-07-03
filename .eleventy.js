@@ -7,6 +7,10 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addCollection("posts", function(collection) {
       return collection.getFilteredByGlob("src/blog/posts/**/*.md");
     });
+    // Projects collection
+    eleventyConfig.addCollection("projects", function(collection) {
+      return collection.getFilteredByGlob("src/projects/**/*.md");
+    });
 
     eleventyConfig.addPlugin(pluginDate, {
         // Specify custom date formats

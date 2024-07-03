@@ -1,22 +1,39 @@
 /* projects.css */
 
 .projects-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2em;
-    background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-  }
-  
-  .projects-container h2 {
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 1em;
-  }
-  
-  .projects-container p {
-    color: var(--text-color);
-    text-align: justify;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.projects-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 1em;
+}
+
+.projects-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.projects-container li {
+  margin-bottom: 1.5em;
+}
+
+.projects-container a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.projects-container a:hover {
+  text-decoration: underline;
+}
+
+.projects-container p {
+  color: var(--text-light-color);
+}

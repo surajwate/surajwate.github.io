@@ -1,0 +1,17 @@
+---
+title: "Projects"
+layout: "layouts/projects.html"
+---
+
+<div class="projects-container">
+  <h1>Projects</h1>
+  <ul>
+    {% for project in collections.projects %}
+      <li>
+        <a href="{{ project.url }}">{{ project.data.title }}</a>
+        <p>{{ project.data.description }}</p>
+        <p>{{ project.data.date | readableDate }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

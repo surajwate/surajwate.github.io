@@ -4,3 +4,11 @@
     {{ super() }}
     <link rel="stylesheet" href="/assets/css/projects.css">
 {% endblock %}
+
+{% block content %}
+<div class="projects-container">
+    {% block projects_content %}
+        {{ content | safe }}
+    {% endblock %}
+</div>
+{% endblock %}
