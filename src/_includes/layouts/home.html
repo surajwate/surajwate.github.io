@@ -1,1 +1,12 @@
 {% extends "layouts/base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/assets/css/home.css">
+{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    {{ content | safe }}
+</div>
+{% endblock %}

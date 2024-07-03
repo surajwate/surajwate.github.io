@@ -1,0 +1,24 @@
+/* home.css */
+
+.home-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+  }
+  
+  .home-container h1 {
+    color: var(--primary-color);
+    margin-bottom: 1em;
+  }
+  
+  .home-container p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+    text-align: justify;
+  }
+  
