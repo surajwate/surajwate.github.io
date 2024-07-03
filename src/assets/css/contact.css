@@ -17,7 +17,7 @@
 
 .social-media-links a {
   text-decoration: none;
-  color: #0073e6;
+  color: var(--secondary-color);
 }
 
 .social-media-links a:hover {
@@ -32,7 +32,7 @@ iframe {
   display: block;
   margin: 0 auto;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 @media (max-width: 640px) {

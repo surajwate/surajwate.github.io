@@ -1,0 +1,22 @@
+/* projects.css */
+
+.projects-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .projects-container h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1em;
+  }
+  
+  .projects-container p {
+    color: var(--text-color);
+    text-align: justify;
+  }
+  
