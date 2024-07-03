@@ -1,0 +1,10 @@
+<!-- src/_includes/layouts/post.html -->
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<article>
+  <h1>{{ title }}</h1>
+  <p>{{ date }}</p>
+  {{ content | safe }}
+</article>
+{% endblock %}
