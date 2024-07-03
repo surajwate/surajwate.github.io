@@ -1,5 +1,6 @@
 ---
 title: "Project 1"
+layout: "layouts/project.html"
 description: "Description of Project 1"
 date: 2023-07-01
 ---
