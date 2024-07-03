@@ -1,0 +1,43 @@
+/* contact.css */
+
+.contact-methods {
+  margin-bottom: 2em;
+}
+
+.social-media-links {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.social-media-links li {
+  display: inline;
+  margin: 0 0.5em;
+}
+
+.social-media-links a {
+  text-decoration: none;
+  color: #0073e6;
+}
+
+.social-media-links a:hover {
+  text-decoration: underline;
+}
+
+.contact-form {
+  text-align: center;
+}
+
+iframe {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  iframe {
+    width: 100%;
+    height: auto;
+  }
+}
