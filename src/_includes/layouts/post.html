@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/assets/css/post.css">
+{% endblock %}
+
+{% block content %}
+<div class="post-container">
+  <h1>{{ title }}</h1>
+  <p class="post-date">{{ date | readableDate }}</p>
+  {{ content | safe }}
+</div>
+{% endblock %}
