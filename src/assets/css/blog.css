@@ -1,0 +1,40 @@
+/* blog.css */
+
+.blog-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-container h1 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 1em;
+  }
+  
+  .blog-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .blog-container li {
+    margin-bottom: 1.5em;
+  }
+  
+  .blog-container a {
+    text-decoration: none;
+    color: #0073e6;
+    font-weight: bold;
+  }
+  
+  .blog-container a:hover {
+    text-decoration: underline;
+  }
+  
+  .blog-container p {
+    color: #666;
+  }
+  

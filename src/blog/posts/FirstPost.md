@@ -1,6 +1,6 @@
 ---
 title: "First Post"
-date: 2024-07-03
+date: 2024-07-03 17:42:00
 layout: "layouts/post.html"
 ---
 
