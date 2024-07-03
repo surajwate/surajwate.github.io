@@ -4,10 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="assets/css/base.css">
-    {% block head %}{% endblock %}
+    <link rel="stylesheet" href="/assets/css/base.css">
+    {% block head %}
+    {% endblock %}
 </head>
 <body>
-    {{ content | safe }}
+    <header>
+            <nav>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about">About Me</a></li>
+                  <li><a href="/projects">Projects</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                  <li><a href="/posts">Blog Posts</a></li>
+                </ul>
+              </nav>
+
+    </header>
+    <main>
+        {% block content %}
+            {{ content | safe }}
+        {% endblock content %}
+    </main>
+    <footer>
+        <p>&copy; 2021 Suraj Wate</p>
+    </footer>
 </body>
 </html>
