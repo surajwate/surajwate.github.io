@@ -1,45 +1,44 @@
 /* about.css */
 
 .about-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2em;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .about-container h1,
-  .about-container h2 {
-    color: #0056b3;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  
-  .about-container p {
-    line-height: 1.6;
-    margin-bottom: 1.5em;
-    color: #333;
-    text-align: justify;
-  }
-  
-  .about-container ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-  }
-  
-  .about-container ul li {
-    display: inline;
-    margin: 0 1em;
-  }
-  
-  .about-container ul li a {
-    text-decoration: none;
-    color: #0073e6;
-  }
-  
-  .about-container ul li a:hover {
-    text-decoration: underline;
-  }
-  
+  /* Use the common container class */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.about-container h1, .about-container h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.about-container p {
+  line-height: 1.6;
+  margin-bottom: 1.5em;
+  color: var(--text-color);
+  text-align: justify;
+}
+
+.about-container ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.about-container ul li {
+  display: inline;
+  margin: 0 1em;
+}
+
+.about-container ul li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+.about-container ul li a:hover {
+  text-decoration: underline;
+}

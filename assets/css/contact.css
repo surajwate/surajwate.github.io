@@ -1,7 +1,39 @@
 /* contact.css */
 
-.contact-methods {
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.contact-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 1em;
+}
+
+.contact-container p {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1.5em;
+  text-align: justify;
+}
+
+.contact-methods, .contact-form {
   margin-bottom: 2em;
+}
+
+.contact-methods h2, .contact-form h2 {
+  color: var(--primary-color);
+  margin-bottom: 0.5em;
+}
+
+.contact-methods p, .contact-form p {
+  color: var(--text-color);
+  margin-bottom: 1em;
 }
 
 .social-media-links {
@@ -17,26 +49,27 @@
 
 .social-media-links a {
   text-decoration: none;
-  color: #0073e6;
+  color: var(--secondary-color);
+  font-weight: bold;
 }
 
 .social-media-links a:hover {
   text-decoration: underline;
 }
 
-.contact-form {
-  text-align: center;
-}
-
-iframe {
+.contact-form iframe {
   display: block;
   margin: 0 auto;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 @media (max-width: 640px) {
-  iframe {
+  .contact-container {
+    padding: 1em;
+  }
+
+  .contact-form iframe {
     width: 100%;
     height: auto;
   }

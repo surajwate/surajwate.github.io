@@ -1,6 +1,6 @@
-/* blog.css */
+/* projects.css */
 
-.blog-container {
+.projects-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 2em;
@@ -9,31 +9,31 @@
   box-shadow: var(--box-shadow);
 }
 
-.blog-container h1 {
+.projects-container h1 {
   text-align: center;
   color: var(--primary-color);
   margin-bottom: 1em;
 }
 
-.blog-container ul {
+.projects-container ul {
   list-style: none;
   padding: 0;
 }
 
-.blog-container li {
+.projects-container li {
   margin-bottom: 1.5em;
 }
 
-.blog-container a {
+.projects-container a {
   text-decoration: none;
   color: var(--secondary-color);
   font-weight: bold;
 }
 
-.blog-container a:hover {
+.projects-container a:hover {
   text-decoration: underline;
 }
 
-.blog-container p {
+.projects-container p {
   color: var(--text-light-color);
 }
