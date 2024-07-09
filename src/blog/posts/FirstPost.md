@@ -1,5 +1,5 @@
 ---
-title: "First Post"
+title: "Simple Linear Regression"
 date: 2024-07-03 17:42:00
 layout: "layouts/post.html"
 ---
@@ -211,7 +211,7 @@ plt.show()
 
 
     
-![png](example_files/example_8_0.png)
+![png](/assets/images/SimpleLinearRegression/TVvsSales.png)
     
 
 
@@ -303,7 +303,7 @@ sample
 
 
     
-![png](example_files/example_12_0.png)
+![png](/assets/images/SimpleLinearRegression/example_12_0.png)
     
 
 
@@ -675,7 +675,7 @@ plt.show()
 
 
     
-![png](example_files/example_29_0.png)
+![png](/assets/images/SimpleLinearRegression/example_29_0.png)
     
 
 
@@ -727,7 +727,7 @@ plt.show()
 
 
     
-![png](example_files/example_32_0.png)
+![png](/assets/images/SimpleLinearRegression/example_32_0.png)
     
 
 
