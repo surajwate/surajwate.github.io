@@ -27,3 +27,42 @@
   text-align: center;
   margin-bottom: 1em;
 }
+
+.post-container ul {
+  list-style-type: disc; /* Restore the default list style */
+  padding-left: 20px; /* Add some padding for better readability */
+  text-align: left; /* Align list items to the left */
+}
+
+.post-container ul li {
+  display: list-item; /* Ensure list items are displayed as list items */
+  margin: 0 0 0.5em 0; /* Add some spacing between list items */
+}
+
+.post-container ol {
+  list-style-type: decimal; /* Restore the default ordered list style */
+  padding-left: 20px; /* Add some padding for better readability */
+  text-align: left; /* Align list items to the left */
+}
+
+.post-container ol li {
+  display: list-item; /* Ensure list items are displayed as list items */
+  margin: 0 0 0.5em 0; /* Add some spacing between list items */
+}
+
+.post-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+}
+
+.post-container th, .post-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.post-container th {
+  background-color: var(--primary-color);
+  color: white;
+}
