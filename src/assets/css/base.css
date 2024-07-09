@@ -74,7 +74,6 @@ footer p {
   margin: 0;
 }
 
-
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -107,12 +106,41 @@ p {
 }
 
 ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
+  list-style-type: disc; /* Restore the default list style */
+  padding-left: 20px; /* Add some padding for better readability */
+  text-align: left; /* Align list items to the left */
 }
 
 ul li {
-  display: inline;
-  margin: 0 1em;
+  display: list-item; /* Ensure list items are displayed as list items */
+  margin: 0 0 0.5em 0; /* Add some spacing between list items */
+}
+
+ol {
+  list-style-type: decimal; /* Restore the default ordered list style */
+  padding-left: 20px; /* Add some padding for better readability */
+  text-align: left; /* Align list items to the left */
+}
+
+ol li {
+  display: list-item; /* Ensure list items are displayed as list items */
+  margin: 0 0 0.5em 0; /* Add some spacing between list items */
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: white;
 }
