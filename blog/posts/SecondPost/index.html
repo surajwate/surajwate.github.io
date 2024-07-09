@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Second Post</title>
     <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"> <!-- Prism CSS -->
     
     
     
     <link rel="stylesheet" href="/assets/css/post.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        }
+      };
+    </script>
 
 </head>
 <body>
@@ -16,10 +26,10 @@
             <nav>
                 <ul>
                   <li><a href="/">Home</a></li>
-                  <li><a href="/about">About Me</a></li>
-                  <li><a href="/projects">Projects</a></li>
-                  <li><a href="/contact">Contact</a></li>
                   <li><a href="/blog">Blog</a></li>
+                  <li><a href="/projects">Projects</a></li>
+                  <li><a href="/about">About Me</a></li>
+                  <li><a href="/contact">Contact</a></li>
                 </ul>
               </nav>
 
@@ -31,6 +41,19 @@
   <p class="post-date">Jul 3, 2024</p>
   <p>This is second post of the blog to test the blog post creation.
 I have created a skeleton of the website. I will be adding more features to the website in the future. Stay tuned for more updates.</p>
+<p><strong>Animal List</strong></p>
+<ul>
+<li>Dog</li>
+<li>Cat</li>
+<li>Elephant</li>
+<li>Lion</li>
+<li>Tiger</li>
+</ul>
+<pre class="language-python"><code class="language-python">
+<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> a <span class="token operator">+</span> b
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>add<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 </div>
 
@@ -40,5 +63,8 @@ I have created a skeleton of the website. I will be adding more features to the 
             <p>&copy; 2024 Suraj Wate. All rights reserved.</p>
         </div>
     </footer>
+    <!-- Prism JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
 </body>
 </html>

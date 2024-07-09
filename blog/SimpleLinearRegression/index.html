@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Linear Regression</title>
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"> <!-- Prism CSS -->
+    
+    
+    
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        }
+      };
+    </script>
+
+</head>
+<body>
+    <header>
+            <nav>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/blog">Blog</a></li>
+                  <li><a href="/projects">Projects</a></li>
+                  <li><a href="/about">About Me</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                </ul>
+              </nav>
+
+    </header>
+    <main>
+        
+<div class="post-container">
+  <h1>Simple Linear Regression</h1>
+  <p class="post-date">Jul 3, 2024</p>
+  <p>This is first post of the blog to test the blog post creation.</p>
+<h1>Simple Linear Regression</h1>
+<h2>What is Linear Regression?</h2>
+<p>In simple words you try to predict value of one variable considering it have a linear relationship with other variable.
+In linear regression you assume that value of one variable is dependent on the value of other variable. So when value of one variable increases or decreases, value of other variable also increases or decreases. Therefore, the relationship between the two variables is <strong>linear</strong>.
+<strong>Regression</strong> is a statistical method used to predict the value of one variable based on the value of another variable. Linear regression is the most simple and commonly used regression model.</p>
+<p>Let's try to understand it with simple example.</p>
+<p>I am using dataset from kaggle: https://www.kaggle.com/datasets/tawfikelmetwally/advertising-dataset/data</p>
+<p>In this dataset, we have 4 columns: TV, Radio, Newspaper and Sales.
+The TV, Radio and Newspaper columns are the amount of money spent on advertising on TV, Radio and Newspaper respectively. The Sales column is the amount of sales generated due to the advertising on TV, Radio and Newspaper.</p>
+<p>For our understanding, we will consider TV as independent variable and Sales as dependent variable. We will try to predict the Sales based on the amount of money spent on TV advertising.</p>
+<h2>Hypothesis of Linear Regression</h2>
+<p>The hypothesis of linear regression is that the dependent variable is a linear combination of the independent variables.
+For our example, the hypothesis is that the Sales is directly proportional to the amount of money spent on TV advertising.</p>
+<p>The hypothesis can be represented as follows:</p>
+<p>$$Sales = \beta_0 + \beta_1 * TV$$</p>
+<p>Where:</p>
+<ul>
+<li>Sales is the dependent variable</li>
+<li>TV is the independent variable</li>
+<li>$\beta_0$ is the intercept</li>
+<li>$\beta_1$ is the coefficient of TV (slope)</li>
+</ul>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Import libraries</span>
+
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> seaborn <span class="token keyword">as</span> sns</code></pre>
+<pre class="language-python"><code class="language-python">data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'Advertising.csv'</span><span class="token punctuation">)</span>
+data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<p>.dataframe tbody tr th {
+vertical-align: top;
+}</p>
+<p>.dataframe thead th {
+text-align: right;
+}
+</style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>TV</th>
+      <th>Radio</th>
+      <th>Newspaper</th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>230.1</td>
+      <td>37.8</td>
+      <td>69.2</td>
+      <td>22.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>44.5</td>
+      <td>39.3</td>
+      <td>45.1</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>17.2</td>
+      <td>45.9</td>
+      <td>69.3</td>
+      <td>9.3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>151.5</td>
+      <td>41.3</td>
+      <td>58.5</td>
+      <td>18.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>180.8</td>
+      <td>10.8</td>
+      <td>58.4</td>
+      <td>12.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>We will use only 'TV' column to predict the 'Sales' column. As in simple linear regression we have only one independent variable. If we have more than one independent variable, we use multiple linear regression. We will cover the multiple linear regression in next blog post.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># TV, Sales</span>
+df <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">,</span> <span class="token string">'Sales'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<p>.dataframe tbody tr th {
+vertical-align: top;
+}</p>
+<p>.dataframe thead th {
+text-align: right;
+}
+</style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TV</th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>230.1</td>
+      <td>22.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>44.5</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>17.2</td>
+      <td>9.3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>151.5</td>
+      <td>18.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>180.8</td>
+      <td>12.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre class="language-python"><code class="language-python">plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> df<span class="token punctuation">[</span><span class="token string">'Sales'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'TV vs Sales'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'TV (Independent Variable)'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Sales (Dependent Variable)'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><img src="/assets/images/SimpleLinearRegression/TVvsSales.png" alt="png"></p>
+<p>As you can see from the plot above, the relationship between TV and Sales is linear. As we increase the amount of money spent on TV advertising, the Sales also increases.
+Now, if we have to predict the Sales based on the amount of money spent on TV advertising, we can use the above hypothesis. But we need to find the values of $\beta_0$ and $\beta_1$ to make the prediction. For that we will use the Linear Regression model.</p>
+<h2>Best Fit Line</h2>
+<p>The best fit line is the line that best fits the data points. We will use Ordinary Least Squares method to find the best fit line. The objective of <strong>Ordinary Least Squares (OLS)</strong> method is to minimize the sum of the squared differences between the actual values and the predicted values.</p>
+<h3>Residual</h3>
+<p>The difference between the actual value and the predicted value is called the <strong>residual</strong>. The sum of the squared residuals is called the Residual Sum of Squares (RSS). The objective of Ordinary Least Squares method is to minimize the RSS.</p>
+<p>Residual = Actual Value - Predicted Value
+$$ e_i = y_i - \hat{y_i} $$</p>
+<p>Where,</p>
+<ul>
+<li>$e_i$ is the residual for the i-th data point</li>
+<li>$y_i$ is the actual value for the i-th data point</li>
+<li>$\hat{y_i}$ is the predicted value for the i-th data point (value on the best fit line)</li>
+</ul>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Set the theme for the plot</span>
+sns<span class="token punctuation">.</span>set_theme<span class="token punctuation">(</span>style<span class="token operator">=</span><span class="token string">"whitegrid"</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>set_context<span class="token punctuation">(</span><span class="token string">"paper"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 10 random samples from the dataset</span>
+sample <span class="token operator">=</span> df<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> random_state<span class="token operator">=</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reset_index<span class="token punctuation">(</span>drop<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Select two values from the sample to define a simple line</span>
+point1 <span class="token operator">=</span> sample<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+point2 <span class="token operator">=</span> sample<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+
+<span class="token comment"># Get the coordinates of the two points</span>
+x1<span class="token punctuation">,</span> y1 <span class="token operator">=</span> point1<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> point1<span class="token punctuation">[</span><span class="token string">'Sales'</span><span class="token punctuation">]</span>
+x2<span class="token punctuation">,</span> y2 <span class="token operator">=</span> point2<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> point2<span class="token punctuation">[</span><span class="token string">'Sales'</span><span class="token punctuation">]</span>
+
+<span class="token comment"># Calculate the slope (a) and intercept (b) of the line</span>
+a <span class="token operator">=</span> <span class="token punctuation">(</span>y2 <span class="token operator">-</span> y1<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>x2 <span class="token operator">-</span> x1<span class="token punctuation">)</span>
+b <span class="token operator">=</span> y1 <span class="token operator">-</span> a <span class="token operator">*</span> x1
+
+<span class="token comment"># Calculate the predicted values using the simple line</span>
+sample<span class="token punctuation">[</span><span class="token string">'Predicted Sales'</span><span class="token punctuation">]</span> <span class="token operator">=</span> a <span class="token operator">*</span> sample<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span> <span class="token operator">+</span> b
+
+<span class="token comment"># Calculate the residuals (actual - predicted)</span>
+sample<span class="token punctuation">[</span><span class="token string">'Residuals'</span><span class="token punctuation">]</span> <span class="token operator">=</span> sample<span class="token punctuation">[</span><span class="token string">'Sales'</span><span class="token punctuation">]</span> <span class="token operator">-</span> sample<span class="token punctuation">[</span><span class="token string">'Predicted Sales'</span><span class="token punctuation">]</span>
+
+<span class="token comment"># Plotting the sample</span>
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Scatter plot of actual sales</span>
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>sample<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sample<span class="token punctuation">[</span><span class="token string">'Sales'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'Actual Sales'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'peru'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Plot the simple line based on the two selected points</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>sample<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> a <span class="token operator">*</span> sample<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span> <span class="token operator">+</span> b<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'steelblue'</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'Connecting Line'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Scatter plot of predicted sales</span>
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>sample<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sample<span class="token punctuation">[</span><span class="token string">'Predicted Sales'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'Predicted Sales'</span><span class="token punctuation">,</span> marker<span class="token operator">=</span><span class="token string">'x'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'dodgerblue'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Plot the residuals as vertical lines</span>
+<span class="token keyword">for</span> i<span class="token punctuation">,</span> row <span class="token keyword">in</span> sample<span class="token punctuation">.</span>iterrows<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> row<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token string">'Sales'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> row<span class="token punctuation">[</span><span class="token string">'Predicted Sales'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'coral'</span><span class="token punctuation">,</span> linestyle<span class="token operator">=</span><span class="token string">'dotted'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Adding labels and title</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'TV Advertising Budget'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Sales'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Scatter Plot with Residuals and Connecting Line'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Adding a legend to the plot</span>
+plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Adding grid for better readability</span>
+plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Show the plot</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Slope and intercept of the connecting line of two random points</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Slope (a): </span><span class="token interpolation"><span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Intercept (b): </span><span class="token interpolation"><span class="token punctuation">{</span>b<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+
+<span class="token comment"># Display the sample with residuals</span>
+sample</code></pre>
+<p><img src="/assets/images/SimpleLinearRegression/example_12_0.png" alt="png"></p>
+<p>Slope (a): 0.03
+Intercept (b): 11.23</p>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<p>.dataframe tbody tr th {
+vertical-align: top;
+}</p>
+<p>.dataframe thead th {
+text-align: right;
+}
+</style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TV</th>
+      <th>Sales</th>
+      <th>Predicted Sales</th>
+      <th>Residuals</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>163.3</td>
+      <td>16.9</td>
+      <td>16.900000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>195.4</td>
+      <td>22.4</td>
+      <td>18.014583</td>
+      <td>4.385417</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>292.9</td>
+      <td>21.4</td>
+      <td>21.400000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11.7</td>
+      <td>7.3</td>
+      <td>11.636111</td>
+      <td>-4.336111</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>220.3</td>
+      <td>24.7</td>
+      <td>18.879167</td>
+      <td>5.820833</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>75.1</td>
+      <td>12.6</td>
+      <td>13.837500</td>
+      <td>-1.237500</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>216.8</td>
+      <td>22.3</td>
+      <td>18.757639</td>
+      <td>3.542361</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>50.0</td>
+      <td>8.4</td>
+      <td>12.965972</td>
+      <td>-4.565972</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>222.4</td>
+      <td>11.5</td>
+      <td>18.952083</td>
+      <td>-7.452083</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>175.1</td>
+      <td>14.9</td>
+      <td>17.309722</td>
+      <td>-2.409722</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>In above plot we have took 10 random samples from our dataset. And created a scatter plot of Actual Sales vs TV advertising. Then we took 2 points and created a line between them. This line is our best fit line till now. But this line is not the best fit line. We need to find the best fit line which will minimize the sum of squared residuals.</p>
+<p>The sum of squared residuals is given by:
+$$ RSS = \sum_{i=1}^{n} e_i^2 $$</p>
+<p>Where,</p>
+<ul>
+<li>n is the number of data points</li>
+<li>$e_i$ is the residual for the i-th data point</li>
+</ul>
+<p>We square the residuals to make them positive and then sum them up. From the table above you can see that residuals can be positive or negative. If we don't square the residuals, the positive and negative residuals will cancel each other out and the sum of residuals will be zero. So, we square the residuals to make them positive and then sum them up to get the Residual Sum of Squares (RSS).</p>
+<h3>Ordinary Least Squares (OLS)</h3>
+<p>The objective of Ordinary Least Squares method is to minimize the Residual Sum of Squares (RSS). We do this by finding the values of $\beta_0$ and $\beta_1$ that minimize the RSS.</p>
+<p>The formula to calculate the coefficients $\beta_0$ and $\beta_1$ is given by:
+$$ \beta_1 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n} (x_i - \bar{x})^2} $$
+$$ \beta_0 = \bar{y} - \beta_1 * \bar{x} $$</p>
+<p>Where,</p>
+<ul>
+<li>n is the number of data points</li>
+<li>$x_i$ is the value of the independent variable for the i-th data point</li>
+<li>$y_i$ is the value of the dependent variable for the i-th data point</li>
+<li>$\bar{x}$ is the mean of the independent variable</li>
+<li>$\bar{y}$ is the mean of the dependent variable</li>
+</ul>
+<p>The formula to calculate the coefficients $\beta_0$ and $\beta_1$ is given by:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>$TV (x_i)$</th>
+<th>$Sales (y_i)$</th>
+<th>$(x_i - \bar{x})$</th>
+<th>$(y_i - \bar{y})$</th>
+<th>$(x_i - \bar{x}) * (y_i - \bar{y})$</th>
+<th>$(x_i - \bar{x})^2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>163.3</td>
+<td>16.9</td>
+<td>1</td>
+<td>0.66</td>
+<td>0.66</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>195.4</td>
+<td>22.4</td>
+<td>33.1</td>
+<td>6.16</td>
+<td>203.896</td>
+<td>1095.61</td>
+</tr>
+<tr>
+<td>2</td>
+<td>292.9</td>
+<td>21.4</td>
+<td>130.6</td>
+<td>5.16</td>
+<td>673.896</td>
+<td>17056.36</td>
+</tr>
+<tr>
+<td>3</td>
+<td>11.7</td>
+<td>7.3</td>
+<td>-150.6</td>
+<td>-8.94</td>
+<td>1346.364</td>
+<td>22680.36</td>
+</tr>
+<tr>
+<td>4</td>
+<td>220.3</td>
+<td>24.7</td>
+<td>58</td>
+<td>8.46</td>
+<td>490.68</td>
+<td>3364</td>
+</tr>
+<tr>
+<td>5</td>
+<td>75.1</td>
+<td>12.6</td>
+<td>-87.2</td>
+<td>-3.64</td>
+<td>317.408</td>
+<td>7603.84</td>
+</tr>
+<tr>
+<td>6</td>
+<td>216.8</td>
+<td>22.3</td>
+<td>54.5</td>
+<td>6.06</td>
+<td>330.27</td>
+<td>2970.25</td>
+</tr>
+<tr>
+<td>7</td>
+<td>50</td>
+<td>8.4</td>
+<td>-112.3</td>
+<td>-7.84</td>
+<td>880.432</td>
+<td>12611.29</td>
+</tr>
+<tr>
+<td>8</td>
+<td>222.4</td>
+<td>11.5</td>
+<td>60.1</td>
+<td>-4.74</td>
+<td>-284.874</td>
+<td>3612.01</td>
+</tr>
+<tr>
+<td>9</td>
+<td>175.1</td>
+<td>14.9</td>
+<td>12.8</td>
+<td>-1.34</td>
+<td>-17.152</td>
+<td>163.84</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mean</td>
+<td>162.3</td>
+<td>16.24</td>
+<td></td>
+<td>Sum</td>
+<td>3941.58</td>
+<td>71158.56</td>
+</tr>
+</tbody>
+</table>
+<p>$$ \beta_1 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n} (x_i - \bar{x})^2}  = \frac{3941.58}{71158.56} = 0.0554 $$
+$$ \beta_0 = \bar{y} - \beta_1 * \bar{x} = 16.24 - 0.0554 * 162.3 = 7.2500 $$</p>
+<p>There is a simple way to calculate the coefficients $\beta_0$ and $\beta_1$ using the <code>LinearRegression</code> class from the <code>sklearn.linear_model</code> module. We will use this class to calculate the coefficients $\beta_0$ and $\beta_1$ for our example. First we will calculate the coefficients $\beta_0$ and $\beta_1$ of our sample data to check if we get the same values as calculated above. Then we will calculate the coefficients $\beta_0$ and $\beta_1$ of the entire dataset.</p>
+<pre class="language-python"><code class="language-python">X <span class="token operator">=</span> sample<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>values
+y <span class="token operator">=</span> sample<span class="token punctuation">[</span><span class="token string">'Sales'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>values</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> LinearRegression
+
+lr_model <span class="token operator">=</span> LinearRegression<span class="token punctuation">(</span><span class="token punctuation">)</span>
+lr_model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+
+<span class="token comment"># Get the slope and intercept of the linear model</span>
+intercept <span class="token operator">=</span> lr_model<span class="token punctuation">.</span>intercept_
+slope <span class="token operator">=</span> lr_model<span class="token punctuation">.</span>coef_<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'The slope of the linear model is </span><span class="token interpolation"><span class="token punctuation">{</span>slope<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'The intercept of the linear model is </span><span class="token interpolation"><span class="token punctuation">{</span>intercept<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span></code></pre>
+<p>The slope of the linear model is 0.06
+The intercept of the linear model is 7.25</p>
+<p>As you can see from the results of linear regression model, our calculated values of $\beta_0$ and $\beta_1$ are same as the values calculated using the <code>LinearRegression</code> class. So, we have successfully calculated the coefficients $\beta_0$ and $\beta_1$ using the Ordinary Least Squares method.</p>
+<h2>Linear Regression Model</h2>
+<p>Now we will build the Linear Regression model using the all data points of the dataset. But first we will split the dataset into training and testing datasets. The usual practice is to split the dataset into 80% training data and 20% testing data.</p>
+<p>We will use the training data to train our model and the testing data to predict the Sales from the TV advertising. We will then compare the predicted Sales with the actual Sales to evaluate the performance of our model.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Split the dataset into training and testing sets</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
+
+<span class="token comment"># Independent variable (TV) and dependent variable (Sales)</span>
+X <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+y <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'Sales'</span><span class="token punctuation">]</span>
+
+<span class="token comment"># Split the dataset into training and testing sets</span>
+X_train<span class="token punctuation">,</span> X_test<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> y_test <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">,</span> test_size<span class="token operator">=</span><span class="token number">0.2</span><span class="token punctuation">,</span> random_state<span class="token operator">=</span><span class="token number">42</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Create a linear regression model</span>
+lr_model <span class="token operator">=</span> LinearRegression<span class="token punctuation">(</span><span class="token punctuation">)</span>
+lr_model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span>
+
+<span class="token comment"># Get the slope and intercept of the linear model</span>
+intercept <span class="token operator">=</span> lr_model<span class="token punctuation">.</span>intercept_
+slope <span class="token operator">=</span> lr_model<span class="token punctuation">.</span>coef_<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'The slope of the linear model is </span><span class="token interpolation"><span class="token punctuation">{</span>slope<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'The intercept of the linear model is </span><span class="token interpolation"><span class="token punctuation">{</span>intercept<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span></code></pre>
+<p>The slope of the linear model is 0.05
+The intercept of the linear model is 7.12</p>
+<p>Therefore, the equation of the best fit line is given by:
+$$ Sales = 7.12 + 0.05 * TV $$</p>
+<p>Now we will use the Linear Regression model to predict the Sales based on the amount of money spent on TV advertising. We will use the testing data to make the prediction. We will then compare the predicted Sales with the actual Sales to evaluate the performance of our model.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Predict the values using the model</span>
+y_pred <span class="token operator">=</span> lr_model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>X_test<span class="token punctuation">)</span>
+
+<span class="token comment"># Calculate the residuals</span>
+residuals <span class="token operator">=</span> y_test <span class="token operator">-</span> y_pred
+
+<span class="token comment"># Create a DataFrame to display the actual, predicted, and residuals</span>
+results <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'Actual'</span><span class="token punctuation">:</span> y_test<span class="token punctuation">,</span> <span class="token string">'Predicted'</span><span class="token punctuation">:</span> y_pred<span class="token punctuation">,</span> <span class="token string">'Residuals'</span><span class="token punctuation">:</span> residuals<span class="token punctuation">}</span><span class="token punctuation">)</span>
+results<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<p>.dataframe tbody tr th {
+vertical-align: top;
+}</p>
+<p>.dataframe thead th {
+text-align: right;
+}
+</style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Actual</th>
+      <th>Predicted</th>
+      <th>Residuals</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>95</th>
+      <td>16.9</td>
+      <td>14.717944</td>
+      <td>2.182056</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>22.4</td>
+      <td>16.211548</td>
+      <td>6.188452</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>21.4</td>
+      <td>20.748197</td>
+      <td>0.651803</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>7.3</td>
+      <td>7.664036</td>
+      <td>-0.364036</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>24.7</td>
+      <td>17.370139</td>
+      <td>7.329861</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3>Evaluation Metrics</h3>
+<p>There are several evaluation metrics to evaluate the performance of a regression model. Some of the common evaluation metrics are:</p>
+<ul>
+<li>Mean Squared Error (MSE) = $\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y_i})^2$</li>
+<li>Root Mean Squared Error (RMSE) = $\sqrt{MSE}$</li>
+<li>R-squared (R2) = $1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}$</li>
+</ul>
+<p>Where,
+Higher the R-squared value, better the model. The R-squared value lies between 0 and 1. A value closer to 1 indicates that the model is able to predict the values accurately. A value closer to 0 indicates that the model is not able to predict the values accurately.</p>
+<p>We will cover these evaluation metrics in detail in the another blog.
+For now, we will use them to evaluate the performance of our Linear Regression model.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Evaluate the model using metrics</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> mean_squared_error<span class="token punctuation">,</span> r2_score
+
+<span class="token comment"># Calculate the Mean Squared Error (MSE)</span>
+mse <span class="token operator">=</span> mean_squared_error<span class="token punctuation">(</span>y_test<span class="token punctuation">,</span> y_pred<span class="token punctuation">)</span>
+
+<span class="token comment"># Calculate the Root Mean Squared Error (RMSE)</span>
+rmse <span class="token operator">=</span> np<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>mse<span class="token punctuation">)</span>
+
+<span class="token comment"># Calculate the Coefficient of Determination (R^2)</span>
+r2 <span class="token operator">=</span> r2_score<span class="token punctuation">(</span>y_test<span class="token punctuation">,</span> y_pred<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Mean Squared Error (MSE): </span><span class="token interpolation"><span class="token punctuation">{</span>mse<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Root Mean Squared Error (RMSE): </span><span class="token interpolation"><span class="token punctuation">{</span>rmse<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'R^2 Score: </span><span class="token interpolation"><span class="token punctuation">{</span>r2<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span></code></pre>
+<p>Mean Squared Error (MSE): 10.20
+Root Mean Squared Error (RMSE): 3.19
+R^2 Score: 0.68</p>
+<p>Our Linear Regression model has an R-squared value of 0.68. This means that our model is able to predict the Sales accurately 68% of the time.</p>
+<h3>Actual vs Predicted Sales</h3>
+<p>We will plot the Actual Sales vs Predicted Sales to visualize how well our model is able to predict the Sales based on the amount of money spent on TV advertising.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Plot the actual vs predicted values</span>
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Scatter plot of actual vs predicted values</span>
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>y_test<span class="token punctuation">,</span> y_pred<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'coral'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Plot a line</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">[</span>y_test<span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y_test<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>y_test<span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y_test<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'steelblue'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Adding labels and title</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Actual Sales'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Predicted Sales'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Actual vs Predicted Sales'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><img src="/assets/images/SimpleLinearRegression/example_29_0.png" alt="png"></p>
+<h4>Elements of the plot</h4>
+<p>In the plot above,</p>
+<ul>
+<li>Orange dots represents a pair of actual sales (<code>y_test</code>) and predicted sales (<code>y_pred</code>).</li>
+<li>The blue line represents the line where actual sales is equal to predicted sales.</li>
+<li>The closer the orange dots are to the blue line, the better the model is able to predict the sales.</li>
+</ul>
+<h4>Interpretation of the plot</h4>
+<p>We can see from the plot that our linear regression model captures the general trend, but the deviation is higher for higher values of Sales.
+As our model is very simple and we only have one independent variable, the model is not able to capture all the patterns in the data. Using more variables will help us to build a better model.</p>
+<h3>Plotting the Regression Line using Model</h3>
+<p>We will plot the regression line using the predicted values of Sales. The regression line is the line that best fits the data points.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Reset the index of X_test and y_test to align with y_pred</span>
+X_test<span class="token punctuation">.</span>reset_index<span class="token punctuation">(</span>drop<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+y_test<span class="token punctuation">.</span>reset_index<span class="token punctuation">(</span>drop<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Plot the regression line using model's coefficient and intercept</span>
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>X_test<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> y_test<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'coral'</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'Actual Sales'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Plot the regression line using the predicted values</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>X_test<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> y_pred<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'steelblue'</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'Regression Line'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Scatter plot of predicted sales</span>
+plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>X_test<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> y_pred<span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'Predicted Sales'</span><span class="token punctuation">,</span> marker<span class="token operator">=</span><span class="token string">'x'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'dodgerblue'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Plot the residuals as vertical lines</span>
+<span class="token keyword">for</span> i<span class="token punctuation">,</span> row <span class="token keyword">in</span> X_test<span class="token punctuation">.</span>iterrows<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> row<span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>y_pred<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> y_test<span class="token punctuation">.</span>loc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'coral'</span><span class="token punctuation">,</span> linestyle<span class="token operator">=</span><span class="token string">'dotted'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Adding labels and title</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'TV Advertising Budget'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Sales'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Regression Line: TV vs Sales with Residuals'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="/assets/images/SimpleLinearRegression/example_32_0.png" alt="png"></p>
+<h4>Elements of the plot</h4>
+<p>In the plot above,</p>
+<ul>
+<li>The orange dots represent the actual sales values.</li>
+<li>The blue x's represent the predicted sales values.</li>
+<li>The blue line represents the regression line.</li>
+<li>The orange dotted line represents the residuals (difference between actual sales and predicted sales).</li>
+</ul>
+<h4>Interpretation of the plot</h4>
+<ul>
+<li>The regression line shows a positive slope, indicating that the model has learned that an increase in TV advertising budget is generally associated with an increase in Sales.</li>
+<li>The orange dots (actual sales) that are close to the regression line (predicted sales) indicate that the model is able to predict the sales accurately.</li>
+<li>The orange dots (actual sales) that are far from the regression line (predicted sales) indicate that the model is not able to predict the sales accurately.</li>
+<li>The errors (residuals) appears to be more spread out at higher TV advertising budgets, indicating that the model is not able to predict the sales accurately for higher TV advertising budgets.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>In this blog post, we explored the relationship between TV advertising budgets and sales using simple linear regression. Through the visualizing the data, we observed a positive linear relationship between TV advertising budgets and sales.</p>
+<p>We then built a simple linear regression model to predict the sales based on the amount of money spent on TV advertising. We calculated the coefficients $\beta_0$ and $\beta_1$ using the Ordinary Least Squares method. We then used the Linear Regression model to predict the sales based on the amount of money spent on TV advertising.</p>
+<p>The model has an R-squared value of 0.68, indicating that the model is able to predict the sales accurately 68% of the time. The model captures the general trend, but the deviation is higher for higher values of Sales. Using more variables will help us to build a better model.</p>
+<p>In the next blog post, we will explore multiple linear regression, where we will use more than one independent variable to predict the dependent variable.</p>
+
+</div>
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Suraj Wate. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Prism JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+</body>
+</html>
