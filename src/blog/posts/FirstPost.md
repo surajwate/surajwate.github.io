@@ -2,6 +2,7 @@
 title: "Simple Linear Regression"
 date: 2024-07-03 17:42:00
 layout: "layouts/post.html"
+permalink: "/blog/SimpleLinearRegression/"
 ---
 
 
