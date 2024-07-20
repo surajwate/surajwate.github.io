@@ -1,6 +1,6 @@
 ---
 title: "Simple Linear Regression"
-date: 2024-07-07 21:10:15
+date: 2024-07-07 21:47:45
 layout: "layouts/post.html"
 permalink: "/blog/SimpleLinearRegression/"
 ---
@@ -200,7 +200,7 @@ plt.show()
 
 
     
-![png](/assets/images/SimpleLinearRegression\output_7_0.png)
+![png](/assets/images/SimpleLinearRegression/output_7_0.png)
     
 
 
@@ -292,7 +292,7 @@ sample
 
 
     
-![png](/assets/images/SimpleLinearRegression\output_11_0.png)
+![png](/assets/images/SimpleLinearRegression/output_11_0.png)
     
 
 
@@ -664,7 +664,7 @@ plt.show()
 
 
     
-![png](/assets/images/SimpleLinearRegression\output_28_0.png)
+![png](/assets/images/SimpleLinearRegression/output_28_0.png)
     
 
 
@@ -716,7 +716,7 @@ plt.show()
 
 
     
-![png](/assets/images/SimpleLinearRegression\output_31_0.png)
+![png](/assets/images/SimpleLinearRegression/output_31_0.png)
     
 
 

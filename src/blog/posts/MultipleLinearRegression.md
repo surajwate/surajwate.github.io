@@ -1,6 +1,6 @@
 ---
 title: "Multiple Linear Regression"
-date: 2024-07-20 21:11:10
+date: 2024-07-20 21:47:00
 layout: "layouts/post.html"
 permalink: "/blog/MultipleLinearRegression/"
 ---
@@ -182,7 +182,7 @@ plt.show()
 
 
     
-![png](/assets/images/MultipleLinearRegression\output_8_0.png)
+![png](/assets/images/MultipleLinearRegression/output_8_0.png)
     
 
 
@@ -334,7 +334,7 @@ plt.show()
 
 
     
-![png](/assets/images/MultipleLinearRegression\output_24_0.png)
+![png](/assets/images/MultipleLinearRegression/output_24_0.png)
     
 
 
