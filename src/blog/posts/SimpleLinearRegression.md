@@ -1,14 +1,9 @@
 ---
 title: "Simple Linear Regression"
-date: 2024-07-03 17:42:00
+date: 2024-07-07 21:10:15
 layout: "layouts/post.html"
 permalink: "/blog/SimpleLinearRegression/"
 ---
-
-
-This is first post of the blog to test the blog post creation.
-
-# Simple Linear Regression
 
 ## What is Linear Regression?
 
@@ -20,7 +15,7 @@ In linear regression you assume that value of one variable is dependent on the v
 
 Let's try to understand it with simple example. 
 
-I am using dataset from kaggle: https://www.kaggle.com/datasets/tawfikelmetwally/advertising-dataset/data
+I am using [dataset from kaggle](https://www.kaggle.com/datasets/tawfikelmetwally/advertising-dataset/data), which is a simple dataset of advertising data.
 
 In this dataset, we have 4 columns: TV, Radio, Newspaper and Sales. 
 The TV, Radio and Newspaper columns are the amount of money spent on advertising on TV, Radio and Newspaper respectively. The Sales column is the amount of sales generated due to the advertising on TV, Radio and Newspaper.
@@ -37,7 +32,6 @@ The hypothesis can be represented as follows:
 $$Sales = \beta_0 + \beta_1 * TV$$
 
 Where:
-
 - Sales is the dependent variable
 - TV is the independent variable
 - $\beta_0$ is the intercept
@@ -55,7 +49,7 @@ import seaborn as sns
 
 
 ```python
-data = pd.read_csv('Advertising.csv')
+data = pd.read_csv('Advertising.csv', index_col=0)
 data.head()
 
 ```
@@ -81,7 +75,6 @@ data.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
       <th>TV</th>
       <th>Radio</th>
       <th>Newspaper</th>
@@ -90,40 +83,35 @@ data.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>1</td>
+      <th>1</th>
       <td>230.1</td>
       <td>37.8</td>
       <td>69.2</td>
       <td>22.1</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>2</td>
+      <th>2</th>
       <td>44.5</td>
       <td>39.3</td>
       <td>45.1</td>
       <td>10.4</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>3</td>
+      <th>3</th>
       <td>17.2</td>
       <td>45.9</td>
       <td>69.3</td>
       <td>9.3</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>4</td>
+      <th>4</th>
       <td>151.5</td>
       <td>41.3</td>
       <td>58.5</td>
       <td>18.5</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>5</td>
+      <th>5</th>
       <td>180.8</td>
       <td>10.8</td>
       <td>58.4</td>
@@ -171,27 +159,27 @@ df.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>1</th>
       <td>230.1</td>
       <td>22.1</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>44.5</td>
       <td>10.4</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
       <td>17.2</td>
       <td>9.3</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>4</th>
       <td>151.5</td>
       <td>18.5</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>5</th>
       <td>180.8</td>
       <td>12.9</td>
     </tr>
@@ -212,7 +200,7 @@ plt.show()
 
 
     
-![png](/assets/images/SimpleLinearRegression/TVvsSales.png)
+![png](/assets/images/SimpleLinearRegression\output_7_0.png)
     
 
 
@@ -304,7 +292,7 @@ sample
 
 
     
-![png](/assets/images/SimpleLinearRegression/example_12_0.png)
+![png](/assets/images/SimpleLinearRegression\output_11_0.png)
     
 
 
@@ -576,31 +564,31 @@ results.head()
   </thead>
   <tbody>
     <tr>
-      <th>95</th>
+      <th>96</th>
       <td>16.9</td>
       <td>14.717944</td>
       <td>2.182056</td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>16</th>
       <td>22.4</td>
       <td>16.211548</td>
       <td>6.188452</td>
     </tr>
     <tr>
-      <th>30</th>
+      <th>31</th>
       <td>21.4</td>
       <td>20.748197</td>
       <td>0.651803</td>
     </tr>
     <tr>
-      <th>158</th>
+      <th>159</th>
       <td>7.3</td>
       <td>7.664036</td>
       <td>-0.364036</td>
     </tr>
     <tr>
-      <th>128</th>
+      <th>129</th>
       <td>24.7</td>
       <td>17.370139</td>
       <td>7.329861</td>
@@ -676,7 +664,7 @@ plt.show()
 
 
     
-![png](/assets/images/SimpleLinearRegression/example_29_0.png)
+![png](/assets/images/SimpleLinearRegression\output_28_0.png)
     
 
 
@@ -728,7 +716,7 @@ plt.show()
 
 
     
-![png](/assets/images/SimpleLinearRegression/example_32_0.png)
+![png](/assets/images/SimpleLinearRegression\output_31_0.png)
     
 
 
@@ -756,3 +744,7 @@ We then built a simple linear regression model to predict the sales based on the
 The model has an R-squared value of 0.68, indicating that the model is able to predict the sales accurately 68% of the time. The model captures the general trend, but the deviation is higher for higher values of Sales. Using more variables will help us to build a better model.
 
 In the next blog post, we will explore multiple linear regression, where we will use more than one independent variable to predict the dependent variable. 
+
+## Deployment
+
+The simple linear regression model has been deployed to predict sales revenue based on individual advertising budgets for TV, Radio, and Newspaper. Seperate models have been built for each advertising medium. The model can be accessed at the following links: [Simple Linear Regression](https://advertising-sales-regression.streamlit.app/Simple_Linear_Regression)
