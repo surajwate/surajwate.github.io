@@ -1,5 +1,10 @@
 /* post.css */
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .post-container {
   max-width: 800px;
   margin: 0 auto;
