@@ -26,7 +26,7 @@ module.exports = function (eleventyConfig) {
   });
   // Projects collection
   eleventyConfig.addCollection("projects", function (collection) {
-    return collection.getFilteredByGlob("src/projects/**/*.md");
+    return collection.getFilteredByGlob("src/projects/**/*.md").filter(project => !project.data.draft);
   });
 
   eleventyConfig.addPlugin(pluginDate, {
