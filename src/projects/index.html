@@ -7,10 +7,11 @@ layout: "layouts/projects.html"
   <h1>Projects</h1>
   <ul>
     {% for project in collections.projects %}
-      <li>
+      <li class="project-item">
         <a href="{{ project.url }}">{{ project.data.title }}</a>
-        <p>{{ project.data.description }}</p>
-        <p>{{ project.data.date | readableDate }}</p>
+        <p class="project-description">{{ project.data.description }}</p>
+        <p class="project-date">{{ project.data.date | readableDate }}</p>
+        <a href="{{ project.url }}" class="read-more">Read More</a>
       </li>
     {% endfor %}
   </ul>

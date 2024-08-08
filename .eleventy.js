@@ -22,11 +22,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   // Blog collection
   eleventyConfig.addCollection("posts", function (collection) {
-    return collection.getFilteredByGlob("src/blog/posts/**/*.md");
+    return collection.getFilteredByGlob("src/blog/posts/**/*.md").filter(post => !post.data.draft);
   });
   // Projects collection
   eleventyConfig.addCollection("projects", function (collection) {
-    return collection.getFilteredByGlob("src/projects/**/*.md");
+    return collection.getFilteredByGlob("src/projects/**/*.md").filter(project => !project.data.draft);
   });
 
   eleventyConfig.addPlugin(pluginDate, {
