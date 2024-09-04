@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Housing Prices</title>
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"> <!-- Prism CSS -->
+    
+    
+    
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        }
+      };
+    </script>
+
+</head>
+<body>
+    <header>
+            <nav>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/blog">Blog</a></li>
+                  <li><a href="/projects">Projects</a></li>
+                  <li><a href="/about">About Me</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                </ul>
+              </nav>
+
+    </header>
+    <main>
+        
+<div class="post-container">
+  <h1>California Housing Prices</h1>
+  <p class="post-date">Sep 2, 2024</p>
+  <p>To draft a blog post about your Kaggle problem-solving journey, you can follow this structured approach. Here's a guide to help you organize your thoughts and present the content effectively:</p>
+<h3>1. <strong>Introduction</strong></h3>
+<ul>
+<li><strong>Title:</strong> Choose a catchy yet informative title. For example, &quot;Tackling the California Housing Prices with XGBoost: A Kaggle Journey.&quot;</li>
+<li><strong>Context:</strong> Start by introducing the competition briefly. Mention that this was a Kaggle challenge, and provide a short description of the problem.</li>
+<li><strong>Objective:</strong> Explain what you aimed to achieve, such as improving your skills in machine learning, working with a real-world dataset, or testing specific models or techniques.</li>
+<li><strong>Hook:</strong> Engage readers by mentioning an interesting aspect of your journey or a challenge you encountered.</li>
+</ul>
+<h3>2. <strong>Understanding the Problem</strong></h3>
+<ul>
+<li><strong>Problem Statement:</strong> Provide more detail about the problem. What was the dataset like? What were you trying to predict?</li>
+<li><strong>Challenges:</strong> Discuss any initial thoughts on potential challenges or complexities in the dataset or problem.</li>
+<li><strong>Target Audience:</strong> Mention who this problem would be useful for (e.g., real estate analysts, data scientists, etc.).</li>
+</ul>
+<h3>3. <strong>Exploratory Data Analysis (EDA)</strong></h3>
+<ul>
+<li><strong>Initial Exploration:</strong> Share your approach to understanding the dataset. Include key insights from your EDA.</li>
+<li><strong>Visualizations:</strong> Include visualizations (like histograms, scatter plots, and correlation matrices) that helped you understand the data better.</li>
+<li><strong>Findings:</strong> Highlight any patterns, anomalies, or outliers that were critical in shaping your modeling approach.</li>
+</ul>
+<h3>4. <strong>Preprocessing and Feature Engineering</strong></h3>
+<ul>
+<li><strong>Data Preprocessing:</strong> Discuss the steps you took to clean and preprocess the data (e.g., handling missing values, scaling features).</li>
+<li><strong>Feature Engineering:</strong> Describe any new features you created or any transformations (like log transformations) that helped improve model performance.</li>
+<li><strong>Binning Techniques:</strong> If you used specific techniques for binning the target variable (like Sturges or KMeans), explain why and how they impacted the modeling process.</li>
+</ul>
+<h3>5. <strong>Modeling Approach</strong></h3>
+<ul>
+<li><strong>Baseline Models:</strong> Mention any baseline models you tried initially, like Linear Regression or Decision Trees, and what their performance looked like.</li>
+<li><strong>Choosing XGBoost:</strong> Explain why you decided to use XGBoost, including any prior experiences or expectations.</li>
+<li><strong>Randomized Search:</strong> Detail your process for hyperparameter tuning using RandomizedSearchCV. Include any challenges faced and how you refined your search.</li>
+<li><strong>Key Hyperparameters:</strong> Share the hyperparameters that worked best for you and why you think they were effective.</li>
+</ul>
+<h3>6. <strong>Results and Evaluation</strong></h3>
+<ul>
+<li><strong>Cross-Validation Results:</strong> Provide a summary of your cross-validation results, including RMSE values across different folds.</li>
+<li><strong>Kaggle Submission:</strong> Discuss your Kaggle submission score, how it compared to your expectations, and any adjustments you made after initial submissions.</li>
+<li><strong>Final Model Performance:</strong> Summarize the performance of your final model, including its strengths and any areas for potential improvement.</li>
+</ul>
+<h3>7. <strong>Lessons Learned</strong></h3>
+<ul>
+<li><strong>Challenges Overcome:</strong> Reflect on the key challenges you faced and how you overcame them.</li>
+<li><strong>Key Takeaways:</strong> Share what you learned through this process, whether it’s about a specific tool, technique, or the problem-solving process in general.</li>
+<li><strong>Future Directions:</strong> Mention any ideas for further improving the model or how you might approach a similar problem differently in the future.</li>
+</ul>
+<h3>8. <strong>Conclusion</strong></h3>
+<ul>
+<li><strong>Wrap-Up:</strong> Recap your journey and the outcome of your efforts.</li>
+<li><strong>Call to Action:</strong> Encourage readers to check out your code on GitHub, try the Kaggle problem themselves, or share their thoughts and approaches.</li>
+<li><strong>Acknowledgments:</strong> Thank any collaborators, mentors, or resources that helped you along the way.</li>
+</ul>
+<h3>9. <strong>Supplementary Materials</strong></h3>
+<ul>
+<li><strong>Links:</strong> Provide links to your GitHub repository, Kaggle profile, and any additional resources or references.</li>
+<li><strong>Code Snippets:</strong> Include code snippets where relevant, especially if they offer key insights into your approach.</li>
+<li><strong>Images and Visuals:</strong> Add images from your EDA, model evaluation, or any other relevant visuals that make the post more engaging.</li>
+</ul>
+<h3>10. <strong>SEO Considerations</strong></h3>
+<ul>
+<li><strong>Keywords:</strong> Use relevant keywords like &quot;Kaggle,&quot; &quot;XGBoost,&quot; &quot;California Housing,&quot; &quot;Machine Learning,&quot; etc., throughout the post to improve visibility.</li>
+<li><strong>Meta Description:</strong> Craft a concise meta description that encapsulates what the blog post is about to attract readers from search engines.</li>
+</ul>
+<h3>Example Outline for Your Blog Post:</h3>
+<p><strong>Title:</strong> &quot;Tackling the California Housing Prices with XGBoost: A Kaggle Journey&quot;</p>
+<p><strong>Introduction:</strong></p>
+<ul>
+<li>Brief overview of the Kaggle competition and your objectives.</li>
+</ul>
+<p><strong>Understanding the Problem:</strong></p>
+<ul>
+<li>Detailed description of the problem and dataset.</li>
+</ul>
+<p><strong>Exploratory Data Analysis:</strong></p>
+<ul>
+<li>Key insights from EDA with visualizations.</li>
+</ul>
+<p><strong>Preprocessing and Feature Engineering:</strong></p>
+<ul>
+<li>Steps taken to prepare the data and create features.</li>
+</ul>
+<p><strong>Modeling Approach:</strong></p>
+<ul>
+<li>Baseline models, choice of XGBoost, and hyperparameter tuning process.</li>
+</ul>
+<p><strong>Results and Evaluation:</strong></p>
+<ul>
+<li>Summary of cross-validation and Kaggle submission results.</li>
+</ul>
+<p><strong>Lessons Learned:</strong></p>
+<ul>
+<li>Challenges and key takeaways from the project.</li>
+</ul>
+<p><strong>Conclusion:</strong></p>
+<ul>
+<li>Recap and call to action.</li>
+</ul>
+<p><strong>Supplementary Materials:</strong></p>
+<ul>
+<li>Links to GitHub, Kaggle profile, and additional resources.</li>
+</ul>
+<hr>
+<p>This structure will guide you in writing a comprehensive and engaging blog post that not only showcases your technical skills but also shares your journey and insights with your audience. If you need further help refining any section or drafting specific parts, feel free to ask!</p>
+<h2>Length</h2>
+<p>The length of your blog post and project description can vary based on the depth of content and your target audience, but here are some general guidelines:</p>
+<h3>Blog Post</h3>
+<ul>
+<li><strong>Target Length:</strong> 800-1500 words</li>
+<li><strong>Purpose:</strong> The blog post should be engaging and provide a narrative around the project. It should be detailed enough to convey the key points, challenges, and learnings, but concise enough to maintain reader interest.</li>
+<li><strong>Content Breakdown:</strong>
+<ul>
+<li><strong>Introduction (100-200 words):</strong> Briefly introduce the problem you tackled in the Kaggle competition. Explain why you chose this competition and what you hoped to learn or achieve.</li>
+<li><strong>Problem Description (150-300 words):</strong> Describe the dataset and the problem statement. Highlight any specific challenges associated with the data (e.g., outliers, missing values).</li>
+<li><strong>Approach (300-600 words):</strong> Explain the various models and techniques you used. Discuss why you chose certain methods, how you iterated on them, and what worked or didn’t.</li>
+<li><strong>Results (150-300 words):</strong> Present the final results and what they mean. Include any key metrics or Kaggle rankings.</li>
+<li><strong>Conclusion (100-200 words):</strong> Reflect on what you learned from the project, any surprises along the way, and how you would approach a similar problem in the future.</li>
+</ul>
+</li>
+</ul>
+<h3>Additional Tips</h3>
+<ul>
+<li><strong>Use Visuals:</strong> Whether it's for the blog post or project, include visuals like charts, graphs, or code snippets. These can make your content more engaging and easier to understand.</li>
+<li><strong>Be Concise:</strong> Even within the suggested word counts, try to be concise. Avoid unnecessary jargon and focus on clarity.</li>
+<li><strong>Link to Resources:</strong> In both the blog and project, link to your GitHub repository and any relevant Kaggle pages. This allows readers to explore further if they’re interested.</li>
+</ul>
+<p>By targeting these word counts, you should be able to provide enough detail to be informative while also keeping your content engaging and digestible.</p>
+
+</div>
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Suraj Wate. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Prism JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+</body>
+</html>

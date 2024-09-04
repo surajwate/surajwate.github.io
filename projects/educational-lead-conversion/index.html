@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Lead Conversion</title>
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"> <!-- Prism CSS -->
+    
+    
+    
+    <link rel="stylesheet" href="/assets/css/project.css">
+
+</head>
+<body>
+    <header>
+            <nav>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/blog">Blog</a></li>
+                  <li><a href="/projects">Projects</a></li>
+                  <li><a href="/about">About Me</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                </ul>
+              </nav>
+
+    </header>
+    <main>
+        
+<div class="project-container">
+  <h1>Educational Lead Conversion</h1>
+  <p class="project-date">Aug 16, 2024</p>
+  <div class="project-content">
+    <h2>Project Overview</h2>
+<p>X Education sells online courses but struggles with low lead conversion rates, which are typically around 30%. This project focuses on building a machine learning model to identify high-potential leads, &quot;Hot Leads,&quot; so the sales team can focus their efforts. By predicting the leads most likely to convert, the company aims to increase its conversion rate to approximately 80%.</p>
+<p>A typical lead conversion process can be represented using the following funnel:</p>
+<p><img src="/assets/images/Lead%20Conversion%20Process.jpg" alt="Lead Conversion Process Funnel" title="Lead conversion process illustrated as a funnel."></p>
+<p>The diagram above illustrates that while many leads are generated at the initial stage, only a small portion convert into paying customers. In the middle stage, nurturing potential leads through education about the product and continuous communication is crucial to improving the lead conversion rate.</p>
+<h2>Objective</h2>
+<p>The goal of this project is to build a model that assigns a lead score to each lead, such that customers with higher lead scores have a greater chance of conversion. This allows the sales team to prioritize their efforts on the most promising leads. The CEO has set an approximate target for the lead conversion rate, aiming for 80%.</p>
+<h2>Data</h2>
+<p>A historical dataset with approximately 9,000 data points is provided. This dataset consists of various attributes such as Lead Source, Total Time Spent on Website, Total Visits, Last Activity, and more, which may vary in relevance to predicting lead conversion.</p>
+<p>The target variable is the 'Converted' column, indicating whether a lead was converted (1) or not (0). These attributes reflect different aspects of user behavior and engagement, which can provide insights into lead conversion likelihood. This dataset will be used to train the machine learning model and evaluate its performance.</p>
+<h3>Exploratory Data Analysis</h3>
+<p>For detailed code on data loading and exploration, check the <a href="https://github.com/surajwate/Education-Lead-Conversion-Model/blob/52b140a3e88d1885955c123528a7c4f8fa4457a1/notebooks/data_exploration.ipynb">data_exploration.ipynb</a></p>
+<h2>Technical Approach</h2>
+<p>Logistic regression was chosen for its simplicity and interpretability, making it an ideal choice for binary classification. Recursive Feature Elimination (RFE) was used to select the most important features that impact lead conversion, enhancing model performance by removing irrelevant variables.</p>
+<ul>
+<li><strong>Tools Used</strong>: Python, Pandas, Scikit-Learn, Matplotlib, Streamlit</li>
+<li><strong>Key Algorithm</strong>: Logistic Regression with Recursive Feature Elimination (RFE)</li>
+</ul>
+<p>I followed the following steps to build the model:</p>
+<ol>
+<li>Create a stratified k folds for cross validation to ensure robust evaluation of the model across different subsets of data.</li>
+<li>Drop <code>Prospect Id</code> and <code>Lead Number</code> columns.</li>
+<li>Replace <code>Select</code> values in many feature columns with NaN.</li>
+<li>Drop columns with a single unique value that don't contribute to the variance.</li>
+<li>Impute the missing values with most frequent (mode) values.</li>
+<li>Map binary values (<code>Yes</code> and <code>No</code>) in the feature columns to <code>1</code> and <code>0</code>.</li>
+<li>Convert the numerical columns to numeric type.</li>
+<li>Scale numerical columns using <code>StandardScaler</code>.</li>
+<li>Encode categorical columns using <code>OneHotEncoder</code>.</li>
+<li>Train the logistic regression model, applying recursive feature elimination.</li>
+</ol>
+<p>See the full cleaning process in <a href="https://github.com/surajwate/Education-Lead-Conversion-Model/blob/52b140a3e88d1885955c123528a7c4f8fa4457a1/notebooks/data_cleaning.ipynb">data_cleaning.ipynb</a>.</p>
+<h2>Model Features</h2>
+<p>I tested the model with varying numbers of features and found that after selecting 10 or 11 features, the model's accuracy stabilized, as shown in the graph below. There was no significant improvement in accuracy beyond this point. Therefore, I selected 11 features as the optimal number for the model.</p>
+<p><img src="/assets/images/Educational_Lead_Score_Feature_Selection.png" alt="Model Performance vs. Number of Selected Features"></p>
+<p><strong>VIF (Variance Inflation Factor)</strong> helps detect multicollinearity between features. A VIF close to 1 indicates no correlation, while a value above 5 suggests high multicollinearity, which we aim to avoid. Reducing multicollinearity ensures each feature contributes independently to the model's predictions, improving both interpretability and performance.</p>
+<p>The variation inflation factor (VIF) for the finalized features is as follows:</p>
+<pre class="language-txt"><code class="language-txt">                                           Feature       VIF
+0                                            const  2.171984
+1                                     Do Not Email  1.019810
+2                      Total Time Spent on Website  1.250886
+3                        Lead Origin_Lead Add Form  1.314201
+4                           Lead Source_Olark Chat  1.442906
+5                     Lead Source_Welingak Website  1.229586
+6                  Last Activity_Converted to Lead  1.050732
+7           Last Activity_Had a Phone Conversation  1.880260
+8            Last Activity_Olark Chat Conversation  1.267395
+9   Last Notable Activity_Had a Phone Conversation  1.876032
+10                  Last Notable Activity_SMS Sent  1.080171
+11               Last Notable Activity_Unreachable  1.002601
+</code></pre>
+<p>All VIF values are well within the acceptable range, ensuring the model is not affected by multicollinearity.</p>
+<h2>Installation &amp; Usage</h2>
+<ol>
+<li>Clone the repository:<br>
+<code>git clone https://github.com/surajwate/Education-Lead-Conversion-Model.git</code></li>
+<li>Install dependencies using Poetry:<br>
+<code>poetry install</code></li>
+<li>Run the Streamlit app locally:<br>
+<code>streamlit run streamlit_app/app.py</code></li>
+</ol>
+<p>You can also try the live demo <a href="https://education-lead-conversion-model.streamlit.app/">here</a>.</p>
+<h2>Streamlit App</h2>
+<p>An interactive app was built using Streamlit to allow users to input lead details and get conversion predictions. This enables sales teams to prioritize leads more effectively.</p>
+<ul>
+<li><strong>Try it out here</strong>: <a href="https://education-lead-conversion-model.streamlit.app/">Streamlit App</a></li>
+</ul>
+<p><em>Code for the app is available in <a href="https://github.com/surajwate/Education-Lead-Conversion-Model/blob/52b140a3e88d1885955c123528a7c4f8fa4457a1/streamlit_app/app.py">app.py</a>.</em></p>
+<p><img src="/assets/images/Lead-Scoring-Prediction-App.png" alt="Lead Scoring Prediction App">
+<em>Figure 1: User Interface of the Lead Conversion Prediction App.</em></p>
+<h2>Model Performance</h2>
+<p>I have calculated the best score at various threshold levels, but the threshold can be adjusted based on the specific problem requirements. Adjusting the threshold allows the model to balance precision and recall, depending on business needs.
+You can check the full code in the <a href="https://github.com/surajwate/Education-Lead-Conversion-Model/blob/52b140a3e88d1885955c123528a7c4f8fa4457a1/notebooks/logistic_model_evaluation.ipynb">logistic_model_evaluation.ipynb</a> file.</p>
+<pre class="language-txt"><code class="language-txt">Best F1-Score threshold: 0.3518018018018018, Best F1-Score: 0.7447368421052631
+Best Accuracy threshold: 0.4528828828828829, Best Accuracy: 0.801948051948052
+Best Precision threshold: 0.9840540540540541, Best Precision: 1.0
+Best Recall threshold: 0.0, Best Recall: 1.0
+Best threshold (Recall ≈ Precision): 0.4608108108108108</code></pre>
+<p>For our project, we require maximum precision and accuracy. Therefore, I selected a threshold of <strong>0.62</strong> for the model, as this offers the best balance between these metrics. (You can check this in the <code>main.py</code> file of the project.)</p>
+<p><img src="/assets/images/Educational-Lead-Conversion-Metrics-Threshold.png" alt="Metrics vs. Threshold for the Lead Conversion Model" title="Graph showing model metrics at various thresholds."></p>
+<p><em>Figure 2: Metrics vs. Threshold for the Lead Conversion Model.</em></p>
+<h2>Conclusion &amp; Future Work</h2>
+<p>The <strong>Education Lead Conversion Model</strong> effectively predicts the likelihood of lead conversion, providing valuable insights that help educational institutions focus their marketing and sales efforts on high-potential leads. This leads to more efficient resource allocation and improved conversion rates.</p>
+<p>In the future, enhancements could involve testing more advanced algorithms such as Gradient Boosting Machines or neural networks to achieve potentially higher accuracy. Additionally, expanding the feature set to include more engagement metrics (e.g., user activity, click-through rates) could further improve prediction quality.</p>
+<p>Although this project was successful, one area of improvement is the use of machine learning pipelines. Incorporating pipelines would have streamlined the process, making the model more efficient and easier to deploy. In future projects, I plan to implement pipelines to automate the workflow, from data preprocessing to model evaluation, streamlining deployment and making the solution more scalable and production-ready.</p>
+<h2>Interested in learning more?</h2>
+<p>Explore the full codebase on GitHub <a href="https://github.com/surajwate/Education-Lead-Conversion-Model">here</a>.</p>
+
+  </div>
+</div>
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Suraj Wate. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Prism JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+</body>
+</html>
