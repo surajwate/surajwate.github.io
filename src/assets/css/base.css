@@ -141,13 +141,13 @@ p {
     padding: 0;
     line-height: 1.8;
     color: var(--text-color);
-    font-size: 1.1em;
+    /* font-size: 1.1em; */
     text-align: justify;
 }
 
 /* Headings should have similar left alignment */
 h1, h2, h3, h4 {
-    margin: 0 0 1.5em;
+    /* margin: 0 0 1.5em; */
     padding: 0;
     text-align: left;
 }

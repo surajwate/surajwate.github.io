@@ -22,6 +22,7 @@ img {
   font-size: 2.5rem;
   margin-bottom: 0em;
   font-weight: 700;
+  line-height: 1.2em;
 }
 
 .post-container h2, .post-container h3 {
@@ -37,7 +38,7 @@ img {
   margin-bottom: 1.8em;
   color: var(--text-color);
   text-align: justify;
-  font-size: 1.1rem;
+  /* font-size: 1.1rem; */
 }
 
 .post-container .post-date {

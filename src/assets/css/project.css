@@ -14,7 +14,8 @@
   color: var(--primary-color); 
   text-align: left;
   font-size: 2.5rem;
-  margin-bottom: 0.5em; /* Increased space below the title */
+  /* margin-bottom: 0.5em; */
+  line-height: 1.2em;
   display: block;
 }
 

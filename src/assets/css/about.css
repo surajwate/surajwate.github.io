@@ -10,7 +10,7 @@
 .about-container h1, .about-container h2 {
   color: var(--primary-color);
   text-align: left;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.0em;
 }
 
 .about-container p {
