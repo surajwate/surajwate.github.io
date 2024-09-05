@@ -4,22 +4,26 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 2em;
-  background-color: transparent; /* No background */
-  border-radius: 0; /* Remove border radius */
-  box-shadow: none; /* Remove shadow */
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
 }
 
 .project-container h1 {
   color: var(--primary-color); 
-  text-align: left; /* Left-align heading */
-  font-size: 2.5rem; /* Larger heading */
-  margin-bottom: 1.5em;
+  text-align: left;
+  font-size: 2.5rem;
+  margin-bottom: 0.2em; /* Add small space below the title */
+  display: block; /* Force the title to take the full line */
 }
 
 .project-container .project-date {
-  text-align: left; /* Align to the left */
   color: var(--text-light-color);
-  margin-bottom: 1.5em;
+  font-size: 1em;
+  margin-top: 0.2em; /* Ensure the date is spaced properly */
+  display: block; /* Date on a new line below the title */
+  text-align: left;
 }
 
 .project-container .project-content {
