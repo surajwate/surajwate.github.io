@@ -35,7 +35,7 @@ body {
 header {
     background-color: var(--primary-color);
     color: var(--background-color);
-    padding: 1em 0;
+    padding: 0.25em 0;
 }
 
 nav ul {
@@ -226,7 +226,7 @@ button:hover {
     align-items: center;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 1em 1.25em; /* Consistent padding */
+    padding: 0.5em 1.25em; /* Consistent padding */
     background-color: var(--primary-color);
 }
 
