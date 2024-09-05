@@ -17,54 +17,67 @@ img {
 .post-container h1 {
   color: var(--primary-color);
   text-align: left;
-  font-size: 2.5rem; /* Larger heading */
-  margin-bottom: 1.5em;
+  font-size: 2.5rem;
+  /* margin-bottom: 1.5em; */
+  font-weight: 700;
+}
+
+.post-container h2, .post-container h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.2em;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .post-container p {
   line-height: 1.8;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.8em; /* Increased spacing for readability */
   color: var(--text-color);
   text-align: justify;
+  font-size: 1.1rem; /* Slightly larger text for easier reading */
 }
 
 .post-container .post-date {
   text-align: left;
   color: var(--text-light-color);
-  margin-bottom: 1.5em;
+  font-size: 1em;
+  margin-bottom: 2em; /* Add more space between date and content */
 }
 
 .post-container ul {
-  list-style-type: disc; /* Restore the default list style */
-  padding-left: 20px; /* Add some padding for better readability */
-  text-align: left; /* Align list items to the left */
+  list-style-type: disc; /* Standard bullet points */
+  padding-left: 1.5em; /* Slightly increased padding for better indentation */
+  margin-bottom: 1.5em; /* Space after the list */
+  text-align: left;
 }
 
 .post-container ul li {
-  display: list-item; /* Ensure list items are displayed as list items */
-  margin: 0 0 0.5em 0; /* Add some spacing between list items */
+  display: list-item; /* Standard list item display */
+  margin-bottom: 0.75em; /* Increased spacing between list items */
 }
 
 .post-container ol {
-  list-style-type: decimal; /* Restore the default ordered list style */
-  padding-left: 20px; /* Add some padding for better readability */
-  text-align: left; /* Align list items to the left */
+  list-style-type: decimal; /* Numbered list */
+  padding-left: 1.5em; /* Similar indentation as unordered list */
+  margin-bottom: 1.5em; /* Space after the list */
+  text-align: left;
 }
 
 .post-container ol li {
-  display: list-item; /* Ensure list items are displayed as list items */
-  margin: 0 0 0.5em 0; /* Add some spacing between list items */
+  display: list-item; /* Standard list item display */
+  margin-bottom: 0.75em; /* Increased spacing between list items */
 }
 
 .post-container table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 1.5em;
+  margin-bottom: 2em; /* Increase space below tables */
+  border: 1px solid #ccc; /* Add a subtle border */
 }
 
 .post-container th, .post-container td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 12px; /* Increased padding for table cells */
   text-align: left;
 }
 
@@ -72,3 +85,4 @@ img {
   background-color: var(--primary-color);
   color: white;
 }
+
