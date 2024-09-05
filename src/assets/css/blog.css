@@ -1,21 +1,23 @@
-/* blog.css */
-
+/* Blog container */
 .blog-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2em;
-  background-color: transparent; /* No background */
-  border-radius: 0; /* Remove border radius */
-  box-shadow: none; /* Remove shadow */
+  padding: 0 1.5em; /* Adjust padding for better alignment */
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
+/* Blog headings */
 .blog-container h1 {
   text-align: left;
-  font-size: 2.5rem; /* Larger heading */
+  font-size: 2.5rem;
   color: var(--primary-color);
   margin-bottom: 1.5em;
+  padding-left: 0.5em; /* Align heading with content */
 }
 
+/* Blog post items */
 .blog-container ul {
   list-style: none;
   padding: 0;
@@ -24,11 +26,12 @@
 .blog-container li.post-item {
   margin-bottom: 2em;
   padding-bottom: 2em;
-  border-bottom: 1px solid #e0e0e0; /* Subtle separator between posts */
+  border-bottom: 1px solid #e0e0e0; /* Subtle separator */
 }
 
+/* Post links */
 .blog-container a {
-  color: var(--primary-color); /* Use primary color */
+  color: var(--primary-color);
   font-weight: bold;
   text-decoration: none;
 }
@@ -38,18 +41,21 @@
   text-decoration: underline;
 }
 
+/* Post dates */
 .blog-container p.post-date {
   color: var(--text-light-color);
   font-size: 0.9em;
   margin: 0.5em 0;
 }
 
+/* Post excerpts */
 .blog-container p.post-excerpt {
   color: var(--text-color);
   font-size: 1em;
   margin: 0.5em 0;
 }
 
+/* Read more link */
 .blog-container a.read-more {
   color: var(--primary-color);
   text-decoration: underline;
