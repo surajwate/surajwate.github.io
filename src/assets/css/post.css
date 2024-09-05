@@ -20,7 +20,7 @@ img {
   color: var(--primary-color);
   text-align: left;
   font-size: 2.5rem;
-  margin-bottom: 1.5em; /* Add margin below the title */
+  margin-bottom: 0em;
   font-weight: 700;
 }
 

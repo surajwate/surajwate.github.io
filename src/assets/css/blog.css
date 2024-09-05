@@ -14,7 +14,7 @@
   font-size: 2.5rem;
   color: var(--primary-color);
   margin-bottom: 1.5em;
-  padding-left: 0.5em; /* Align heading with content */
+  padding-left: 0em; /* Align heading with content */
 }
 
 /* Blog post items */
