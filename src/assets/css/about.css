@@ -1,23 +1,22 @@
 /* about.css */
 
 .about-container {
-  /* Use the common container class */
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2em;
-  background-color: var(--background-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  background-color: transparent; /* No background */
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: none; /* Remove shadow */
 }
 
 .about-container h1, .about-container h2 {
   color: var(--primary-color);
-  text-align: center;
-  margin-bottom: 1em;
+  text-align: left; /* Left-align for a clean, modern look */
+  margin-bottom: 1.5em;
 }
 
 .about-container p {
-  line-height: 1.6;
+  line-height: 1.8;
   margin-bottom: 1.5em;
   color: var(--text-color);
   text-align: justify;
@@ -35,10 +34,11 @@
 }
 
 .about-container ul li a {
+  color: var(--primary-color);
   text-decoration: none;
-  color: var(--secondary-color);
 }
 
 .about-container ul li a:hover {
-  text-decoration: underline;
+  color: var(--secondary-color);
 }
+

@@ -1,24 +1,24 @@
 /* contact.css */
 
 .contact-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2em;
-  background-color: var(--background-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  background-color: transparent; /* No background */
+  border-radius: 0; /* Remove border radius */
+  box-shadow: none; /* Remove shadow */
 }
 
-.contact-container h1 {
-  text-align: center;
+.contact-container h1, .contact-container h2 {
   color: var(--primary-color);
-  margin-bottom: 1em;
+  text-align: left;
+  margin-bottom: 1.5em;
 }
 
 .contact-container p {
-  color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.8;
   margin-bottom: 1.5em;
+  color: var(--text-color);
   text-align: justify;
 }
 
@@ -48,12 +48,13 @@
 }
 
 .social-media-links a {
+  color: var(--primary-color);
   text-decoration: none;
-  color: var(--secondary-color);
   font-weight: bold;
 }
 
 .social-media-links a:hover {
+  color: var(--secondary-color);
   text-decoration: underline;
 }
 
