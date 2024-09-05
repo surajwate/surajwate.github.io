@@ -1,12 +1,11 @@
-
 .home-container {
-  max-width: 100%;
+  max-width: 1000px; /* Consistent with other containers */
   margin: 0 auto;
-  padding: 4em 2em;
-  background-color: transparent; /* No background */
-  color: var(--text-color); /* Use the default text color */
-  border-radius: 0; /* Remove rounded borders */
-  box-shadow: none; /* No shadows */
+  padding: 3em 1.5em; /* Adjusted for uniformity */
+  background-color: transparent;
+  color: var(--text-color);
+  border-radius: 0;
+  box-shadow: none;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -15,21 +14,18 @@
   min-height: 80vh;
 }
 
-
 .home-container h1 {
   font-size: 3rem;
   margin-bottom: 1.5em;
-  color: var(--primary-color); /* Primary color for the heading */
-  text-shadow: none; /* Remove shadow */
+  color: var(--primary-color);
 }
 
 .home-container p {
-  font-size: 1.25em;
+  font-size: 1.15em;
   line-height: 1.8;
   margin-bottom: 2em;
-  color: var(--text-color); /* Standard text color */
+  color: var(--text-color);
 }
-
 
 .home-container ul {
   list-style: none;
@@ -43,7 +39,7 @@
 
 .home-container a {
   padding: 12px 24px;
-  background-color: var(--primary-color); /* Primary color for the button */
+  background-color: var(--primary-color);
   color: white;
   border-radius: var(--border-radius);
   text-decoration: none;
@@ -51,26 +47,24 @@
 }
 
 .home-container a:hover {
-  background-color: var(--secondary-color); /* Change color on hover */
+  background-color: var(--secondary-color);
 }
-
 
 @media (max-width: 768px) {
   .home-container {
-      padding: 2em 1em;
+    padding: 2em 1em;
   }
 
   .home-container h1 {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 
   .home-container p {
-      font-size: 1.1em;
+    font-size: 1.1em;
   }
 
   .home-container a {
-      display: block;
-      margin: 1em 0;
+    display: block;
+    margin: 1em 0;
   }
 }
-

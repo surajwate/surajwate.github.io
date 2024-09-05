@@ -1,21 +1,22 @@
-/* projects.css */
-
+/* Projects container */
 .projects-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2em;
-  background-color: transparent; /* Remove background */
-  border-radius: 0; /* Remove rounded corners */
-  box-shadow: none; /* No shadow */
+  padding: 0 1.5em; /* Adjusted padding for better alignment */
+  background-color: transparent; 
+  border-radius: 0;
+  box-shadow: none;
 }
 
+/* Project headings */
 .projects-container h1 {
   text-align: left;
-  font-size: 2.5rem; /* Larger heading */
+  font-size: 2.5rem; 
   color: var(--primary-color);
-  margin-bottom: 1.5em;
+  margin-bottom: 1.0em;
 }
 
+/* Project items */
 .projects-container ul {
   list-style: none;
   padding: 0;
@@ -24,32 +25,35 @@
 .projects-container li.project-item {
   margin-bottom: 2em;
   padding-bottom: 2em;
-  border-bottom: 1px solid #e0e0e0; /* Light separator between projects */
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .projects-container a {
-  color: var(--primary-color); /* Primary color for links */
+  color: var(--primary-color);
   font-weight: bold;
   text-decoration: none;
 }
 
 .projects-container a:hover {
-  color: var(--secondary-color); /* Accent color on hover */
+  color: var(--secondary-color);
   text-decoration: underline;
 }
 
+/* Project description */
 .projects-container p.project-description {
   color: var(--text-color);
   font-size: 1em;
   margin: 0.5em 0;
 }
 
+/* Project date */
 .projects-container p.project-date {
   color: var(--text-light-color);
   font-size: 0.9em;
   margin: 0.5em 0;
 }
 
+/* Read more link */
 .projects-container a.read-more {
   color: var(--primary-color);
   text-decoration: underline;
@@ -59,4 +63,8 @@
 
 .projects-container a.read-more:hover {
   color: var(--secondary-color);
+}
+
+.project-item a {
+  font-size: 1.4rem;
 }

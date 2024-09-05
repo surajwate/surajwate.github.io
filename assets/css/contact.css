@@ -1,12 +1,10 @@
-/* contact.css */
-
 .contact-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2em;
-  background-color: transparent; /* No background */
-  border-radius: 0; /* Remove border radius */
-  box-shadow: none; /* Remove shadow */
+  padding: 0 1.5em; /* Adjust padding for better alignment */
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .contact-container h1, .contact-container h2 {
@@ -22,18 +20,9 @@
   text-align: justify;
 }
 
+/* Contact methods and form styling */
 .contact-methods, .contact-form {
   margin-bottom: 2em;
-}
-
-.contact-methods h2, .contact-form h2 {
-  color: var(--primary-color);
-  margin-bottom: 0.5em;
-}
-
-.contact-methods p, .contact-form p {
-  color: var(--text-color);
-  margin-bottom: 1em;
 }
 
 .social-media-links {
