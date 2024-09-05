@@ -1,29 +1,33 @@
 /* project.css */
 
 .project-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2em;
-    background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-  }
-  
-  .project-container h1 {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  
-  .project-container .project-date {
-    color: var(--text-light-color);
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  
-  .project-container .project-content {
-    line-height: 1.6;
-    color: var(--text-color);
-    text-align: justify;
-  }
-  
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+}
+
+.project-container h1 {
+  color: var(--primary-color); 
+  text-align: left;
+  font-size: 2.5rem;
+  margin-bottom: 0.2em; /* Add small space below the title */
+  display: block; /* Force the title to take the full line */
+}
+
+.project-container .project-date {
+  color: var(--text-light-color);
+  font-size: 1em;
+  margin-top: 0.2em; /* Ensure the date is spaced properly */
+  display: block; /* Date on a new line below the title */
+  text-align: left;
+}
+
+.project-container .project-content {
+  line-height: 1.8;
+  color: var(--text-color);
+  text-align: justify;
+}
