@@ -20,13 +20,17 @@ module.exports = function (eleventyConfig) {
   }
   // Copy `assets/` to `_site/assets`
   eleventyConfig.addPassthroughCopy("src/assets");
-  // Blog collection
+  // Blog collection sorted by date
   eleventyConfig.addCollection("posts", function (collection) {
-    return collection.getFilteredByGlob("src/blog/posts/**/*.md").filter(post => !post.data.draft);
+    return collection.getFilteredByGlob("src/blog/posts/**/*.md").filter(post => !post.data.draft).sort((a, b) => {
+      return b.date - a.date; // Sort by date in descending order
+    });
   });
-  // Projects collection
+  // Projects collection sorted by date
   eleventyConfig.addCollection("projects", function (collection) {
-    return collection.getFilteredByGlob("src/projects/**/*.md").filter(project => !project.data.draft);
+    return collection.getFilteredByGlob("src/projects/**/*.md").filter(project => !project.data.draft).sort((a, b) => {
+      return b.date - a.date; // Sort by date in descending order
+    });
   });
 
   eleventyConfig.addPlugin(pluginDate, {

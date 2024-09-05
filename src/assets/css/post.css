@@ -5,21 +5,24 @@ img {
   height: auto;
 }
 
+/* Post container */
 .post-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2em;
-  background-color: transparent; /* No background */
-  border-radius: 0; /* Remove border radius */
-  box-shadow: none; /* Remove shadow */
+  padding: 0 1.5em; /* Align with the rest of the layout */
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
+/* Post title */
 .post-container h1 {
   color: var(--primary-color);
   text-align: left;
   font-size: 2.5rem;
-  /* margin-bottom: 1.5em; */
+  margin-bottom: 0em;
   font-weight: 700;
+  line-height: 1.2em;
 }
 
 .post-container h2, .post-container h3 {
@@ -29,12 +32,13 @@ img {
   font-weight: 600;
 }
 
+/* Post content */
 .post-container p {
   line-height: 1.8;
-  margin-bottom: 1.8em; /* Increased spacing for readability */
+  margin-bottom: 1.8em;
   color: var(--text-color);
   text-align: justify;
-  font-size: 1.1rem; /* Slightly larger text for easier reading */
+  /* font-size: 1.1rem; */
 }
 
 .post-container .post-date {
