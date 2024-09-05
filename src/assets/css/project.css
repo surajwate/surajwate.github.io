@@ -1,29 +1,29 @@
 /* project.css */
 
 .project-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2em;
-    background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-  }
-  
-  .project-container h1 {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  
-  .project-container .project-date {
-    color: var(--text-light-color);
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  
-  .project-container .project-content {
-    line-height: 1.6;
-    color: var(--text-color);
-    text-align: justify;
-  }
-  
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: transparent; /* No background */
+  border-radius: 0; /* Remove border radius */
+  box-shadow: none; /* Remove shadow */
+}
+
+.project-container h1 {
+  color: var(--primary-color); 
+  text-align: left; /* Left-align heading */
+  font-size: 2.5rem; /* Larger heading */
+  margin-bottom: 1.5em;
+}
+
+.project-container .project-date {
+  text-align: left; /* Align to the left */
+  color: var(--text-light-color);
+  margin-bottom: 1.5em;
+}
+
+.project-container .project-content {
+  line-height: 1.8;
+  color: var(--text-color);
+  text-align: justify;
+}

@@ -6,31 +6,32 @@ img {
 }
 
 .post-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2em;
-  background-color: var(--background-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  background-color: transparent; /* No background */
+  border-radius: 0; /* Remove border radius */
+  box-shadow: none; /* Remove shadow */
 }
 
 .post-container h1 {
   color: var(--primary-color);
-  text-align: center;
-  margin-bottom: 1em;
+  text-align: left;
+  font-size: 2.5rem; /* Larger heading */
+  margin-bottom: 1.5em;
 }
 
 .post-container p {
-  line-height: 1.6;
+  line-height: 1.8;
   margin-bottom: 1.5em;
   color: var(--text-color);
   text-align: justify;
 }
 
 .post-container .post-date {
+  text-align: left;
   color: var(--text-light-color);
-  text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 
 .post-container ul {

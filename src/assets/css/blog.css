@@ -1,18 +1,19 @@
 /* blog.css */
 
 .blog-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2em;
-  background-color: var(--background-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  background-color: transparent; /* No background */
+  border-radius: 0; /* Remove border radius */
+  box-shadow: none; /* Remove shadow */
 }
 
 .blog-container h1 {
-  text-align: center;
+  text-align: left;
+  font-size: 2.5rem; /* Larger heading */
   color: var(--primary-color);
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 
 .blog-container ul {
@@ -21,19 +22,19 @@
 }
 
 .blog-container li.post-item {
-  margin-bottom: 1.5em;
-  padding-bottom: 1.5em;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #e0e0e0; /* Subtle separator between posts */
 }
 
 .blog-container a {
-  text-decoration: none;
-  color: var(--secondary-color);
+  color: var(--primary-color); /* Use primary color */
   font-weight: bold;
-  font-size: 1.5em;
+  text-decoration: none;
 }
 
 .blog-container a:hover {
+  color: var(--secondary-color);
   text-decoration: underline;
 }
 
