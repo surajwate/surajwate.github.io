@@ -1,5 +1,4 @@
-/* base.css */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 :root {
     --primary-color: #1e90ff; /* Modern blue */
@@ -27,7 +26,7 @@ body {
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Lora", serif;
     line-height: 1.8;
     color: var(--text-color);
 }
@@ -78,6 +77,9 @@ footer .footer-container {
     text-align: center;
     /* display: flex; */
     /* justify-content: center; */
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-size: 1.3rem;
 }
 
 footer p {
@@ -103,7 +105,7 @@ h1 {
     color: var(--primary-color);
     text-align: left;
     /* margin-bottom: 1em; */
-    font-size: 2.5em; /* Larger font for h1 */
+    font-size: 2.6em; /* Larger font for h1 */
     font-weight: 700; /* Bold weight for primary heading */
     margin-top: 1.5em; /* Add some spacing above the heading */
 }
@@ -112,7 +114,7 @@ h2 {
     color: var(--primary-color);
     text-align: left;
     margin-bottom: 0.8em;
-    font-size: 2em; /* Slightly smaller for h2 */
+    font-size: 2.2em; /* Slightly smaller for h2 */
     font-weight: 600; /* Semi-bold for subheading */
     margin-top: 1.2em; /* Add some spacing above the heading */
 }
@@ -121,7 +123,7 @@ h3 {
     color: var(--primary-color);
     text-align: left;
     margin-bottom: 0.7em;
-    font-size: 1.75em; /* Smaller than h2 */
+    font-size: 1.8em; /* Smaller than h2 */
     font-weight: 500; /* Medium weight */
 }
 
@@ -148,6 +150,8 @@ p {
 /* Headings should have similar left alignment */
 h1, h2, h3, h4 {
     /* margin: 0 0 1.5em; */
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
     padding: 0;
     text-align: left;
 }
@@ -156,6 +160,9 @@ h1, h2, h3, h4 {
 a {
     text-decoration: none;
     color: var(--primary-color);
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-size: 1.3rem;
     transition: color 0.3s ease;
 }
 
@@ -228,6 +235,8 @@ button:hover {
     margin: 0 auto;
     padding: 0.5em 1.25em; /* Consistent padding */
     background-color: var(--primary-color);
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
 }
 
 .logo {
@@ -235,8 +244,6 @@ button:hover {
     font-weight: bold;
     /* color: var(--primary-color); */
     color: var(--background-color);
-    text-decoration-line: underline;
-    text-decoration-skip-ink: auto;
     margin-right: auto;
 }
 
@@ -245,6 +252,7 @@ button:hover {
     list-style: none;
     padding: 0;
     margin: 0;
+    font-size: 1.6rem;
 }
 
 .nav-links li {
