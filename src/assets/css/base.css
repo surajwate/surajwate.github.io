@@ -12,11 +12,10 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 html,
 body {
@@ -66,40 +65,39 @@ main {
 }
 
 footer {
-  background-color: #f1f1f1;
-  color: var(--text-color);
-  padding: 1em 0;
-  text-align: center; /* Ensure text is centered */
+    background-color: #f1f1f1;
+    color: var(--text-color);
+    /* padding: 1em 0; */
+    text-align: center; /* Ensure text is centered */
 }
 
 footer .footer-container {
-  width: 100%; /* Ensure it takes full width */
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  justify-content: center; /* Center content horizontally */
+    max-width: 1000px; /* Match the width of the content */
+    margin: 0 auto; /* Center the footer content */
+    padding: 1em 0;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Keep content centered */
 }
 
 footer p {
-  margin: 0;
-  width: 100%; /* Ensure paragraph takes up full width */
+    margin: 0;
+    width: 100%; /* Ensure paragraph takes up full width */
 }
 
 section {
-  padding: 3em 0; /* Add space between sections */
-  border-bottom: 1px solid #eee; /* Optional light border for separation */
+    padding: 3em 0; /* Add space between sections */
+    border-bottom: 1px solid #eee; /* Optional light border for separation */
 }
-
 
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2em;
-  background-color: transparent; /* No background for seamless look */
-  border-radius: 0; /* Remove border radius for flat design */
-  box-shadow: none; /* Remove shadow */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: transparent; /* No background for seamless look */
+    border-radius: 0; /* Remove border radius for flat design */
+    box-shadow: none; /* Remove shadow */
 }
-
 
 h1 {
     color: var(--primary-color);
@@ -147,17 +145,18 @@ p {
 }
 
 a {
-  text-decoration: none;
-  color: var(--primary-color);
-  transition: color 0.3s ease;
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--secondary-color);
-  text-decoration: underline;
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 
-ul, ol {
+ul,
+ol {
     list-style-position: inside; /* Align bullets/numbers with text */
     padding-left: 1.5em; /* Ensure proper indentation */
     margin-left: 0; /* Reset any extra margin */
@@ -171,12 +170,12 @@ ol {
     list-style-type: decimal; /* Numbering for ordered lists */
 }
 
-ul li, ol li {
+ul li,
+ol li {
     padding-left: 0; /* Ensure no extra padding */
     margin-bottom: 0.5em; /* Maintain spacing between items */
     text-align: left; /* Align list items with the text */
 }
-
 
 table {
     width: 100%;
@@ -197,34 +196,34 @@ th {
 }
 
 button {
-  padding: 10px 20px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: var(--secondary-color);
-  transform: scale(1.05); /* Slight growth for interaction */
+    background-color: var(--secondary-color);
+    transform: scale(1.05); /* Slight growth for interaction */
 }
 
 @media (max-width: 768px) {
-  body {
-      padding: 1em;
-  }
+    body {
+        padding: 1em;
+    }
 
-  h1 {
-      font-size: 2rem;
-  }
+    h1 {
+        font-size: 2rem;
+    }
 
-  h2 {
-      font-size: 1.75rem;
-  }
+    h2 {
+        font-size: 1.75rem;
+    }
 
-  .container {
-      padding: 1em;
-  }
+    .container {
+        padding: 1em;
+    }
 }
