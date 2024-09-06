@@ -90,3 +90,19 @@ img {
   color: white;
 }
 
+/* Back to Blog link - Minimalistic */
+.back-to-blog {
+  display: block;
+  text-align: center;
+  margin-top: 2em; /* Adds space between the content and the link */
+  color: var(--primary-color); /* Use your primary color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make it stand out */
+  font-size: 1.1rem; /* Slightly larger text */
+}
+
+.back-to-blog:hover {
+  color: var(--secondary-color); /* Change color on hover */
+  text-decoration: underline; /* Subtle hover effect */
+}
+
