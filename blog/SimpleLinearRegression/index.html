@@ -12,20 +12,38 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
     <link rel="manifest" href="/assets/images/icons/site.webmanifest">
+     
     
-    
-    
-    <link rel="stylesheet" href="/assets/css/post.css">
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-      window.MathJax = {
+<link rel="stylesheet" href="/assets/css/post.css" />
+<script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+<script>
+    window.MathJax = {
         tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        }
-      };
-    </script>
+            inlineMath: [
+                ["$", "$"],
+                ["\\(", "\\)"],
+            ],
+            displayMath: [
+                ["$$", "$$"],
+                ["\\[", "\\]"],
+            ],
+        },
+    };
+</script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VGQDQ5YQV');
+    </script>
 </head>
 <body>
     <header>
@@ -44,9 +62,9 @@
     <main>
         
 <div class="post-container">
-  <h1>Simple Linear Regression</h1>
-  <p class="post-date">Jul 7, 2024</p>
-  <h2>What is Linear Regression?</h2>
+    <h1>Simple Linear Regression</h1>
+    <p class="post-date">Jul 7, 2024</p>
+    <h2>What is Linear Regression?</h2>
 <p>In simple words you try to predict value of one variable considering it have a linear relationship with other variable.
 In linear regression you assume that value of one variable is dependent on the value of other variable. So when value of one variable increases or decreases, value of other variable also increases or decreases. Therefore, the relationship between the two variables is <strong>linear</strong>.
 <strong>Regression</strong> is a statistical method used to predict the value of one variable based on the value of another variable. Linear regression is the most simple and commonly used regression model.</p>
@@ -738,6 +756,34 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <p>The simple linear regression model has been deployed to predict sales revenue based on individual advertising budgets for TV, Radio, and Newspaper. Seperate models have been built for each advertising medium. The model can be accessed at the following links: <a href="https://advertising-sales-regression.streamlit.app/Simple_Linear_Regression">Simple Linear Regression</a></p>
 
 </div>
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+<!-- Add Giscus Comment Section Here -->
+
+<div class="post-container">
+    <section id="giscus-comments">
+        <script
+            src="https://giscus.app/client.js"
+            data-repo="surajwate/surajwate.github.io"
+            data-repo-id="R_kgDOMRXrqQ"
+            data-category="General"
+            data-category-id="DIC_kwDOMRXrqc4CiRIe"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+        ></script>
+    </section>
+</div>
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
 
     </main>
     <footer>

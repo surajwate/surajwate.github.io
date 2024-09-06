@@ -12,20 +12,38 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
     <link rel="manifest" href="/assets/images/icons/site.webmanifest">
+     
     
-    
-    
-    <link rel="stylesheet" href="/assets/css/post.css">
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-      window.MathJax = {
+<link rel="stylesheet" href="/assets/css/post.css" />
+<script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+<script>
+    window.MathJax = {
         tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        }
-      };
-    </script>
+            inlineMath: [
+                ["$", "$"],
+                ["\\(", "\\)"],
+            ],
+            displayMath: [
+                ["$$", "$$"],
+                ["\\[", "\\]"],
+            ],
+        },
+    };
+</script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VGQDQ5YQV');
+    </script>
 </head>
 <body>
     <header>
@@ -44,9 +62,9 @@
     <main>
         
 <div class="post-container">
-  <h1>Multiple Linear Regression</h1>
-  <p class="post-date">Jul 20, 2024</p>
-  <h2>Introduction</h2>
+    <h1>Multiple Linear Regression</h1>
+    <p class="post-date">Jul 20, 2024</p>
+    <h2>Introduction</h2>
 <p>Multiple linear regression is an extension of simple linear regression. It is used when we want to predict the value of a variable based on the value of two or more other variables. The variable we want to predict is called the dependent variable (or target variable). The variables we are using to predict the value of the dependent variable are called independent variables (or features).</p>
 <pre class="language-python"><code class="language-python"><span class="token comment"># Import libraries</span>
 
@@ -289,6 +307,34 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <p>For an interactive demonstration of the model, you can visit the <a href="https://advertising-sales-regression.streamlit.app/Multiple_Linear_Regression">Multiple Linear Regression Deployment</a>. This applicaiton allows users to input the advertising budgets for TV, radio, and newspaper and see the predicted sales revenue based on the multiple linear regression model.</p>
 
 </div>
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+<!-- Add Giscus Comment Section Here -->
+
+<div class="post-container">
+    <section id="giscus-comments">
+        <script
+            src="https://giscus.app/client.js"
+            data-repo="surajwate/surajwate.github.io"
+            data-repo-id="R_kgDOMRXrqQ"
+            data-category="General"
+            data-category-id="DIC_kwDOMRXrqc4CiRIe"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+        ></script>
+    </section>
+</div>
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
 
     </main>
     <footer>
