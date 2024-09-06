@@ -7,22 +7,29 @@
   box-shadow: none;
 }
 
-.contact-container h1, .contact-container h2 {
+.contact-container h1 {
   color: var(--primary-color);
   text-align: left;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.0em;
+}
+
+.contact-container h2 {
+  color: var(--primary-color);
+  text-align: left;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 
 .contact-container p {
   line-height: 1.8;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.0em;
   color: var(--text-color);
   text-align: justify;
 }
 
 /* Contact methods and form styling */
 .contact-methods, .contact-form {
-  margin-bottom: 2em;
+  margin-bottom: 1.0em;
 }
 
 .social-media-links {
