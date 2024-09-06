@@ -107,7 +107,7 @@ h1 {
     /* margin-bottom: 1em; */
     font-size: 2.6em; /* Larger font for h1 */
     font-weight: 700; /* Bold weight for primary heading */
-    margin-top: 1.5em; /* Add some spacing above the heading */
+    /* margin-top: 1.5em;  */
 }
 
 h2 {

@@ -66,3 +66,6 @@
 .blog-container a.read-more:hover {
   color: var(--secondary-color);
 }
+.post-item a {
+  font-size: 1.6rem;
+}
