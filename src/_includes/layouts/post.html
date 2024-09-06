@@ -1,23 +1,56 @@
-{% extends "layouts/base.html" %}
-
-{% block head %}
-    {{ super() }}
-    <link rel="stylesheet" href="/assets/css/post.css">
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-      window.MathJax = {
+{% extends "layouts/base.html" %} {% block head %} {{ super() }}
+<link rel="stylesheet" href="/assets/css/post.css" />
+<script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+<script>
+    window.MathJax = {
         tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        }
-      };
-    </script>
-{% endblock %}
-
-{% block content %}
+            inlineMath: [
+                ["$", "$"],
+                ["\\(", "\\)"],
+            ],
+            displayMath: [
+                ["$$", "$$"],
+                ["\\[", "\\]"],
+            ],
+        },
+    };
+</script>
+{% endblock %} {% block content %}
 <div class="post-container">
-  <h1>{{ title }}</h1>
-  <p class="post-date">{{ date | readableDate }}</p>
-  {{ content | safe }}
+    <h1>{{ title }}</h1>
+    <p class="post-date">{{ date | readableDate }}</p>
+    {{ content | safe }}
 </div>
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+<!-- Add Giscus Comment Section Here -->
+
+<div class="post-container">
+    <section id="giscus-comments">
+        <script
+            src="https://giscus.app/client.js"
+            data-repo="surajwate/surajwate.github.io"
+            data-repo-id="R_kgDOMRXrqQ"
+            data-category="General"
+            data-category-id="DIC_kwDOMRXrqc4CiRIe"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+        ></script>
+    </section>
+</div>
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
 {% endblock %}
