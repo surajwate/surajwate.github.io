@@ -1,25 +1,45 @@
-{% extends "layouts/base.html" %} {% block head %} {{ super() }}
-<link rel="stylesheet" href="/assets/css/post.css" />
-<script
-    id="MathJax-script"
-    async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-></script>
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [
-                ["$", "$"],
-                ["\\(", "\\)"],
-            ],
-            displayMath: [
-                ["$$", "$$"],
-                ["\\[", "\\]"],
-            ],
-        },
-    };
-</script>
-{% endblock %} {% block content %}
+{% extends "layouts/base.html" %} 
+
+{% block head %} 
+  {{ super() }}
+  <link rel="stylesheet" href="/assets/css/post.css" />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ page.url | url }}" />
+    <meta property="og:description" content="{{ description | safe }}" />
+    {# <meta property="og:image" content="{{ image | default('/images/default-thumbnail.jpg') }}" /> #}
+    <meta property="og:site_name" content="Suraj Wate's Blog" />
+  
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description | safe }}" />
+    {# <meta name="twitter:image" content="{{ image | default('/images/default-thumbnail.jpg') }}" /> #}
+
+  <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <script>
+      window.MathJax = {
+          tex: {
+              inlineMath: [
+                  ["$", "$"],
+                  ["\\(", "\\)"],
+              ],
+              displayMath: [
+                  ["$$", "$$"],
+                  ["\\[", "\\]"],
+              ],
+          },
+      };
+  </script>
+{% endblock %} 
+
+{% block content %}
 <div class="post-container">
     <h1>{{ title }}</h1>
     <p class="post-date">{{ date | readableDate }}</p>
