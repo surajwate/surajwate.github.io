@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{{ title }}</title>
+    <meta name="description" content="{{ description | safe }}" />
+    <meta name="author" content="Suraj Wate" />
+    <meta name="keywords" content="Data Science, Machine Learning, Python" />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ page.url | url }}" />
+    <meta property="og:description" content="{{ description | safe }}" />
+    {# <meta property="og:image" content="{{ image | default('/images/default-thumbnail.jpg') }}" /> #}
+    <meta property="og:site_name" content="Suraj Wate's Blog" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description | safe }}" />
+    {# <meta name="twitter:image" content="{{ image | default('/images/default-thumbnail.jpg') }}" /> #}
+
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"> <!-- Prism CSS -->
     <!-- Font Awesome for Icons -->
@@ -12,8 +31,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
     <link rel="manifest" href="/assets/images/icons/site.webmanifest">
-    {% block head %}
-    {% endblock %}
+
+    {% block head %}    {% endblock %}
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
     <script>
