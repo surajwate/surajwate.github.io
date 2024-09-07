@@ -13,23 +13,25 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // Markdown options
-  let exports = function (eleventyConfig) {
-    let options = {
-      html: true,
-      breaks: true,
-      linkify: true,
-      typographer: true,
-    };
-    eleventyConfig.setLibrary("md", markdownIt(options));
-  }
+
+  let options = {
+    html: true,
+    breaks: true,
+    linkify: true,
+    typographer: true,
+  };
+  eleventyConfig.setLibrary("md", markdownIt(options));
+
   // Copy `assets/` to `_site/assets`
   eleventyConfig.addPassthroughCopy("src/assets");
+
   // Blog collection sorted by date
   eleventyConfig.addCollection("posts", function (collection) {
     return collection.getFilteredByGlob("src/blog/posts/**/*.md").filter(post => !post.data.draft).sort((a, b) => {
       return b.date - a.date; // Sort by date in descending order
     });
   });
+
   // Projects collection sorted by date
   eleventyConfig.addCollection("projects", function (collection) {
     return collection.getFilteredByGlob("src/projects/**/*.md").filter(project => !project.data.draft).sort((a, b) => {
@@ -37,6 +39,7 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  // --- Date Plugin ---
   eleventyConfig.addPlugin(pluginDate, {
     // Specify custom date formats
     formats: {
@@ -49,40 +52,40 @@ module.exports = function (eleventyConfig) {
     }
   });
 
-    // --- Lazy Loading Transform ---
-    eleventyConfig.addTransform("lazyload", function(content, outputPath) {
-      if (outputPath && outputPath.endsWith(".html")) {
-        let dom = new JSDOM(content);
-        let images = dom.window.document.querySelectorAll("img");
-  
-        // Add loading="lazy" to all <img> tags
-        images.forEach(img => {
-          img.setAttribute("loading", "lazy");
-        });
-  
-        return dom.serialize();
-      }
-  
-      return content;
-    });
+  // --- Lazy Loading Transform ---
+  eleventyConfig.addTransform("lazyload", function (content, outputPath) {
+    if (outputPath && outputPath.endsWith(".html")) {
+      let dom = new JSDOM(content);
+      let images = dom.window.document.querySelectorAll("img");
 
-    // --- Minify CSS ---
-    eleventyConfig.addTransform("cssmin", function(content, outputPath) {
-      if (outputPath.endsWith(".css")) {
-        let minified = new CleanCSS({}).minify(content).styles;
-        return minified;
-      }
-      return content;
-    });
+      // Add loading="lazy" to all <img> tags
+      images.forEach(img => {
+        img.setAttribute("loading", "lazy");
+      });
 
-    // --- Minify JS ---
-    eleventyConfig.addTransform("jsmin", async function(content, outputPath) {
-      if (outputPath.endsWith(".js")) {
-        let minified = await Terser.minify(content);
-        return minified.code;
-      }
-      return content;
-    });
+      return dom.serialize();
+    }
+
+    return content;
+  });
+
+  // --- Minify CSS ---
+  eleventyConfig.addTransform("cssmin", function (content, outputPath) {
+    if (outputPath.endsWith(".css")) {
+      let minified = new CleanCSS({}).minify(content).styles;
+      return minified;
+    }
+    return content;
+  });
+
+  // --- Minify JS ---
+  eleventyConfig.addTransform("jsmin", async function (content, outputPath) {
+    if (outputPath.endsWith(".js")) {
+      let minified = await Terser.minify(content);
+      return minified.code;
+    }
+    return content;
+  });
 
   return {
     dir: {
