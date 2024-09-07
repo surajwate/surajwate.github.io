@@ -1,6 +1,7 @@
 const pluginDate = require("eleventy-plugin-date");
 const markdownIt = require("markdown-it");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const { JSDOM } = require("jsdom");
 
 module.exports = function (eleventyConfig) {
   // Copy CNAME file to output directory
@@ -44,6 +45,23 @@ module.exports = function (eleventyConfig) {
       timeZone: "z",
     }
   });
+
+    // --- Lazy Loading Transform ---
+    eleventyConfig.addTransform("lazyload", function(content, outputPath) {
+      if (outputPath && outputPath.endsWith(".html")) {
+        let dom = new JSDOM(content);
+        let images = dom.window.document.querySelectorAll("img");
+  
+        // Add loading="lazy" to all <img> tags
+        images.forEach(img => {
+          img.setAttribute("loading", "lazy");
+        });
+  
+        return dom.serialize();
+      }
+  
+      return content;
+    });
 
   return {
     dir: {
