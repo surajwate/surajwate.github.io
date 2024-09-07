@@ -2,6 +2,9 @@ const pluginDate = require("eleventy-plugin-date");
 const markdownIt = require("markdown-it");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { JSDOM } = require("jsdom");
+const CleanCSS = require("clean-css");
+const Terser = require("terser");
+
 
 module.exports = function (eleventyConfig) {
   // Copy CNAME file to output directory
@@ -60,6 +63,24 @@ module.exports = function (eleventyConfig) {
         return dom.serialize();
       }
   
+      return content;
+    });
+
+    // --- Minify CSS ---
+    eleventyConfig.addTransform("cssmin", function(content, outputPath) {
+      if (outputPath.endsWith(".css")) {
+        let minified = new CleanCSS({}).minify(content).styles;
+        return minified;
+      }
+      return content;
+    });
+
+    // --- Minify JS ---
+    eleventyConfig.addTransform("jsmin", async function(content, outputPath) {
+      if (outputPath.endsWith(".js")) {
+        let minified = await Terser.minify(content);
+        return minified.code;
+      }
       return content;
     });
 
