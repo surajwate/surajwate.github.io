@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multiple Linear Regression</title>
@@ -13,30 +11,42 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
     <link rel="manifest" href="/assets/images/icons/site.webmanifest">
      
+  
     
-<link rel="stylesheet" href="/assets/css/post.css" />
-<script
-    id="MathJax-script"
-    async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-></script>
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [
-                ["$", "$"],
-                ["\\(", "\\)"],
-            ],
-            displayMath: [
-                ["$$", "$$"],
-                ["\\[", "\\]"],
-            ],
-        },
-    };
-</script>
+  <link rel="stylesheet" href="/assets/css/post.css">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Multiple Linear Regression">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="/blog/MultipleLinearRegression/">
+    <meta property="og:description" content="">
+    
+    <meta property="og:site_name" content="Suraj Wate's Blog">
+  
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Multiple Linear Regression">
+    <meta name="twitter:description" content="">
+    
+
+  <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+      window.MathJax = {
+          tex: {
+              inlineMath: [
+                  ["$", "$"],
+                  ["\\(", "\\)"],
+              ],
+              displayMath: [
+                  ["$$", "$$"],
+                  ["\\[", "\\]"],
+              ],
+          },
+      };
+  </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -49,16 +59,18 @@
     <header>
         <nav class="navbar">
             <a href="/" class="logo">Suraj Wate</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
             <ul class="nav-links">
-                
                 <li><a href="/blog"><i class="fa-regular fa-newspaper"></i> Blog</a></li>
                 <li><a href="/projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
                 <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
                 <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
-
     </header>
+    
     <main>
         
 <div class="post-container">
@@ -77,17 +89,17 @@
 <pre class="language-python"><code class="language-python">data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'data/Advertising.csv'</span><span class="token punctuation">,</span> index_col<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
 data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <div>
-<style scoped>
+<style scoped="">
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-<p>.dataframe tbody tr th {
-vertical-align: top;
+<p>.dataframe tbody tr th {<br>
+vertical-align: top;<br>
 }</p>
-<p>.dataframe thead th {
-text-align: right;
-}
-</style></p>
+<p>.dataframe thead th {<br>
+text-align: right;<br>
+}<br>
+</style><p></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -138,9 +150,9 @@ text-align: right;
 </table>
 </div>
 <h2>Equation of Multiple Linear Regression</h2>
-<p>The general mathematical equation for multiple linear regression is:
-$$
-y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_n x_n + \epsilon
+<p>The general mathematical equation for multiple linear regression is:<br>
+$$<br>
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_n x_n + \epsilon<br>
 $$</p>
 <p>Where:</p>
 <ul>
@@ -151,8 +163,8 @@ $$</p>
 <li>$\epsilon$ is the error term</li>
 </ul>
 <p>The equation for our dataset will be:</p>
-<p>$$
-sales = \beta_0 + \beta_1 \times TV + \beta_2 \times radio + \beta_3 \times newspaper + \epsilon
+<p>$$<br>
+sales = \beta_0 + \beta_1 \times TV + \beta_2 \times radio + \beta_3 \times newspaper + \epsilon<br>
 $$</p>
 <h3>Components of a Linear Regression Equation</h3>
 <h4>1. Dependent Variable ($y$)</h4>
@@ -196,11 +208,11 @@ colors <span class="token operator">=</span> <span class="token punctuation">[</
 
 plt<span class="token punctuation">.</span>tight_layout<span class="token punctuation">(</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="/assets/images/MultipleLinearRegression/output_8_0.png" alt="png"></p>
+<p><img src="/assets/images/MultipleLinearRegression/output_8_0.png" alt="png" loading="lazy"></p>
 <p>The plot above shows the clear positive relationship between the TV advertising budget and sales revenue. As the TV advertising budget increases, the sales revenue also increases. The relation also appears positive for radio advertising budget and sales revenue, but the relationship is not as strong as TV. The newspaper advertising budget does not show a clear relationship with sales revenue.</p>
 <h2>Data Preparation</h2>
 <h3>Splitting the Data</h3>
-<p>We will split the data into training and testing sets. We will use the training set to train the model and the testing set to evaluate the model's performance.</p>
+<p>We will split the data into training and testing sets. We will use the training set to train the model and the testing set to evaluate the model’s performance.</p>
 <pre class="language-python"><code class="language-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
 
 X <span class="token operator">=</span> data<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token string">'Sales'</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
@@ -209,7 +221,7 @@ y <span class="token operator">=</span> data<span class="token punctuation">[</s
 X_train<span class="token punctuation">,</span> X_test<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> y_test <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">,</span> test_size<span class="token operator">=</span><span class="token number">0.2</span><span class="token punctuation">,</span> random_state<span class="token operator">=</span><span class="token number">42</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>X_train<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>X_test<span class="token punctuation">.</span>shape<span class="token punctuation">)</span></code></pre>
-<p>(160, 3)
+<p>(160, 3)<br>
 (40, 3)</p>
 <h3>Scaling</h3>
 <p>In multiple linear regression, it is important to scale the data before fitting the model. Scaling the data ensures that all variables have the same scale and are on a similar range. This is important because the coefficients in the regression equation are sensitive to the scale of the variables. If the variables are on different scales, the coefficients will be on different scales as well, making it difficult to compare the importance of each variable.</p>
@@ -228,22 +240,22 @@ model<span class="token punctuation">.</span>fit<span class="token punctuation">
 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'The coefficient of the linear model is </span><span class="token interpolation"><span class="token punctuation">{</span>model<span class="token punctuation">.</span>coef_<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'The intercept of the linear model is </span><span class="token interpolation"><span class="token punctuation">{</span>model<span class="token punctuation">.</span>intercept_<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span></code></pre>
-<p>The coefficient of the linear model is [0.04472952 0.18919505 0.00276111]
+<p>The coefficient of the linear model is [0.04472952 0.18919505 0.00276111]<br>
 The intercept of the linear model is 2.98</p>
 <pre class="language-python"><code class="language-python">coefficients <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">[</span>model<span class="token punctuation">.</span>coef_<span class="token punctuation">]</span><span class="token punctuation">,</span> columns<span class="token operator">=</span>X<span class="token punctuation">.</span>columns<span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'Coefficient'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 coefficients</code></pre>
 <div>
-<style scoped>
+<style scoped="">
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-<p>.dataframe tbody tr th {
-vertical-align: top;
+<p>.dataframe tbody tr th {<br>
+vertical-align: top;<br>
 }</p>
-<p>.dataframe thead th {
-text-align: right;
-}
-</style></p>
+<p>.dataframe thead th {<br>
+text-align: right;<br>
+}<br>
+</style><p></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -280,7 +292,7 @@ r2 <span class="token operator">=</span> r2_score<span class="token punctuation"
 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Mean Squared Error: </span><span class="token interpolation"><span class="token punctuation">{</span>mse<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"R-squared: </span><span class="token interpolation"><span class="token punctuation">{</span>r2<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></code></pre>
-<p>Mean Squared Error: 3.1740973539761046
+<p>Mean Squared Error: 3.1740973539761046<br>
 R-squared: 0.899438024100912</p>
 <h2>Residual Analysis</h2>
 <p>The residual plot shows that the residuals are randomly distributed around zero, indicating that the model is capturing the underlying patterns in the data. The residuals are homoscedastic, meaning that the variance of the residuals is constant across all levels of the independent variables.</p>
@@ -293,7 +305,7 @@ plt<span class="token punctuation">.</span>xlabel<span class="token punctuation"
 plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Frequency'</span><span class="token punctuation">,</span> fontsize<span class="token operator">=</span><span class="token number">14</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="/assets/images/MultipleLinearRegression/output_24_0.png" alt="png"></p>
+<p><img src="/assets/images/MultipleLinearRegression/output_24_0.png" alt="png" loading="lazy"></p>
 <h2>Conclusion</h2>
 <p>This analysis demonstrates how to perform multiple linear regression to predict sales revenue based on TV, radio, and newspaper advertising budgets. The model provides insights into the relationship between advertising budgets and sales revenue, allowing businesses to make data-driven decisions about their marketing strategies.</p>
 <h3>Key Findings</h3>
@@ -313,23 +325,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 
 <div class="post-container">
     <section id="giscus-comments">
-        <script
-            src="https://giscus.app/client.js"
-            data-repo="surajwate/surajwate.github.io"
-            data-repo-id="R_kgDOMRXrqQ"
-            data-category="General"
-            data-category-id="DIC_kwDOMRXrqc4CiRIe"
-            data-mapping="pathname"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="light"
-            data-lang="en"
-            data-loading="lazy"
-            crossorigin="anonymous"
-            async
-        ></script>
+        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
     </section>
 </div>
 
@@ -339,11 +335,21 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
     </main>
     <footer>
         <div class="footer-container">
-            <p>&copy; 2024 Suraj Wate. All rights reserved.</p>
+            <p>© 2024 Suraj Wate. All rights reserved.</p>
         </div>
     </footer>
     <!-- Prism JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
-</body>
-</html>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation links
+            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        });
+    </script>
+    
+
+</body></html>

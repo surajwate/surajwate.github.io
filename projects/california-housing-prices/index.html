@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
@@ -17,8 +15,22 @@
     
     <link rel="stylesheet" href="/assets/css/project.css">
 
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/projects/california-housing-prices/">
+    <meta property="og:description" content="A brief summary of the project">
+    
+    <meta property="og:site_name" content="Suraj Wate's Portfolio">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="A brief summary of the project">
+    
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -31,33 +43,35 @@
     <header>
         <nav class="navbar">
             <a href="/" class="logo">Suraj Wate</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
             <ul class="nav-links">
-                
                 <li><a href="/blog"><i class="fa-regular fa-newspaper"></i> Blog</a></li>
                 <li><a href="/projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
                 <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
                 <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
-
     </header>
+    
     <main>
         
 <div class="project-container">
   <h1></h1>
   <p class="project-date">Created on: Invalid DateTime</p>
   <div class="project-content">
-    <p>Drafting your Kaggle problem-solving experience as a project on your website involves a more formal and structured approach compared to a blog post. Here's a suggested outline to present it effectively:</p>
+    <p>Drafting your Kaggle problem-solving experience as a project on your website involves a more formal and structured approach compared to a blog post. Here’s a suggested outline to present it effectively:</p>
 <h2>1. Project Title</h2>
 <ul>
-<li><strong>Title:</strong> Choose a straightforward and descriptive title, such as &quot;California Housing Price Prediction Using XGBoost.&quot;</li>
-<li><strong>Subtitle:</strong> Add a brief one-liner that summarizes the project, like &quot;A comprehensive machine learning project to predict California housing prices using advanced regression techniques.&quot;</li>
+<li><strong>Title:</strong> Choose a straightforward and descriptive title, such as “California Housing Price Prediction Using XGBoost.”</li>
+<li><strong>Subtitle:</strong> Add a brief one-liner that summarizes the project, like “A comprehensive machine learning project to predict California housing prices using advanced regression techniques.”</li>
 </ul>
 <h2>2. Project Overview</h2>
 <ul>
-<li><strong>Objective:</strong> Start with a clear statement of the project's goal. For example, &quot;The objective of this project was to build a predictive model for housing prices in California using a combination of machine learning techniques.&quot;</li>
-<li><strong>Problem Statement:</strong> Describe the problem you were trying to solve. &quot;This project involved predicting the median house values in California based on various features such as location, income levels, and housing characteristics.&quot;</li>
-<li><strong>Dataset:</strong> Mention the dataset you used, including where it came from (e.g., &quot;The dataset was provided by Kaggle and includes over 20,000 observations with 9 features related to housing prices.&quot;)</li>
+<li><strong>Objective:</strong> Start with a clear statement of the project’s goal. For example, “The objective of this project was to build a predictive model for housing prices in California using a combination of machine learning techniques.”</li>
+<li><strong>Problem Statement:</strong> Describe the problem you were trying to solve. “This project involved predicting the median house values in California based on various features such as location, income levels, and housing characteristics.”</li>
+<li><strong>Dataset:</strong> Mention the dataset you used, including where it came from (e.g., “The dataset was provided by Kaggle and includes over 20,000 observations with 9 features related to housing prices.”)</li>
 </ul>
 <h2>3. Data Exploration and Preprocessing</h2>
 <ul>
@@ -67,33 +81,33 @@
 </ul>
 <h2>4. Modeling Approach</h2>
 <ul>
-<li><strong>Baseline Models:</strong> Start by mentioning the initial models you tried (e.g., Linear Regression, Decision Trees) and their performance. &quot;As a baseline, I tested linear regression and decision tree models, which provided initial insights but lacked sufficient accuracy.&quot;</li>
-<li><strong>Model Selection:</strong> Explain why you chose XGBoost as your primary model. &quot;Given the complexity of the data and the need for high accuracy, XGBoost was selected for its superior performance in regression tasks and its ability to handle non-linear relationships.&quot;</li>
-<li><strong>Hyperparameter Tuning:</strong> Discuss how you tuned the model's hyperparameters using techniques like RandomizedSearchCV. Include any challenges and how you addressed them.</li>
+<li><strong>Baseline Models:</strong> Start by mentioning the initial models you tried (e.g., Linear Regression, Decision Trees) and their performance. “As a baseline, I tested linear regression and decision tree models, which provided initial insights but lacked sufficient accuracy.”</li>
+<li><strong>Model Selection:</strong> Explain why you chose XGBoost as your primary model. “Given the complexity of the data and the need for high accuracy, XGBoost was selected for its superior performance in regression tasks and its ability to handle non-linear relationships.”</li>
+<li><strong>Hyperparameter Tuning:</strong> Discuss how you tuned the model’s hyperparameters using techniques like RandomizedSearchCV. Include any challenges and how you addressed them.</li>
 </ul>
 <h2>5. Model Evaluation</h2>
 <ul>
-<li><strong>Cross-Validation:</strong> Summarize the cross-validation results across different folds. &quot;The model was evaluated using 5-fold cross-validation, with an average RMSE of 0.5619.&quot;</li>
-<li><strong>Final Model Performance:</strong> Present the final model's performance on the validation set, using metrics like RMSE, and discuss the implications. Compare these results to your baseline models.</li>
+<li><strong>Cross-Validation:</strong> Summarize the cross-validation results across different folds. “The model was evaluated using 5-fold cross-validation, with an average RMSE of 0.5619.”</li>
+<li><strong>Final Model Performance:</strong> Present the final model’s performance on the validation set, using metrics like RMSE, and discuss the implications. Compare these results to your baseline models.</li>
 </ul>
 <h2>6. Kaggle Submission</h2>
 <ul>
-<li><strong>Competition Submission:</strong> Mention your submission process to Kaggle and the score you achieved. &quot;The final model was submitted to the Kaggle competition, where it achieved a public leaderboard score of 0.56613.&quot;</li>
+<li><strong>Competition Submission:</strong> Mention your submission process to Kaggle and the score you achieved. “The final model was submitted to the Kaggle competition, where it achieved a public leaderboard score of 0.56613.”</li>
 <li><strong>Leaderboard Position:</strong> Optionally, share your position on the leaderboard if it’s notable.</li>
 </ul>
 <h2>7. Challenges and Lessons Learned</h2>
 <ul>
 <li><strong>Key Challenges:</strong> Discuss any significant challenges you faced during the project, such as overfitting, handling outliers, or computational limitations.</li>
-<li><strong>Learning Outcomes:</strong> Share what you learned from this project, including new skills or insights into machine learning practices. For example, &quot;This project reinforced the importance of feature engineering and hyperparameter tuning in improving model performance.&quot;</li>
+<li><strong>Learning Outcomes:</strong> Share what you learned from this project, including new skills or insights into machine learning practices. For example, “This project reinforced the importance of feature engineering and hyperparameter tuning in improving model performance.”</li>
 </ul>
 <h2>8. Conclusion and Future Work</h2>
 <ul>
-<li><strong>Summary:</strong> Recap the key points of the project, including the problem, approach, and results. &quot;In summary, this project successfully developed a predictive model for California housing prices, achieving competitive performance on the Kaggle leaderboard.&quot;</li>
-<li><strong>Future Work:</strong> Mention any potential improvements or extensions you could explore. &quot;Future work could involve testing more advanced ensemble methods or incorporating external data to enhance model accuracy.&quot;</li>
+<li><strong>Summary:</strong> Recap the key points of the project, including the problem, approach, and results. “In summary, this project successfully developed a predictive model for California housing prices, achieving competitive performance on the Kaggle leaderboard.”</li>
+<li><strong>Future Work:</strong> Mention any potential improvements or extensions you could explore. “Future work could involve testing more advanced ensemble methods or incorporating external data to enhance model accuracy.”</li>
 </ul>
 <h2>9. Technical Details</h2>
 <ul>
-<li><strong>Code and Implementation:</strong> Provide links to your GitHub repository where the project's code can be accessed. Mention any important files or scripts (e.g., &quot;The full implementation can be found on my GitHub, including scripts for data preprocessing, model training, and evaluation.&quot;)</li>
+<li><strong>Code and Implementation:</strong> Provide links to your GitHub repository where the project’s code can be accessed. Mention any important files or scripts (e.g., “The full implementation can be found on my GitHub, including scripts for data preprocessing, model training, and evaluation.”)</li>
 <li><strong>Environment:</strong> List the tools, libraries, and environment details used in the project (e.g., Python, Scikit-learn, XGBoost, Pandas, etc.).</li>
 <li><strong>Reproducibility:</strong> Offer instructions on how others can reproduce your results. This might include a requirements file, a Jupyter notebook, or a README file in your GitHub repo.</li>
 </ul>
@@ -104,7 +118,7 @@
 <li><strong>Architecture Diagrams:</strong> If applicable, include any diagrams that illustrate your model architecture or data pipeline.</li>
 </ul>
 <h2>Example Outline for Your Project Page:</h2>
-<p><strong>Title:</strong> &quot;California Housing Price Prediction Using XGBoost&quot;</p>
+<p><strong>Title:</strong> “California Housing Price Prediction Using XGBoost”</p>
 <p><strong>Project Overview:</strong></p>
 <ul>
 <li>Objective and Problem Statement</li>
@@ -170,7 +184,7 @@
 </ul>
 <h3>Additional Tips</h3>
 <ul>
-<li><strong>Use Visuals:</strong> Whether it's for the blog post or project, include visuals like charts, graphs, or code snippets. These can make your content more engaging and easier to understand.</li>
+<li><strong>Use Visuals:</strong> Whether it’s for the blog post or project, include visuals like charts, graphs, or code snippets. These can make your content more engaging and easier to understand.</li>
 <li><strong>Be Concise:</strong> Even within the suggested word counts, try to be concise. Avoid unnecessary jargon and focus on clarity.</li>
 <li><strong>Link to Resources:</strong> In both the blog and project, link to your GitHub repository and any relevant Kaggle pages. This allows readers to explore further if they’re interested.</li>
 </ul>
@@ -182,11 +196,21 @@
     </main>
     <footer>
         <div class="footer-container">
-            <p>&copy; 2024 Suraj Wate. All rights reserved.</p>
+            <p>© 2024 Suraj Wate. All rights reserved.</p>
         </div>
     </footer>
     <!-- Prism JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
-</body>
-</html>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation links
+            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        });
+    </script>
+    
+
+</body></html>

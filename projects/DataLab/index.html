@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataLab</title>
@@ -17,8 +15,22 @@
     
     <link rel="stylesheet" href="/assets/css/project.css">
 
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="DataLab">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/projects/DataLab/">
+    <meta property="og:description" content="DataLab is a versatile toolkit designed to simplify data exploration, analysis, and visualization for data scientists.">
+    
+    <meta property="og:site_name" content="Suraj Wate's Portfolio">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DataLab">
+    <meta name="twitter:description" content="DataLab is a versatile toolkit designed to simplify data exploration, analysis, and visualization for data scientists.">
+    
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -31,16 +43,18 @@
     <header>
         <nav class="navbar">
             <a href="/" class="logo">Suraj Wate</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
             <ul class="nav-links">
-                
                 <li><a href="/blog"><i class="fa-regular fa-newspaper"></i> Blog</a></li>
                 <li><a href="/projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
                 <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
                 <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
-
     </header>
+    
     <main>
         
 <div class="project-container">
@@ -48,7 +62,7 @@
   <p class="project-date">Created on: Aug 26, 2024</p>
   <div class="project-content">
     <h2>Project Overview</h2>
-<p>DataLab is a powerful Python package that helps in streamlining data analysis. Whether you're dealing with data cleaning, feature engineering, or model preparation, DataLab offers a suite of tools to make your work easier.</p>
+<p>DataLab is a powerful Python package that helps in streamlining data analysis. Whether you’re dealing with data cleaning, feature engineering, or model preparation, DataLab offers a suite of tools to make your work easier.</p>
 <h2>Features</h2>
 <ul>
 <li><strong>Data Cleaning</strong>: Automate the detection and removal of outliers.</li>
@@ -66,11 +80,21 @@
     </main>
     <footer>
         <div class="footer-container">
-            <p>&copy; 2024 Suraj Wate. All rights reserved.</p>
+            <p>© 2024 Suraj Wate. All rights reserved.</p>
         </div>
     </footer>
     <!-- Prism JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
-</body>
-</html>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation links
+            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        });
+    </script>
+    
+
+</body></html>

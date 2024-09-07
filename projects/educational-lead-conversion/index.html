@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educational Lead Conversion</title>
@@ -17,8 +15,22 @@
     
     <link rel="stylesheet" href="/assets/css/project.css">
 
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Educational Lead Conversion">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/projects/educational-lead-conversion/">
+    <meta property="og:description" content="A brief summary of the project">
+    
+    <meta property="og:site_name" content="Suraj Wate's Portfolio">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Educational Lead Conversion">
+    <meta name="twitter:description" content="A brief summary of the project">
+    
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -31,16 +43,18 @@
     <header>
         <nav class="navbar">
             <a href="/" class="logo">Suraj Wate</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
             <ul class="nav-links">
-                
                 <li><a href="/blog"><i class="fa-regular fa-newspaper"></i> Blog</a></li>
                 <li><a href="/projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
                 <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
                 <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
-
     </header>
+    
     <main>
         
 <div class="project-container">
@@ -48,15 +62,15 @@
   <p class="project-date">Created on: Aug 16, 2024</p>
   <div class="project-content">
     <h2>Project Overview</h2>
-<p>X Education sells online courses but struggles with low lead conversion rates, which are typically around 30%. This project focuses on building a machine learning model to identify high-potential leads, &quot;Hot Leads,&quot; so the sales team can focus their efforts. By predicting the leads most likely to convert, the company aims to increase its conversion rate to approximately 80%.</p>
+<p>X Education sells online courses but struggles with low lead conversion rates, which are typically around 30%. This project focuses on building a machine learning model to identify high-potential leads, “Hot Leads,” so the sales team can focus their efforts. By predicting the leads most likely to convert, the company aims to increase its conversion rate to approximately 80%.</p>
 <p>A typical lead conversion process can be represented using the following funnel:</p>
-<p><img src="/assets/images/Lead%20Conversion%20Process.jpg" alt="Lead Conversion Process Funnel" title="Lead conversion process illustrated as a funnel."></p>
+<p><img src="/assets/images/Lead%20Conversion%20Process.jpg" alt="Lead Conversion Process Funnel" title="Lead conversion process illustrated as a funnel." loading="lazy"></p>
 <p>The diagram above illustrates that while many leads are generated at the initial stage, only a small portion convert into paying customers. In the middle stage, nurturing potential leads through education about the product and continuous communication is crucial to improving the lead conversion rate.</p>
 <h2>Objective</h2>
 <p>The goal of this project is to build a model that assigns a lead score to each lead, such that customers with higher lead scores have a greater chance of conversion. This allows the sales team to prioritize their efforts on the most promising leads. The CEO has set an approximate target for the lead conversion rate, aiming for 80%.</p>
 <h2>Data</h2>
 <p>A historical dataset with approximately 9,000 data points is provided. This dataset consists of various attributes such as Lead Source, Total Time Spent on Website, Total Visits, Last Activity, and more, which may vary in relevance to predicting lead conversion.</p>
-<p>The target variable is the 'Converted' column, indicating whether a lead was converted (1) or not (0). These attributes reflect different aspects of user behavior and engagement, which can provide insights into lead conversion likelihood. This dataset will be used to train the machine learning model and evaluate its performance.</p>
+<p>The target variable is the ‘Converted’ column, indicating whether a lead was converted (1) or not (0). These attributes reflect different aspects of user behavior and engagement, which can provide insights into lead conversion likelihood. This dataset will be used to train the machine learning model and evaluate its performance.</p>
 <h3>Exploratory Data Analysis</h3>
 <p>For detailed code on data loading and exploration, check the <a href="https://github.com/surajwate/Education-Lead-Conversion-Model/blob/52b140a3e88d1885955c123528a7c4f8fa4457a1/notebooks/data_exploration.ipynb">data_exploration.ipynb</a></p>
 <h2>Technical Approach</h2>
@@ -70,7 +84,7 @@
 <li>Create a stratified k folds for cross validation to ensure robust evaluation of the model across different subsets of data.</li>
 <li>Drop <code>Prospect Id</code> and <code>Lead Number</code> columns.</li>
 <li>Replace <code>Select</code> values in many feature columns with NaN.</li>
-<li>Drop columns with a single unique value that don't contribute to the variance.</li>
+<li>Drop columns with a single unique value that don’t contribute to the variance.</li>
 <li>Impute the missing values with most frequent (mode) values.</li>
 <li>Map binary values (<code>Yes</code> and <code>No</code>) in the feature columns to <code>1</code> and <code>0</code>.</li>
 <li>Convert the numerical columns to numeric type.</li>
@@ -80,9 +94,9 @@
 </ol>
 <p>See the full cleaning process in <a href="https://github.com/surajwate/Education-Lead-Conversion-Model/blob/52b140a3e88d1885955c123528a7c4f8fa4457a1/notebooks/data_cleaning.ipynb">data_cleaning.ipynb</a>.</p>
 <h2>Model Features</h2>
-<p>I tested the model with varying numbers of features and found that after selecting 10 or 11 features, the model's accuracy stabilized, as shown in the graph below. There was no significant improvement in accuracy beyond this point. Therefore, I selected 11 features as the optimal number for the model.</p>
-<p><img src="/assets/images/Educational_Lead_Score_Feature_Selection.png" alt="Model Performance vs. Number of Selected Features"></p>
-<p><strong>VIF (Variance Inflation Factor)</strong> helps detect multicollinearity between features. A VIF close to 1 indicates no correlation, while a value above 5 suggests high multicollinearity, which we aim to avoid. Reducing multicollinearity ensures each feature contributes independently to the model's predictions, improving both interpretability and performance.</p>
+<p>I tested the model with varying numbers of features and found that after selecting 10 or 11 features, the model’s accuracy stabilized, as shown in the graph below. There was no significant improvement in accuracy beyond this point. Therefore, I selected 11 features as the optimal number for the model.</p>
+<p><img src="/assets/images/Educational_Lead_Score_Feature_Selection.png" alt="Model Performance vs. Number of Selected Features" loading="lazy"></p>
+<p><strong>VIF (Variance Inflation Factor)</strong> helps detect multicollinearity between features. A VIF close to 1 indicates no correlation, while a value above 5 suggests high multicollinearity, which we aim to avoid. Reducing multicollinearity ensures each feature contributes independently to the model’s predictions, improving both interpretability and performance.</p>
 <p>The variation inflation factor (VIF) for the finalized features is as follows:</p>
 <pre class="language-txt"><code class="language-txt">                                           Feature       VIF
 0                                            const  2.171984
@@ -115,10 +129,10 @@
 <li><strong>Try it out here</strong>: <a href="https://education-lead-conversion-model.streamlit.app/">Streamlit App</a></li>
 </ul>
 <p><em>Code for the app is available in <a href="https://github.com/surajwate/Education-Lead-Conversion-Model/blob/52b140a3e88d1885955c123528a7c4f8fa4457a1/streamlit_app/app.py">app.py</a>.</em></p>
-<p><img src="/assets/images/Lead-Scoring-Prediction-App.png" alt="Lead Scoring Prediction App">
+<p><img src="/assets/images/Lead-Scoring-Prediction-App.png" alt="Lead Scoring Prediction App" loading="lazy"><br>
 <em>Figure 1: User Interface of the Lead Conversion Prediction App.</em></p>
 <h2>Model Performance</h2>
-<p>I have calculated the best score at various threshold levels, but the threshold can be adjusted based on the specific problem requirements. Adjusting the threshold allows the model to balance precision and recall, depending on business needs.
+<p>I have calculated the best score at various threshold levels, but the threshold can be adjusted based on the specific problem requirements. Adjusting the threshold allows the model to balance precision and recall, depending on business needs.<br>
 You can check the full code in the <a href="https://github.com/surajwate/Education-Lead-Conversion-Model/blob/52b140a3e88d1885955c123528a7c4f8fa4457a1/notebooks/logistic_model_evaluation.ipynb">logistic_model_evaluation.ipynb</a> file.</p>
 <pre class="language-txt"><code class="language-txt">Best F1-Score threshold: 0.3518018018018018, Best F1-Score: 0.7447368421052631
 Best Accuracy threshold: 0.4528828828828829, Best Accuracy: 0.801948051948052
@@ -126,7 +140,7 @@ Best Precision threshold: 0.9840540540540541, Best Precision: 1.0
 Best Recall threshold: 0.0, Best Recall: 1.0
 Best threshold (Recall ≈ Precision): 0.4608108108108108</code></pre>
 <p>For our project, we require maximum precision and accuracy. Therefore, I selected a threshold of <strong>0.62</strong> for the model, as this offers the best balance between these metrics. (You can check this in the <code>main.py</code> file of the project.)</p>
-<p><img src="/assets/images/Educational-Lead-Conversion-Metrics-Threshold.png" alt="Metrics vs. Threshold for the Lead Conversion Model" title="Graph showing model metrics at various thresholds."></p>
+<p><img src="/assets/images/Educational-Lead-Conversion-Metrics-Threshold.png" alt="Metrics vs. Threshold for the Lead Conversion Model" title="Graph showing model metrics at various thresholds." loading="lazy"></p>
 <p><em>Figure 2: Metrics vs. Threshold for the Lead Conversion Model.</em></p>
 <h2>Conclusion &amp; Future Work</h2>
 <p>The <strong>Education Lead Conversion Model</strong> effectively predicts the likelihood of lead conversion, providing valuable insights that help educational institutions focus their marketing and sales efforts on high-potential leads. This leads to more efficient resource allocation and improved conversion rates.</p>
@@ -141,11 +155,21 @@ Best threshold (Recall ≈ Precision): 0.4608108108108108</code></pre>
     </main>
     <footer>
         <div class="footer-container">
-            <p>&copy; 2024 Suraj Wate. All rights reserved.</p>
+            <p>© 2024 Suraj Wate. All rights reserved.</p>
         </div>
     </footer>
     <!-- Prism JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
-</body>
-</html>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation links
+            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        });
+    </script>
+    
+
+</body></html>

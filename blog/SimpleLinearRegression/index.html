@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Linear Regression</title>
@@ -13,30 +11,42 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
     <link rel="manifest" href="/assets/images/icons/site.webmanifest">
      
+  
     
-<link rel="stylesheet" href="/assets/css/post.css" />
-<script
-    id="MathJax-script"
-    async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-></script>
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [
-                ["$", "$"],
-                ["\\(", "\\)"],
-            ],
-            displayMath: [
-                ["$$", "$$"],
-                ["\\[", "\\]"],
-            ],
-        },
-    };
-</script>
+  <link rel="stylesheet" href="/assets/css/post.css">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Simple Linear Regression">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="/blog/SimpleLinearRegression/">
+    <meta property="og:description" content="">
+    
+    <meta property="og:site_name" content="Suraj Wate's Blog">
+  
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Simple Linear Regression">
+    <meta name="twitter:description" content="">
+    
+
+  <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+      window.MathJax = {
+          tex: {
+              inlineMath: [
+                  ["$", "$"],
+                  ["\\(", "\\)"],
+              ],
+              displayMath: [
+                  ["$$", "$$"],
+                  ["\\[", "\\]"],
+              ],
+          },
+      };
+  </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -49,32 +59,34 @@
     <header>
         <nav class="navbar">
             <a href="/" class="logo">Suraj Wate</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
             <ul class="nav-links">
-                
                 <li><a href="/blog"><i class="fa-regular fa-newspaper"></i> Blog</a></li>
                 <li><a href="/projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
                 <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
                 <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
-
     </header>
+    
     <main>
         
 <div class="post-container">
     <h1>Simple Linear Regression</h1>
     <p class="post-date">Jul 7, 2024</p>
     <h2>What is Linear Regression?</h2>
-<p>In simple words you try to predict value of one variable considering it have a linear relationship with other variable.
-In linear regression you assume that value of one variable is dependent on the value of other variable. So when value of one variable increases or decreases, value of other variable also increases or decreases. Therefore, the relationship between the two variables is <strong>linear</strong>.
+<p>In simple words you try to predict value of one variable considering it have a linear relationship with other variable.<br>
+In linear regression you assume that value of one variable is dependent on the value of other variable. So when value of one variable increases or decreases, value of other variable also increases or decreases. Therefore, the relationship between the two variables is <strong>linear</strong>.<br>
 <strong>Regression</strong> is a statistical method used to predict the value of one variable based on the value of another variable. Linear regression is the most simple and commonly used regression model.</p>
-<p>Let's try to understand it with simple example.</p>
+<p>Let’s try to understand it with simple example.</p>
 <p>I am using <a href="https://www.kaggle.com/datasets/tawfikelmetwally/advertising-dataset/data">dataset from kaggle</a>, which is a simple dataset of advertising data.</p>
-<p>In this dataset, we have 4 columns: TV, Radio, Newspaper and Sales.
+<p>In this dataset, we have 4 columns: TV, Radio, Newspaper and Sales.<br>
 The TV, Radio and Newspaper columns are the amount of money spent on advertising on TV, Radio and Newspaper respectively. The Sales column is the amount of sales generated due to the advertising on TV, Radio and Newspaper.</p>
 <p>For our understanding, we will consider TV as independent variable and Sales as dependent variable. We will try to predict the Sales based on the amount of money spent on TV advertising.</p>
 <h2>Hypothesis of Linear Regression</h2>
-<p>The hypothesis of linear regression is that the dependent variable is a linear combination of the independent variables.
+<p>The hypothesis of linear regression is that the dependent variable is a linear combination of the independent variables.<br>
 For our example, the hypothesis is that the Sales is directly proportional to the amount of money spent on TV advertising.</p>
 <p>The hypothesis can be represented as follows:</p>
 <p>$$Sales = \beta_0 + \beta_1 * TV$$</p>
@@ -95,17 +107,17 @@ For our example, the hypothesis is that the Sales is directly proportional to th
 data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <div>
-<style scoped>
+<style scoped="">
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-<p>.dataframe tbody tr th {
-vertical-align: top;
+<p>.dataframe tbody tr th {<br>
+vertical-align: top;<br>
 }</p>
-<p>.dataframe thead th {
-text-align: right;
-}
-</style></p>
+<p>.dataframe thead th {<br>
+text-align: right;<br>
+}<br>
+</style><p></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -155,22 +167,22 @@ text-align: right;
   </tbody>
 </table>
 </div>
-<p>We will use only 'TV' column to predict the 'Sales' column. As in simple linear regression we have only one independent variable. If we have more than one independent variable, we use multiple linear regression. We will cover the multiple linear regression in next blog post.</p>
+<p>We will use only ‘TV’ column to predict the ‘Sales’ column. As in simple linear regression we have only one independent variable. If we have more than one independent variable, we use multiple linear regression. We will cover the multiple linear regression in next blog post.</p>
 <pre class="language-python"><code class="language-python"><span class="token comment"># TV, Sales</span>
 df <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">,</span> <span class="token string">'Sales'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
 df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <div>
-<style scoped>
+<style scoped="">
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-<p>.dataframe tbody tr th {
-vertical-align: top;
+<p>.dataframe tbody tr th {<br>
+vertical-align: top;<br>
 }</p>
-<p>.dataframe thead th {
-text-align: right;
-}
-</style></p>
+<p>.dataframe thead th {<br>
+text-align: right;<br>
+}<br>
+</style><p></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -213,14 +225,14 @@ plt<span class="token punctuation">.</span>title<span class="token punctuation">
 plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'TV (Independent Variable)'</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Sales (Dependent Variable)'</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="/assets/images/SimpleLinearRegression/output_7_0.png" alt="png"></p>
-<p>As you can see from the plot above, the relationship between TV and Sales is linear. As we increase the amount of money spent on TV advertising, the Sales also increases.
+<p><img src="/assets/images/SimpleLinearRegression/output_7_0.png" alt="png" loading="lazy"></p>
+<p>As you can see from the plot above, the relationship between TV and Sales is linear. As we increase the amount of money spent on TV advertising, the Sales also increases.<br>
 Now, if we have to predict the Sales based on the amount of money spent on TV advertising, we can use the above hypothesis. But we need to find the values of $\beta_0$ and $\beta_1$ to make the prediction. For that we will use the Linear Regression model.</p>
 <h2>Best Fit Line</h2>
 <p>The best fit line is the line that best fits the data points. We will use Ordinary Least Squares method to find the best fit line. The objective of <strong>Ordinary Least Squares (OLS)</strong> method is to minimize the sum of the squared differences between the actual values and the predicted values.</p>
 <h3>Residual</h3>
 <p>The difference between the actual value and the predicted value is called the <strong>residual</strong>. The sum of the squared residuals is called the Residual Sum of Squares (RSS). The objective of Ordinary Least Squares method is to minimize the RSS.</p>
-<p>Residual = Actual Value - Predicted Value
+<p>Residual = Actual Value - Predicted Value<br>
 $$ e_i = y_i - \hat{y_i} $$</p>
 <p>Where,</p>
 <ul>
@@ -289,21 +301,21 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 
 <span class="token comment"># Display the sample with residuals</span>
 sample</code></pre>
-<p><img src="/assets/images/SimpleLinearRegression/output_11_0.png" alt="png"></p>
-<p>Slope (a): 0.03
+<p><img src="/assets/images/SimpleLinearRegression/output_11_0.png" alt="png" loading="lazy"></p>
+<p>Slope (a): 0.03<br>
 Intercept (b): 11.23</p>
 <div>
-<style scoped>
+<style scoped="">
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-<p>.dataframe tbody tr th {
-vertical-align: top;
+<p>.dataframe tbody tr th {<br>
+vertical-align: top;<br>
 }</p>
-<p>.dataframe thead th {
-text-align: right;
-}
-</style></p>
+<p>.dataframe thead th {<br>
+text-align: right;<br>
+}<br>
+</style><p></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -389,18 +401,18 @@ text-align: right;
 </table>
 </div>
 <p>In above plot we have took 10 random samples from our dataset. And created a scatter plot of Actual Sales vs TV advertising. Then we took 2 points and created a line between them. This line is our best fit line till now. But this line is not the best fit line. We need to find the best fit line which will minimize the sum of squared residuals.</p>
-<p>The sum of squared residuals is given by:
+<p>The sum of squared residuals is given by:<br>
 $$ RSS = \sum_{i=1}^{n} e_i^2 $$</p>
 <p>Where,</p>
 <ul>
 <li>n is the number of data points</li>
 <li>$e_i$ is the residual for the i-th data point</li>
 </ul>
-<p>We square the residuals to make them positive and then sum them up. From the table above you can see that residuals can be positive or negative. If we don't square the residuals, the positive and negative residuals will cancel each other out and the sum of residuals will be zero. So, we square the residuals to make them positive and then sum them up to get the Residual Sum of Squares (RSS).</p>
+<p>We square the residuals to make them positive and then sum them up. From the table above you can see that residuals can be positive or negative. If we don’t square the residuals, the positive and negative residuals will cancel each other out and the sum of residuals will be zero. So, we square the residuals to make them positive and then sum them up to get the Residual Sum of Squares (RSS).</p>
 <h3>Ordinary Least Squares (OLS)</h3>
 <p>The objective of Ordinary Least Squares method is to minimize the Residual Sum of Squares (RSS). We do this by finding the values of $\beta_0$ and $\beta_1$ that minimize the RSS.</p>
-<p>The formula to calculate the coefficients $\beta_0$ and $\beta_1$ is given by:
-$$ \beta_1 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n} (x_i - \bar{x})^2} $$
+<p>The formula to calculate the coefficients $\beta_0$ and $\beta_1$ is given by:<br>
+$$ \beta_1 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n} (x_i - \bar{x})^2} $$<br>
 $$ \beta_0 = \bar{y} - \beta_1 * \bar{x} $$</p>
 <p>Where,</p>
 <ul>
@@ -534,7 +546,7 @@ $$ \beta_0 = \bar{y} - \beta_1 * \bar{x} $$</p>
 </tr>
 </tbody>
 </table>
-<p>$$ \beta_1 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n} (x_i - \bar{x})^2}  = \frac{3941.58}{71158.56} = 0.0554 $$
+<p>$$ \beta_1 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n} (x_i - \bar{x})^2}  = \frac{3941.58}{71158.56} = 0.0554 $$<br>
 $$ \beta_0 = \bar{y} - \beta_1 * \bar{x} = 16.24 - 0.0554 * 162.3 = 7.2500 $$</p>
 <p>There is a simple way to calculate the coefficients $\beta_0$ and $\beta_1$ using the <code>LinearRegression</code> class from the <code>sklearn.linear_model</code> module. We will use this class to calculate the coefficients $\beta_0$ and $\beta_1$ for our example. First we will calculate the coefficients $\beta_0$ and $\beta_1$ of our sample data to check if we get the same values as calculated above. Then we will calculate the coefficients $\beta_0$ and $\beta_1$ of the entire dataset.</p>
 <pre class="language-python"><code class="language-python">X <span class="token operator">=</span> sample<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'TV'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>values
@@ -550,7 +562,7 @@ slope <span class="token operator">=</span> lr_model<span class="token punctuati
 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'The slope of the linear model is </span><span class="token interpolation"><span class="token punctuation">{</span>slope<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'The intercept of the linear model is </span><span class="token interpolation"><span class="token punctuation">{</span>intercept<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span></code></pre>
-<p>The slope of the linear model is 0.06
+<p>The slope of the linear model is 0.06<br>
 The intercept of the linear model is 7.25</p>
 <p>As you can see from the results of linear regression model, our calculated values of $\beta_0$ and $\beta_1$ are same as the values calculated using the <code>LinearRegression</code> class. So, we have successfully calculated the coefficients $\beta_0$ and $\beta_1$ using the Ordinary Least Squares method.</p>
 <h2>Linear Regression Model</h2>
@@ -576,9 +588,9 @@ slope <span class="token operator">=</span> lr_model<span class="token punctuati
 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'The slope of the linear model is </span><span class="token interpolation"><span class="token punctuation">{</span>slope<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'The intercept of the linear model is </span><span class="token interpolation"><span class="token punctuation">{</span>intercept<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span></code></pre>
-<p>The slope of the linear model is 0.05
+<p>The slope of the linear model is 0.05<br>
 The intercept of the linear model is 7.12</p>
-<p>Therefore, the equation of the best fit line is given by:
+<p>Therefore, the equation of the best fit line is given by:<br>
 $$ Sales = 7.12 + 0.05 * TV $$</p>
 <p>Now we will use the Linear Regression model to predict the Sales based on the amount of money spent on TV advertising. We will use the testing data to make the prediction. We will then compare the predicted Sales with the actual Sales to evaluate the performance of our model.</p>
 <pre class="language-python"><code class="language-python"><span class="token comment"># Predict the values using the model</span>
@@ -591,17 +603,17 @@ residuals <span class="token operator">=</span> y_test <span class="token operat
 results <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'Actual'</span><span class="token punctuation">:</span> y_test<span class="token punctuation">,</span> <span class="token string">'Predicted'</span><span class="token punctuation">:</span> y_pred<span class="token punctuation">,</span> <span class="token string">'Residuals'</span><span class="token punctuation">:</span> residuals<span class="token punctuation">}</span><span class="token punctuation">)</span>
 results<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <div>
-<style scoped>
+<style scoped="">
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-<p>.dataframe tbody tr th {
-vertical-align: top;
+<p>.dataframe tbody tr th {<br>
+vertical-align: top;<br>
 }</p>
-<p>.dataframe thead th {
-text-align: right;
-}
-</style></p>
+<p>.dataframe thead th {<br>
+text-align: right;<br>
+}<br>
+</style><p></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -652,9 +664,9 @@ text-align: right;
 <li>Root Mean Squared Error (RMSE) = $\sqrt{MSE}$</li>
 <li>R-squared (R2) = $1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}$</li>
 </ul>
-<p>Where,
+<p>Where,<br>
 Higher the R-squared value, better the model. The R-squared value lies between 0 and 1. A value closer to 1 indicates that the model is able to predict the values accurately. A value closer to 0 indicates that the model is not able to predict the values accurately.</p>
-<p>We will cover these evaluation metrics in detail in the another blog.
+<p>We will cover these evaluation metrics in detail in the another blog.<br>
 For now, we will use them to evaluate the performance of our Linear Regression model.</p>
 <pre class="language-python"><code class="language-python"><span class="token comment"># Evaluate the model using metrics</span>
 <span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> mean_squared_error<span class="token punctuation">,</span> r2_score
@@ -671,8 +683,8 @@ r2 <span class="token operator">=</span> r2_score<span class="token punctuation"
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Mean Squared Error (MSE): </span><span class="token interpolation"><span class="token punctuation">{</span>mse<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Root Mean Squared Error (RMSE): </span><span class="token interpolation"><span class="token punctuation">{</span>rmse<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'R^2 Score: </span><span class="token interpolation"><span class="token punctuation">{</span>r2<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span></code></pre>
-<p>Mean Squared Error (MSE): 10.20
-Root Mean Squared Error (RMSE): 3.19
+<p>Mean Squared Error (MSE): 10.20<br>
+Root Mean Squared Error (RMSE): 3.19<br>
 R^2 Score: 0.68</p>
 <p>Our Linear Regression model has an R-squared value of 0.68. This means that our model is able to predict the Sales accurately 68% of the time.</p>
 <h3>Actual vs Predicted Sales</h3>
@@ -692,7 +704,7 @@ plt<span class="token punctuation">.</span>ylabel<span class="token punctuation"
 plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Actual vs Predicted Sales'</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="/assets/images/SimpleLinearRegression/output_28_0.png" alt="png"></p>
+<p><img src="/assets/images/SimpleLinearRegression/output_28_0.png" alt="png" loading="lazy"></p>
 <h4>Elements of the plot</h4>
 <p>In the plot above,</p>
 <ul>
@@ -701,7 +713,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <li>The closer the orange dots are to the blue line, the better the model is able to predict the sales.</li>
 </ul>
 <h4>Interpretation of the plot</h4>
-<p>We can see from the plot that our linear regression model captures the general trend, but the deviation is higher for higher values of Sales.
+<p>We can see from the plot that our linear regression model captures the general trend, but the deviation is higher for higher values of Sales.<br>
 As our model is very simple and we only have one independent variable, the model is not able to capture all the patterns in the data. Using more variables will help us to build a better model.</p>
 <h3>Plotting the Regression Line using Model</h3>
 <p>We will plot the regression line using the predicted values of Sales. The regression line is the line that best fits the data points.</p>
@@ -731,12 +743,12 @@ plt<span class="token punctuation">.</span>legend<span class="token punctuation"
 plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<p><img src="/assets/images/SimpleLinearRegression/output_31_0.png" alt="png"></p>
+<p><img src="/assets/images/SimpleLinearRegression/output_31_0.png" alt="png" loading="lazy"></p>
 <h4>Elements of the plot</h4>
 <p>In the plot above,</p>
 <ul>
 <li>The orange dots represent the actual sales values.</li>
-<li>The blue x's represent the predicted sales values.</li>
+<li>The blue x’s represent the predicted sales values.</li>
 <li>The blue line represents the regression line.</li>
 <li>The orange dotted line represents the residuals (difference between actual sales and predicted sales).</li>
 </ul>
@@ -762,23 +774,7 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 
 <div class="post-container">
     <section id="giscus-comments">
-        <script
-            src="https://giscus.app/client.js"
-            data-repo="surajwate/surajwate.github.io"
-            data-repo-id="R_kgDOMRXrqQ"
-            data-category="General"
-            data-category-id="DIC_kwDOMRXrqc4CiRIe"
-            data-mapping="pathname"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="light"
-            data-lang="en"
-            data-loading="lazy"
-            crossorigin="anonymous"
-            async
-        ></script>
+        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
     </section>
 </div>
 
@@ -788,11 +784,21 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
     </main>
     <footer>
         <div class="footer-container">
-            <p>&copy; 2024 Suraj Wate. All rights reserved.</p>
+            <p>© 2024 Suraj Wate. All rights reserved.</p>
         </div>
     </footer>
     <!-- Prism JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
-</body>
-</html>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation links
+            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        });
+    </script>
+    
+
+</body></html>
