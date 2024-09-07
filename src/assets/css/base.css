@@ -281,19 +281,97 @@ button:hover {
     color: var(--secondary-color);
 }
 
-/* Responsive navbar for smaller screens */
+/* Hamburger Icon */
+/* Updated Hamburger Menu Styles */
+.nav-toggle {
+    display: none; /* Always display on mobile */
+    /* position: absolute; */
+    top: 10px; /* Adjust as needed */
+    right: 20px; /* Align to the right */
+    z-index: 1001; /* Make sure it's on top of the menu */
+    background-color: transparent; /* Keep the background transparent */
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger {
+    width: 25px;
+    height: 2px;
+    background-color: var(--primary-color);
+    position: relative;
+    display: block;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Toggle active state for hamburger */
+.hamburger.active {
+    background-color: transparent;
+}
+
+.hamburger.active::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.hamburger.active::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* Hide navigation links by default on small screens */
+/* Mobile-specific styles */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 1em;
+    .nav-toggle {
+        display: block;
+        /* position: fixed; */
+        top: 10px;
+        right: 20px;
+        z-index: 1001;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
     }
-    
+
+    /* Positioning the nav-links for mobile */
     .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        display: flex;
+        background-color: var(--background-color);
+        z-index: 1000; /* Ensure menu is below the hamburger */
+        display: none;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
-    
+
+    /* Show the nav links when active */
+    .nav-links.active {
+        display: flex;
+    }
+
     .nav-links li {
         margin: 1em 0;
+        text-align: center;
     }
 }
