@@ -1,33 +1,55 @@
-{% extends "layouts/base.html" %} 
+{% extends "layouts/base.html" %} {% block head %} {{ super() }}
+<link rel="stylesheet" href="/assets/css/post.css" />
 
-{% block head %} 
-  {{ super() }}
-  <link rel="stylesheet" href="/assets/css/post.css" />
+<meta property="og:type" content="article" />
 
-  <meta property="og:type" content="article" />
+<script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [
+                ["$", "$"],
+                ["\\(", "\\)"],
+            ],
+            displayMath: [
+                ["$$", "$$"],
+                ["\\[", "\\]"],
+            ],
+        },
+    };
+</script>
 
-  <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-  ></script>
-  <script>
-      window.MathJax = {
-          tex: {
-              inlineMath: [
-                  ["$", "$"],
-                  ["\\(", "\\)"],
-              ],
-              displayMath: [
-                  ["$$", "$$"],
-                  ["\\[", "\\]"],
-              ],
-          },
-      };
-  </script>
-{% endblock %} 
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ title }}",
+        "description": "{{ description }}",
+        "datePublished": "{{ date }}",
+        "author": {
+            "@type": "Person",
+            "name": "Suraj Wate"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Suraj Wate's Blog"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ page.url | url }}"
+        },
+        "image": ["/path/to/lead-image.png"],
+        "articleSection": "{% for category in categories %}{{ category }}{% if not loop.last %}, {% endif %}{% endfor %}",
+        "keywords": "{% for tag in tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor %}",
+        "inLanguage": "en"
+    }
+</script>
 
-{% block content %}
+{% endblock %} {% block content %}
 <div class="post-container">
     <h1>{{ title }}</h1>
     <p class="post-date">{{ date | readableDate }}</p>

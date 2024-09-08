@@ -4,6 +4,28 @@
     {{ super() }}
     <link rel="stylesheet" href="/assets/css/project.css">
 
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "{{ title }}",
+        "description": "{{ description }}",
+        "author": {
+          "@type": "Person",
+          "name": "Suraj Wate"
+        },
+        "datePublished": "{{ date | readableDate }}",
+        "url": "{{ page.url | url }}",
+        "keywords": "{% for tag in tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor %}",
+        "inLanguage": "en",
+        "publisher": {
+          "@type": "Person",
+          "name": "Suraj Wate"
+        }
+      }
+      </script>
+      
+
 {% endblock %}
 
 {% block content %}

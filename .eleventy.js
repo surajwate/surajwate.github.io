@@ -12,6 +12,12 @@ module.exports = function (eleventyConfig) {
   // Add syntax highlighting
   eleventyConfig.addPlugin(syntaxHighlight);
 
+  // Pass through sitemap to output directory
+  eleventyConfig.addPassthroughCopy("sitemap.xml");
+
+  // Pass through robots.txt to output directory
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
+
   // Markdown options
 
   let options = {
