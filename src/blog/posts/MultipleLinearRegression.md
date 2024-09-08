@@ -1,7 +1,19 @@
 ---
 title: "Multiple Linear Regression"
+description: A detailed guide on Multiple Linear Regression, exploring how to predict outcomes with multiple variables in machine learning using Python.
 date: 2024-07-20 21:47:00
 layout: "layouts/post.html"
+categories:
+  - Machine Learning
+  - Data Science
+  - Statistics
+tags:
+  - multiple-linear-regression
+  - linear-regression
+  - regression-analysis
+  - python
+  - predictive-modeling
+  - scikit-learn
 permalink: "/blog/MultipleLinearRegression/"
 ---
 

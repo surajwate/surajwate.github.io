@@ -1,7 +1,19 @@
 ---
 title: "Simple Linear Regression"
+description: An introduction to Simple Linear Regression, a fundamental concept in machine learning and predictive modeling using Python.
 date: 2024-07-07 21:47:45
 layout: "layouts/post.html"
+categories:
+  - Machine Learning
+  - Data Science
+  - Statistics
+tags:
+  - linear-regression
+  - simple-linear-regression
+  - python
+  - machine-learning
+  - data-science
+  - represion-analysis
 permalink: "/blog/SimpleLinearRegression/"
 ---
 
