@@ -30,6 +30,8 @@ jobs:
       run: npm install
 
     - name: Build the site
+      env:
+        WEBMENTION_API_KEY: ${{ secrets.WEBMENTION_API_KEY }}
       run: npx @11ty/eleventy
 
     - name: Deploy to GitHub Pages

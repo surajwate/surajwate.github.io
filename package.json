@@ -14,8 +14,10 @@
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "clean-css": "^5.3.3",
+    "dotenv": "^16.4.5",
     "jsdom": "^25.0.0",
     "markdown-it": "^14.1.0",
+    "node-fetch": "^2.7.0",
     "terser": "^5.31.6"
   },
   "devDependencies": {
