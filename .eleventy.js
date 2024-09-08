@@ -18,6 +18,11 @@ module.exports = function (eleventyConfig) {
   // Pass through robots.txt to output directory
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 
+  // url filter for sitemap
+  eleventyConfig.addFilter("url", function (value) {
+    return `https://surajwate.com${value}`;
+  });
+
   // Markdown options
 
   let options = {
