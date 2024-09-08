@@ -11,7 +11,7 @@
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
-  min-height: 80vh;
+  /* min-height: 80vh; */
 }
 
 .home-container h1 {
@@ -37,18 +37,7 @@
   margin: 0 1em;
 }
 
-.home-container a {
-  padding: 12px 24px;
-  background-color: var(--primary-color);
-  color: white;
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
 
-.home-container a:hover {
-  background-color: var(--secondary-color);
-}
 
 @media (max-width: 768px) {
   .home-container {
