@@ -12,6 +12,9 @@ module.exports = function (eleventyConfig) {
   // Add syntax highlighting
   eleventyConfig.addPlugin(syntaxHighlight);
 
+  // Pass through sitemap to output directory
+  eleventyConfig.addPassthroughCopy("sitemap.xml");
+
   // Markdown options
 
   let options = {
