@@ -15,6 +15,9 @@ module.exports = function (eleventyConfig) {
   // Pass through sitemap to output directory
   eleventyConfig.addPassthroughCopy("sitemap.xml");
 
+  // Pass through robots.txt to output directory
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
+
   // Markdown options
 
   let options = {
