@@ -1,20 +1,16 @@
-{% extends "layouts/base.html" %}
+---
+title: "My Diary"
+layout: "layouts/diary.html"  # This uses the diary layout
+---
 
-{% block head %}
-{{ super() }}
-<link rel="stylesheet" href="/assets/css/diary.css">
-{% endblock %}
-
-{% block content %}
 <div class="diary-container">
-   <h1>My Diary</h1>
+   <h1>My Diary Entries</h1>
    <ul>
       {% for entry in collections.diary %}
       <li>
-         <a href="{{ entry.url }}">{{ entry.data.title }}</a> 
+         <a href="{{ entry.url }}">{{ entry.data.title }}</a>
          <span class="diary-date">{{ entry.data.date | readableDate }}</span>
       </li>
       {% endfor %}
    </ul>
 </div>
-{% endblock %}

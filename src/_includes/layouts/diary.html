@@ -2,15 +2,12 @@
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="/assets/css/diary.css"> <!-- Create a separate CSS file for the diary section -->
+<link rel="stylesheet" href="/assets/css/diary.css">
 {% endblock %}
 
 {% block content %}
-<div class="diary-entry">
-   <h1>{{ title }}</h1>
-   <p class="diary-date">{{ date | readableDate }}</p>
-   <div class="diary-content">
-      {{ content | safe }}
-   </div>
+<div class="diary-content">
+   {{ content | safe }}
 </div>
 {% endblock %}
+
