@@ -1,6 +1,35 @@
-.diary-content {
-   max-width: 800px;
+.diary-container {
+   max-width: 1000px; /* Consistent with other pages */
    margin: 0 auto;
-   padding: 2em;
-   background-color: #f9f9f9;
+   padding: 2em 1.5em;
+   background-color: transparent;
+}
+
+.diary-content {
+   line-height: 1.8;
+   color: var(--text-color);
+   font-family: "Lora", serif;
+}
+
+.diary-container h1 {
+   color: var(--primary-color);
+   font-size: 2.5rem;
+   margin-bottom: 1.5em;
+}
+
+.diary-container a {
+   color: var(--primary-color);
+   text-decoration: none;
+   font-weight: bold;
+}
+
+.diary-container a:hover {
+   color: var(--secondary-color);
+   text-decoration: underline;
+}
+
+.diary-date {
+   color: var(--text-light-color);
+   font-size: 0.9em;
+   margin-bottom: 1em;
 }
