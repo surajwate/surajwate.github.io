@@ -148,3 +148,7 @@ dist
 
 node_modules/
 _site/
+
+# Dev files
+
+blogpost_transfer.py
