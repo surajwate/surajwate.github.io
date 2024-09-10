@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /diary/
 
 Sitemap: https://surajwate.com/sitemap.xml
