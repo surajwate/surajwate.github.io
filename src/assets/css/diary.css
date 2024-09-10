@@ -1,28 +1,37 @@
-.diary-content {
-   line-height: 1.8;
-   color: var(--text-color);
+.diary-container h1 {
+   color: var(--primary-color);
+   font-size: 2.2rem;  /* Adjust to match the overall style */
+   margin-bottom: 1em; /* Reduced the margin for a tighter layout */
+}
+
+.diary-list {
+   list-style: none;
+   padding: 0;
+}
+
+.diary-list li {
+   margin-bottom: 1em;
    font-family: "Lora", serif;
 }
 
-.diary-container h1 {
+.diary-list a {
    color: var(--primary-color);
-   font-size: 2.5rem;
-   margin-bottom: 1.5em;
-}
-
-.diary-container a {
-   color: var(--primary-color);
-   text-decoration: none;
+   font-size: 1.15em;
    font-weight: bold;
 }
 
-.diary-container a:hover {
+.diary-list a:hover {
    color: var(--secondary-color);
-   text-decoration: underline;
 }
 
 .diary-date {
-   color: var(--text-light-color);
-   font-size: 0.9em;
-   margin-bottom: 1em;
+   font-weight: bold;
+   /* color: var(--text-light-color); */
+}
+
+.diary-title {
+   font-weight: normal;
+   color: var(--text-color);
+   margin-left: 0.5em;
+   font-size: 1.15em;
 }

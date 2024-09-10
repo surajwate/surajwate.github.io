@@ -5,11 +5,14 @@ layout: "layouts/diary.html"  # This uses the diary layout
 
 <div class="diary-container container">
    <h1>My Diary Entries</h1>
-   <ul>
+   
+   <ul class="diary-list">
       {% for entry in collections.diary %}
       <li>
-         <a href="{{ entry.url }}">{{ entry.data.title }}</a>
-         <span class="diary-date">{{ entry.data.date | readableDate }}</span>
+         <a href="{{ entry.url }}">
+            <span class="diary-date">{{ entry.data.date | readableDate }}</span>: 
+         </a>:
+         <span class="diary-title">{{ entry.data.title }}</span>
       </li>
       {% endfor %}
    </ul>
