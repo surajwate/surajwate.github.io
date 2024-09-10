@@ -1,11 +1,3 @@
-.diary-entry-container {
-    max-width: 1000px; /* Align with other sections */
-    margin: 0 auto;
-    padding: 2em 1.5em;
-    background-color: transparent;
-    border-radius: var(--border-radius);
-}
-
 .diary-entry-container h1 {
     font-size: 2.5rem;
     color: var(--primary-color);

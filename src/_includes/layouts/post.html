@@ -50,16 +50,16 @@
 </script>
 
 {% endblock %} {% block content %}
-<div class="post-container">
+<div class="post-container container">
     <h1>{{ title }}</h1>
     <p class="post-date">{{ date | readableDate }}</p>
     {{ content | safe }}
-</div>
+
 <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
 <!-- Add Giscus Comment Section Here -->
 
-<div class="post-container">
+
     <section id="giscus-comments">
         <script
             src="https://giscus.app/client.js"

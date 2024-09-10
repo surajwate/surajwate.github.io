@@ -1,12 +1,3 @@
-.contact-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1.5em; /* Adjust padding for better alignment */
-  background-color: transparent;
-  border-radius: 0;
-  box-shadow: none;
-}
-
 .contact-container h1 {
   color: var(--primary-color);
   text-align: left;
