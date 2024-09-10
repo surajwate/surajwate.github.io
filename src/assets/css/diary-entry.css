@@ -28,3 +28,30 @@
 .diary-tags strong {
     color: var(--primary-color);
 }
+
+/* Back to Blog link - Minimalistic */
+.back-to-diary {
+    display: block;
+    text-align: center;
+    margin-top: 2em; /* Adds space between the content and the link */
+    color: var(--primary-color); /* Use your primary color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make it stand out */
+    font-size: 1.1rem; /* Slightly larger text */
+  }
+  
+  .back-to-diary:hover {
+    color: var(--secondary-color); /* Change color on hover */
+    text-decoration: underline; /* Subtle hover effect */
+  }
+
+  /* Ensure Giscus section is properly aligned and spaced */
+#giscus-comments {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid #e0e0e0;
+    max-width: 1000px; /* Align with the rest of the content */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5em; /* Same padding as the post content */
+  }
