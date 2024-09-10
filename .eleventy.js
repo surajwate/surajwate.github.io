@@ -50,6 +50,13 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  // Diary collection sorted by date
+  eleventyConfig.addCollection("diary", function (collection) {
+    return collection.getFilteredByGlob("src/diary/**/*.md").filter(diary => !diary.data.draft).sort((a, b) => {
+      return b.date - a.date; // Sort by date in descending order
+    });
+  });
+
   // --- Date Plugin ---
   eleventyConfig.addPlugin(pluginDate, {
     // Specify custom date formats
