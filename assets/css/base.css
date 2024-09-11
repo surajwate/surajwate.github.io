@@ -226,6 +226,16 @@ button:hover {
     transform: scale(1.05); /* Slight growth for interaction */
 }
 
+/* base.css */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5em; /* This can be adjusted as needed */
+    background-color: transparent;
+    border-radius: var(--border-radius); /* Optional: only if you use it */
+    box-shadow: none;
+ } 
+
 /* Navbar Styles */
 .navbar {
     display: flex;
