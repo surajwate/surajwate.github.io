@@ -1,0 +1,95 @@
+/* General table styles */
+table {
+  width: 100%; /* Ensure the table takes full width */
+  border-collapse: separate; /* Allow border radius to work */
+  margin-bottom: 2em; /* Add space after the table */
+  border: 1px solid #ddd; /* Add a light border around the table */
+  border-radius: 5px; /* Apply rounding to the table itself */
+  border-spacing: 0; /* Ensure no space between borders */
+}
+
+/* Header styles */
+th {
+  background-color: transparent; /* Use your site's primary color */
+  color: var(--primary-color); /* White text for headers */
+  padding: 12px; /* Add padding for headers */
+  text-align: left; /* Align text to the left */
+  font-weight: bold; /* Make headers bold */
+  font-size: 1.0em; /* Increase header font size */
+  border-radius: 5px; /* Apply rounding to the headers */
+}
+
+/* Row styles */
+td {
+  border: 1px #ddd; /* Border for cells */
+  padding: 10px; /* Padding for cells */
+  text-align: left; /* Align text to the left */
+  font-size: 0.95em; /* Set font size */
+  color: var(--text-color); /* Ensure text is readable */
+}
+
+/* Specific adjustments for the first and last header cells */
+th:first-child {
+  border-top-left-radius: 5px; /* Ensure top-left corner is rounded */
+}
+
+th:last-child {
+  border-top-right-radius: 5px; /* Ensure top-right corner is rounded */
+}
+
+/* Specific adjustments for the first and last rows' cells */
+td:first-child {
+  border-bottom-left-radius: 5px; /* Ensure bottom-left corner is rounded */
+}
+
+td:last-child {
+  border-bottom-right-radius: 5px; /* Ensure bottom-right corner is rounded */
+}
+
+/* Stripe alternate rows for better readability */
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light background color for even rows */
+}
+
+/* Optional: Hover effect for rows */
+tr:hover {
+  background-color: #f1f1f1; /* Change background on hover */
+}
+
+/* First column special styling (row numbers or labels) */
+td:first-child, th:first-child {
+  background-color: transparent; /* Make first column stand out */
+  color: var(--primary-color); /* White text */
+  text-align: center; /* Center align the first column */
+  width: 80px; /* Set a fixed width for the first column */
+  font-weight: bold; /* Make text bold */
+  border-right: 1px solid #ddd; /* Add a border to the right */
+}
+
+/* Coefficient table special styling (if needed) */
+table.coefficient-table td {
+  text-align: center; /* Center align text for coefficient table */
+}
+
+/* Responsive: Table should look good on mobile */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+      display: block; /* Make tables stack on small screens */
+  }
+
+  tr {
+      margin-bottom: 1em;
+  }
+
+  th {
+      position: relative;
+      padding-left: 50%;
+      text-align: left;
+  }
+
+  td {
+      position: relative;
+      padding-left: 50%;
+      text-align: left;
+  }
+}

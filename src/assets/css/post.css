@@ -62,24 +62,6 @@ img {
   margin-bottom: 0.75em; /* Increased spacing between list items */
 }
 
-.post-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 2em; /* Increase space below tables */
-  border: 1px solid #ccc; /* Add a subtle border */
-}
-
-.post-container th, .post-container td {
-  border: 1px solid #ddd;
-  padding: 12px; /* Increased padding for table cells */
-  text-align: left;
-}
-
-.post-container th {
-  background-color: var(--primary-color);
-  color: white;
-}
-
 /* Back to Blog link - Minimalistic */
 .back-to-blog {
   display: block;
