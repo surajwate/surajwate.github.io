@@ -1,13 +1,3 @@
-/* Projects container */
-.projects-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1.5em; /* Adjusted padding for better alignment */
-  background-color: transparent; 
-  border-radius: 0;
-  box-shadow: none;
-}
-
 /* Project headings */
 .projects-container h1 {
   text-align: left;

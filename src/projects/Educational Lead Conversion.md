@@ -7,7 +7,7 @@ tags:
   - logistic-regression
   - streamlit
   - RFE
-description: A brief summary of the project
+description: A machine learning model to predict and prioritize high-potential leads for X Education, improving lead conversion rates using logistic regression and feature selection.
 categories:
   - Streamlit Apps
   - Data Science Projects
@@ -113,7 +113,7 @@ All VIF values are well within the acceptable range, ensuring the model is not a
 
 An interactive app was built using Streamlit to allow users to input lead details and get conversion predictions. This enables sales teams to prioritize leads more effectively.
 
-- **Try it out here**: [Streamlit App](https://education-lead-conversion-model.streamlit.app/)
+- **Try it out the interactive app**: [Lead Conversion Prediction with Streamlit App](https://education-lead-conversion-model.streamlit.app/)
 
 _Code for the app is available in [app.py](https://github.com/surajwate/Education-Lead-Conversion-Model/blob/52b140a3e88d1885955c123528a7c4f8fa4457a1/streamlit_app/app.py)._
 

@@ -1,0 +1,37 @@
+.diary-container h1 {
+   color: var(--primary-color);
+   font-size: 2.2rem;  /* Adjust to match the overall style */
+   margin-bottom: 1em; /* Reduced the margin for a tighter layout */
+}
+
+.diary-list {
+   list-style: none;
+   padding: 0;
+}
+
+.diary-list li {
+   margin-bottom: 1em;
+   font-family: "Lora", serif;
+}
+
+.diary-list a {
+   color: var(--primary-color);
+   font-size: 1.15em;
+   font-weight: bold;
+}
+
+.diary-list a:hover {
+   color: var(--secondary-color);
+}
+
+.diary-date {
+   font-weight: bold;
+   /* color: var(--text-light-color); */
+}
+
+.diary-title {
+   font-weight: normal;
+   color: var(--text-color);
+   margin-left: 0.5em;
+   font-size: 1.15em;
+}

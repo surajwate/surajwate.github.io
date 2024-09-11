@@ -13,7 +13,7 @@ draft: false
 
 ## Project Overview
 
-DataLab is a powerful Python package that helps in streamlining data analysis. Whether you're dealing with data cleaning, feature engineering, or model preparation, DataLab offers a suite of tools to make your work easier.
+DataLab is a data science library/package I am developing to simplify the process of building machine learning models. Previously, I wrote custom Python code for each project, but this became repetitive and time-consuming. To streamline my workflow and save time, I decided to build this package and release it on PyPI. By doing so, the package is readily available whenever I start a new project, eliminating the need to copy and paste code repeatedly.
 
 ## Features
 

@@ -1,0 +1,53 @@
+{% extends "layouts/base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/assets/css/diary-entry.css"> <!-- Custom CSS for diary entry pages -->
+{% endblock %}
+
+{% block content %}
+<div class="diary-entry-container container">
+   <h1>{{ title }}</h1>
+   <p class="diary-entry-date">Entry Date: {{ date | readableDate }}</p>
+   
+   <div class="diary-entry-content">
+      {{ content | safe }} <!-- This will render the content of the diary entry -->
+   </div>
+
+   <!-- Optionally, you could have some tags or categories -->
+   {% if tags %}
+   <p class="diary-tags">
+      <strong>Tags:</strong> 
+      {% for tag in tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor %}
+   </p>
+   {% endif %}
+   
+   <a href="/diary" class="back-to-diary">← Back to Diary</a>
+   <!-- Add Giscus Comment Section Here -->
+
+
+   <section id="giscus-comments">
+      <script
+          src="https://giscus.app/client.js"
+          data-repo="surajwate/surajwate.github.io"
+          data-repo-id="R_kgDOMRXrqQ"
+          data-category="General"
+          data-category-id="DIC_kwDOMRXrqc4CiRIe"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="light"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async
+      ></script>
+  </section>
+   
+  <a href="/diary" class="back-to-diary">← Back to Diary</a>
+</div>
+
+
+{% endblock %}

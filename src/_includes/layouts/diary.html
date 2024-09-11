@@ -1,0 +1,13 @@
+{% extends "layouts/base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/assets/css/diary.css">
+{% endblock %}
+
+{% block content %}
+<div class="diary-content">
+   {{ content | safe }}
+</div>
+{% endblock %}
+
