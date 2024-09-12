@@ -356,8 +356,8 @@ This analysis demonstrates how to perform multiple linear regression to predict 
 
 ### Key Findings
 
-- **TV Advertising**: TV advertising has the strongest positive relationship with sales revenue. For every additional $1000 spent on TV advertising, sales revenue is expected to increase by $44,730. This suggests that TV advertising has positive returns on investment, although it is less cost-effective than radio advertising.
-- **Radio Advertising**: Radio advertising also has a positive relationship with sales revenue, although the effect is smaller than TV advertising. For every additional $1000 spent on radio advertising, sales revenue is expected to increase by $189,195. This suggests that radio advertising can be an effective marketing channel for reaching a targeted audience.
+- **TV Advertising**: TV advertising has the strongest positive relationship with sales revenue. For every additional \\$1000 spent on TV advertising, sales revenue is expected to increase by \\$44,730. This suggests that TV advertising has positive returns on investment, although it is less cost-effective than radio advertising.
+- **Radio Advertising**: Radio advertising also has a positive relationship with sales revenue, although the effect is smaller than TV advertising. For every additional \\$1000 spent on radio advertising, sales revenue is expected to increase by \\$189,195. This suggests that radio advertising can be an effective marketing channel for reaching a targeted audience.
 - **Newspaper Advertising**: Newspaper advertising shows the least impact on sales revenue, with a coefficient of -0.003. This suggests that newspaper advertising may not be an effective marketing channel for driving sales revenue. Businesses may want to consider reallocating their advertising budgets from newspaper to TV or radio advertising to maximize sales revenue.
 
 

@@ -11,10 +11,11 @@ layout: "layouts/blog.html"
     <li class="post-item">
       <a href="{{ post.url }}" aria-label="Read more about {{ post.data.title }}">{{ post.data.title }}</a>
       <p class="post-date">{{ post.data.date | readableDate }}</p>
-      <p class="post-excerpt">{{ post.templateContent | striptags | truncate(250, " ...") }}</p>
+      <p class="post-description">{{ post.data.description }}</p>  <!-- Use description from metadata -->
       <a href="{{ post.url }}" class="read-more" aria-label="Read the full post about {{ post.data.title }}">Read More</a>
     </li>
-    
     {% endfor %}
   </ul>
 </div>
+
+
