@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Binary Classification of Insurance Cross Selling</title>
+    <meta name="description" content="Part of my 30 Kaggle Challenges series, this blog explores binary classification models like XGBoost for predicting insurance cross-selling outcomes.">
+    <meta name="author" content="Suraj Wate">
+    <meta name="keywords" content="Data Science, Machine Learning, Python">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Binary Classification of Insurance Cross Selling">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://surajwate.com/blog/binary-classification-of-insurance-cross-selling/">
+    <meta property="og:description" content="Part of my 30 Kaggle Challenges series, this blog explores binary classification models like XGBoost for predicting insurance cross-selling outcomes.">
+    
+    <meta property="og:site_name" content="Suraj Wate's Blog">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Binary Classification of Insurance Cross Selling">
+    <meta name="twitter:description" content="Part of my 30 Kaggle Challenges series, this blog explores binary classification models like XGBoost for predicting insurance cross-selling outcomes.">
+    
+
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"> <!-- Prism CSS -->
+    <!-- Font Awesome for Icons -->
+    <script defer="" src="https://kit.fontawesome.com/c39a85ddd3.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/icons/site.webmanifest">
+
+    <!-- IndieAuth -->
+    <link rel="me" href="https://fosstodon.org/@suraj">
+    <link rel="me" href="https://github.com/surajwate">
+    <link rel="me" href="https://twitter.com/surajwate">
+    <link rel="me" href="https://linkedin.com/in/surajwate">
+    <link rel="webmention" href="https://webmention.io/surajwate.com/webmention">
+
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+    <link rel="microsub" href="https://aperture.p3k.io/microsub/978">
+
+         
+<link rel="stylesheet" href="/assets/css/post.css">
+
+<!-- Custom Prism CSS -->
+<link rel="stylesheet" href="/assets/css/prism-custom.css">
+<!--- Custom Table Styles -->
+<link rel="stylesheet" href="/assets/css/table-styles.css">
+
+<meta property="og:type" content="article">
+
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [
+                ["$", "$"],
+                ["\\(", "\\)"],
+            ],
+            displayMath: [
+                ["$$", "$$"],
+                ["\\[", "\\]"],
+            ],
+        },
+    };
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Binary Classification of Insurance Cross Selling",
+        "description": "Part of my 30 Kaggle Challenges series, this blog explores binary classification models like XGBoost for predicting insurance cross-selling outcomes.",
+        "datePublished": "Wed Sep 11 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
+        "author": {
+            "@type": "Person",
+            "name": "Suraj Wate"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Suraj Wate's Blog"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://surajwate.com/blog/binary-classification-of-insurance-cross-selling/"
+        },
+        "image": ["/path/to/lead-image.png"],
+        "articleSection": "Kaggle Challenges, Machine Learning Projects",
+        "keywords": "Kaggle, Machine-Learning, XGBoost, Data-Science, Binary-Classification",
+        "inLanguage": "en"
+    }
+</script>
+
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VGQDQ5YQV');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">Suraj Wate</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/blog"><i class="fa-regular fa-newspaper"></i> Blog</a></li>
+                <li><a href="/projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        
+<div class="post-container container">
+    <h1>Binary Classification of Insurance Cross Selling</h1>
+    <p class="post-date">Sep 11, 2024</p>
+    <h2>Overview</h2>
+<p>In this challenge, I tackle the problem of binary classification for insurance cross-selling. The task involves predicting whether an existing insurance customer will purchase an additional product based on various customer attributes. This is part of my <strong>30 Kaggle Challenges in 30 Days</strong> series.</p>
+<h2>Problem Description</h2>
+<p>The dataset consists of customer information, and the goal is to predict whether each customer will purchase a new insurance product. This is a classic binary classification problem with two possible outcomes:</p>
+<ul>
+<li><strong>1</strong>: The customer buys the additional insurance.</li>
+<li><strong>0</strong>: The customer does not buy the additional insurance.</li>
+</ul>
+<h2>Approach</h2>
+<h3>1. Exploratory Data Analysis (EDA)</h3>
+<p>I analyse the dataset to uncover patterns, correlations, and missing data. Key EDA steps include:</p>
+<pre class="language-cmd"><code class="language-cmd">   id  Gender  Age  Driving_License  Region_Code  Previously_Insured  \
+0   0    Male   21                1         35.0                   0   
+1   1    Male   43                1         28.0                   0   
+2   2  Female   25                1         14.0                   1   
+3   3  Female   35                1          1.0                   0   
+4   4  Female   36                1         15.0                   1   
+
+  Vehicle_Age Vehicle_Damage  Annual_Premium  Policy_Sales_Channel  Vintage  \
+0    1-2 Year            Yes         65101.0                 124.0      187   
+1   &gt; 2 Years            Yes         58911.0                  26.0      288   
+2    &lt; 1 Year             No         38043.0                 152.0      254   
+3    1-2 Year            Yes          2630.0                 156.0       76   
+4    1-2 Year             No         31951.0                 152.0      294   
+
+   Response  
+0         0  
+1         1  
+2         0  
+3         0  
+4         0  </code></pre>
+<p>We have 5 numerical features and 5 categorical features.<br>
+Numerical Features: Age, Region Code, Annual Premium, Policy Sales Channel, and Vintage<br>
+Categorical Features: Gender, Driving License, Previously Insured, Vehicle Age, and Vehicle Damage</p>
+<h4>Missing Data</h4>
+<pre class="language-python"><code class="language-python">train<span class="token punctuation">.</span>isnull<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-txt"><code class="language-txt">id                      0
+Gender                  0
+Age                     0
+Driving_License         0
+Region_Code             0
+Previously_Insured      0
+Vehicle_Age             0
+Vehicle_Damage          0
+Annual_Premium          0
+Policy_Sales_Channel    0
+Vintage                 0
+Response                0
+dtype: int64</code></pre>
+<p>Training data don’t have any missing data.</p>
+<h4>Distribution of Target Variable</h4>
+<pre class="language-python"><code class="language-python">plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>countplot<span class="token punctuation">(</span>train<span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token string">'Response'</span><span class="token punctuation">,</span> stat<span class="token operator">=</span><span class="token string">'percent'</span><span class="token punctuation">,</span> hue<span class="token operator">=</span><span class="token string">'Response'</span><span class="token punctuation">,</span> palette<span class="token operator">=</span><span class="token string">'viridis'</span><span class="token punctuation">,</span> legend<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Distribution of the target variable'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><img src="/assets/images/distribution-of-target-variable-kaggle-s4e7.png" alt="Distribution of the target variable for Kaggle Playground Series S4E7 competition" title="Distribution of the target variable for Kaggle Playground Series S4E7 competition." loading="lazy"></p>
+<p>87.7% of the customers have not purchased insurance, and 12.3% have purchased insurance. The data is highly imbalanced.</p>
+<h4>Other Features</h4>
+<p>Only 4.14% of the vehicles are older than 2 years.<br>
+The Annual Premium feature contains 18.36% lower and 2.3% upper outliers.</p>
+<h3>2. Feature Engineering</h3>
+<p>To improve the model’s accuracy, we need to perform feature engineering.</p>
+<h4>Encoding Categorical Features</h4>
+<p>We will do one hot encoding of categorical features because machine learning models need numerical values.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># One-hot encode the categorical columns</span>
+ohe <span class="token operator">=</span> OneHotEncoder<span class="token punctuation">(</span><span class="token punctuation">)</span>
+X_train_cat <span class="token operator">=</span> ohe<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>X_train<span class="token punctuation">[</span>cat_cols<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toarray<span class="token punctuation">(</span><span class="token punctuation">)</span>
+X_test_cat <span class="token operator">=</span> ohe<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>X_test<span class="token punctuation">[</span>cat_cols<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toarray<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h4>Scaling Numerical Features</h4>
+<p>We will scale the numerical features so that all the features are on the same scale.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Standardize the numerical columns</span>
+ss <span class="token operator">=</span> StandardScaler<span class="token punctuation">(</span><span class="token punctuation">)</span>
+X_train_num <span class="token operator">=</span> ss<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>X_train<span class="token punctuation">[</span>num_cols<span class="token punctuation">]</span><span class="token punctuation">)</span>
+X_test_num <span class="token operator">=</span> ss<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>X_test<span class="token punctuation">[</span>num_cols<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p>Now, we will merge both the encoded and scaled data.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Combine the numerical and categorical columns</span>
+X_train <span class="token operator">=</span> np<span class="token punctuation">.</span>hstack<span class="token punctuation">(</span><span class="token punctuation">(</span>X_train_num<span class="token punctuation">,</span> X_train_cat<span class="token punctuation">)</span><span class="token punctuation">)</span>
+X_test <span class="token operator">=</span> np<span class="token punctuation">.</span>hstack<span class="token punctuation">(</span><span class="token punctuation">(</span>X_test_num<span class="token punctuation">,</span> X_test_cat<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<h3>3. Model Selection</h3>
+<p>For this binary classification task, I experiment with several machine-learning models.<br>
+I created five folds of data using stratified k folds to validate the results before building a final model for submission. By doing this, we minimized the effect of imbalanced data. So each model will be run on five different combinations of the same data, except the random forest classifier. Because it was taking too much time, I have only one fold result for it.</p>
+<h4>Logistic Regression</h4>
+<p>A simple but effective model for binary classification.</p>
+<p><strong>Results</strong>:</p>
+<pre class="language-cmd"><code class="language-cmd">Fold=0, AUC=0.8415943240518661
+Fold=1, AUC=0.8413122123292518
+Fold=2, AUC=0.8412833425884464
+Fold=3, AUC=0.8408804706148243
+Fold=4, AUC=0.8414265096586687</code></pre>
+<h4>Random Forest</h4>
+<p>A powerful ensemble method that handles feature interactions well. Random Forest tends to be more computationally expensive as it grows and averages multiple decision trees.</p>
+<p><strong>Results</strong>:</p>
+<pre class="language-cmd"><code class="language-cmd">Fold=0, AUC=0.8444239686596572</code></pre>
+<h4>XGBoost</h4>
+<p>A high-performance model for classification tasks optimized for speed and accuracy.</p>
+<p><strong>Results</strong>:</p>
+<pre class="language-txt"><code class="language-txt">Fold=0, AUC=0.8778452687486167
+Fold=1, AUC=0.8779387120291394
+Fold=2, AUC=0.8782061206725237
+Fold=3, AUC=0.8778056660814351
+Fold=4, AUC=0.8786452067898584</code></pre>
+<h2>Results</h2>
+<p>After experimenting with various methods, here are the best results achieved for this challenge:</p>
+<ul>
+<li><strong>Model Chosen</strong>: XGBoost</li>
+<li><strong>ROC-AUC</strong>: 0.87820</li>
+</ul>
+<h2>Key Learnings</h2>
+<ul>
+<li>XGBoost is better than logistic regression and random forest.</li>
+<li>The random forest classifier is resource intensive and takes 10 minutes to run single-fold.</li>
+<li>I tried to optimize the hyperparameter using <code>RandomizedSearchCV</code>, but my laptop ran out of memory and restarted after 35 minutes.</li>
+</ul>
+<h2>Future Improvements</h2>
+<p>While the initial analysis focuses on traditional models like logistic regression, random forest, and XGBoost, there are several advanced techniques I plan to explore in the future to further improve performance:</p>
+<ul>
+<li><strong>Deep Learning Model</strong>: Experimenting with neural networks to capture more complex patterns in the data.</li>
+<li><strong>Ensemble Models</strong>: Using advanced stacking techniques that combine the predictions of multiple models for higher accuracy.</li>
+<li><strong>AutoML</strong>: Leveraging automated machine learning frameworks to optimize the selection and tuning of models.</li>
+<li><strong>Feature Selection</strong>: Investigating more sophisticated feature selection methods, such as Recursive Feature Elimination(RFE), to improve model efficiency.</li>
+</ul>
+<p>This section will be updated as I explore new techniques and models, providing a comparison with the initial results.</p>
+<h2>Conclusion</h2>
+<p>The first day of the 30 Kaggle Challenges in 30 Days journey has been both challenging and insightful, especially while experimenting with various binary classification models. After browsing some discussions on the Kaggle website, I realized there is so much more to learn. Hopefully, this challenge will increase my knowledge of machine learning. I am looking forward to completing the rest of the 29 days.</p>
+<p>For those interested in the complete code and implementation details, feel free to check out the <a href="https://github.com/surajwate/S4E7-Insurance-Cross-Selling">GitHub repository</a>.</p>
+
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+<!-- Add Giscus Comment Section Here -->
+
+
+    <section id="giscus-comments">
+        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
+    </section>
+</div>
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 Suraj Wate. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Prism JS -->
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation links
+            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        });
+    </script>
+    
+
+</body></html>

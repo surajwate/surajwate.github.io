@@ -8,6 +8,10 @@
   display: block;
 }
 
+.project-container h3 a {
+  font-size: 1.8rem;
+}
+
 /* Project date */
 .project-container .project-date {
   color: var(--text-light-color);

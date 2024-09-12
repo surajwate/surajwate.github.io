@@ -209,6 +209,7 @@ td {
 th {
     background-color: var(--primary-color);
     color: white;
+    border-radius: 5px;
 }
 
 button {

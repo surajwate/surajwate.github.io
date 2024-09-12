@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+/* Only apply border and background to <pre>, not <code> */
+pre[class*="language-"] {
+    background-color: transparent; /* Set your desired background color */
+    border: 1px solid #ccc; /* Border around the entire code block */
+    border-radius: 5px; /* Optional: Rounded corners */
+    padding: 1em; /* Padding inside the code block */
+    overflow-x: auto; /* Allow horizontal scrolling for long code */
+}
+
+/* Style the <code> element but no border or background */
+code[class*="language-"] {
+    background-color: transparent; /* Keep transparent */
+    padding: 0; /* Remove padding inside individual lines */
+    font-family: "Fira Code", monospace;
+    font-size: 0.9em;
+}
+
+code,
+pre {
+    font-family: "Fira Code", monospace;
+}
