@@ -8,7 +8,7 @@ tags:
   - Machine-Learning
   - Data-Science
   - Multiclass-Classification
-description: A brief summary of the post
+description: Predict students' dropout and academic success using a multiclass classification model. Includes stratified K-fold cross-validation and model performance optimization.
 categories:
   - Kaggle Challenges
   - Machine Learning Projects
