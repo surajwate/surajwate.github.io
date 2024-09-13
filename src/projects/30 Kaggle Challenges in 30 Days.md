@@ -19,9 +19,9 @@ draft: false
 
 ## Project Overview
 
-Welcome to my 30 Kaggle Challenges in 30 Days project! This journey is all about challenging myself to solve 30 Kaggle Playground problems in 30 days. Each challenge will offer a new learning experience, pushing me to explore different aspects of data science and machine learning, from data preprocessing to model building, feature engineering, and beyond.
+Welcome to my 30 Kaggle Challenges in 30 Days project! I've set out to solve 30 Kaggle Playground problems over the next 30 days. The goal isn't just to hit the finish line but to dive deep into different aspects of data science and machine learning, from data wrangling to building models and feature engineering.
 
-This project is driven by my personal interest in tackling real-world problems and sharpening my skills hands-on. It's not just about the results but about the process of learning, experimenting, and improving with each step.
+This project is all about challenging myself to think creatively and improve my skills by solving Kaggle playground problems. It's not just about getting the perfect result but about learning, experimenting, and pushing myself with each new challenge.
 
 
 ## Why This Challenge?
@@ -59,6 +59,17 @@ Each day, I will focus on a specific Kaggle Playground problem and document my a
 ### Day 1: [Binary Classification of Insurance Cross Selling](https://surajwate.com/blog/binary-classification-of-insurance-cross-selling/)
 
 **Description**: Tackling the first challenge! Today's problem is focused on binary classification for insurance cross-selling.
+
+**Notebook**: [Kaggle Notebook for S4E7](https://www.kaggle.com/code/surajwate/s4e7-insurance-cross-selling)
+**Code**: [GitHub Repository for Day 1](https://github.com/surajwate/S4E7-Insurance-Cross-Selling)
+
+
+### Day 2: [Classification with an Academic Success Dataset](https://surajwate.com/blog/classification-with-an-academic-success-dataset/)
+
+**Description**: Build classification model to predict students' dropout and academic success. The problem is formulated as a three category classification task, with a significant class imbalance. I applied stratified K-fold cross-validation and tried multiple models to optimize performance.
+
+**Notebook**: [Kaggle Notebook for S4E6](https://www.kaggle.com/code/surajwate/academic-success-xgboost)
+**Code**: [GitHub Repository for Day 2](https://github.com/surajwate/S4E6-Academic-Success)
 
 ## Conclusion 
 

@@ -12,6 +12,10 @@
   font-size: 1.8rem;
 }
 
+.project-container p a {
+  font-size: 1.35rem;
+}
+
 /* Project date */
 .project-container .project-date {
   color: var(--text-light-color);
