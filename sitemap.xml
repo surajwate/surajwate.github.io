@@ -16,13 +16,6 @@
   </url>
   
   <url>
-    <loc>https://surajwate.com/projects/third-project/</loc>
-    <lastmod>2024-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://surajwate.com/projects/educational-lead-conversion/</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -72,57 +65,64 @@
   </url>
   
   <url>
-    <loc>https://surajwate.com/about/</loc>
+    <loc>https://surajwate.com/blog/classification-with-an-academic-success-dataset/</loc>
     <lastmod>2024-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://surajwate.com/about/</loc>
+    <lastmod>2024-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/blog/</loc>
-    <lastmod>2024-09-12</lastmod>
+    <lastmod>2024-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/contact/</loc>
-    <lastmod>2024-09-12</lastmod>
+    <lastmod>2024-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/diary/</loc>
-    <lastmod>2024-09-12</lastmod>
+    <lastmod>2024-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/</loc>
-    <lastmod>2024-09-12</lastmod>
+    <lastmod>2024-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/projects/california-housing-prices/</loc>
-    <lastmod>2024-09-12</lastmod>
+    <lastmod>2024-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/projects/</loc>
-    <lastmod>2024-09-12</lastmod>
+    <lastmod>2024-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/sitemap.xml</loc>
-    <lastmod>2024-09-12</lastmod>
+    <lastmod>2024-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
