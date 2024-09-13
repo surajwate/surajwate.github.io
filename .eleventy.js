@@ -18,6 +18,9 @@ module.exports = function (eleventyConfig) {
   // Pass through robots.txt to output directory
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 
+  // Copy `assets/` to `_site/assets`
+  eleventyConfig.addPassthroughCopy("src/assets");
+
   // url filter for sitemap
   eleventyConfig.addFilter("url", function (value) {
     return `https://surajwate.com${value}`;
@@ -33,26 +36,29 @@ module.exports = function (eleventyConfig) {
   };
   eleventyConfig.setLibrary("md", markdownIt(options));
 
-  // Copy `assets/` to `_site/assets`
-  eleventyConfig.addPassthroughCopy("src/assets");
+// Prevent processing of any file with `draft` set to true
+  eleventyConfig.addGlobalData("eleventyComputed", {
+    // If draft is true, return false to exclude the file from the build
+    permalink: data => data.draft ? false : data.permalink
+  })
 
   // Blog collection sorted by date
   eleventyConfig.addCollection("posts", function (collection) {
-    return collection.getFilteredByGlob("src/blog/posts/**/*.md").filter(post => !post.data.draft).sort((a, b) => {
+    return collection.getFilteredByGlob("src/blog/posts/**/*.md").sort((a, b) => {
       return b.date - a.date; // Sort by date in descending order
     });
   });
 
   // Projects collection sorted by date
   eleventyConfig.addCollection("projects", function (collection) {
-    return collection.getFilteredByGlob("src/projects/**/*.md").filter(project => !project.data.draft).sort((a, b) => {
+    return collection.getFilteredByGlob("src/projects/**/*.md").sort((a, b) => {
       return b.date - a.date; // Sort by date in descending order
     });
   });
 
   // Diary collection sorted by date
   eleventyConfig.addCollection("diary", function (collection) {
-    return collection.getFilteredByGlob("src/diary/**/*.md").filter(diary => !diary.data.draft).sort((a, b) => {
+    return collection.getFilteredByGlob("src/diary/**/*.md").sort((a, b) => {
       return b.date - a.date; // Sort by date in descending order
     });
   });
@@ -89,7 +95,7 @@ module.exports = function (eleventyConfig) {
 
   // --- Minify CSS ---
   eleventyConfig.addTransform("cssmin", function (content, outputPath) {
-    if (outputPath.endsWith(".css")) {
+    if (outputPath && outputPath.endsWith(".css")) {
       let minified = new CleanCSS({}).minify(content).styles;
       return minified;
     }
@@ -98,7 +104,7 @@ module.exports = function (eleventyConfig) {
 
   // --- Minify JS ---
   eleventyConfig.addTransform("jsmin", async function (content, outputPath) {
-    if (outputPath.endsWith(".js")) {
+    if (outputPath && outputPath.endsWith(".js")) {
       let minified = await Terser.minify(content);
       return minified.code;
     }
