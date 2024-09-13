@@ -125,6 +125,7 @@ h3 {
     margin-bottom: 0.7em;
     font-size: 1.8em; /* Smaller than h2 */
     font-weight: 500; /* Medium weight */
+    margin-top: 1em; /* Add some spacing above the heading */
 }
 
 h4 {
@@ -133,6 +134,7 @@ h4 {
     margin-bottom: 0.6em;
     font-size: 1.5em; /* Standard size for h4 */
     font-weight: 500;
+    margin-top: 0.8em; /* Add some spacing above the heading */
 }
 
 
