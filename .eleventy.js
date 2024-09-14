@@ -4,6 +4,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { JSDOM } = require("jsdom");
 const CleanCSS = require("clean-css");
 const Terser = require("terser");
+const pluginMermaid = require("@kevingimbel/eleventy-plugin-mermaid");
 
 
 module.exports = function (eleventyConfig) {
@@ -20,6 +21,9 @@ module.exports = function (eleventyConfig) {
 
   // Copy `assets/` to `_site/assets`
   eleventyConfig.addPassthroughCopy("src/assets");
+
+  // Add mermaid plugin
+  eleventyConfig.addPlugin(pluginMermaid);
 
   // url filter for sitemap
   eleventyConfig.addFilter("url", function (value) {
