@@ -30,14 +30,14 @@
   </url>
   
   <url>
-    <loc>https://surajwate.com/blog/california-housing-prices/</loc>
+    <loc>https://surajwate.comfalse</loc>
     <lastmod>2024-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://surajwate.com/blog/categorical-encoding-in-machine-learning/</loc>
+    <loc>https://surajwate.comfalse</loc>
     <lastmod>2024-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -72,57 +72,57 @@
   </url>
   
   <url>
-    <loc>https://surajwate.com/about/</loc>
+    <loc>https://surajwate.com/blog/regression-with-a-flood-prediction-dataset/</loc>
     <lastmod>2024-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://surajwate.com/about/</loc>
+    <lastmod>2024-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/blog/</loc>
-    <lastmod>2024-09-13</lastmod>
+    <lastmod>2024-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/contact/</loc>
-    <lastmod>2024-09-13</lastmod>
+    <lastmod>2024-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/diary/</loc>
-    <lastmod>2024-09-13</lastmod>
+    <lastmod>2024-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/</loc>
-    <lastmod>2024-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://surajwate.com/projects/california-housing-prices/</loc>
-    <lastmod>2024-09-13</lastmod>
+    <lastmod>2024-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/projects/</loc>
-    <lastmod>2024-09-13</lastmod>
+    <lastmod>2024-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://surajwate.com/sitemap.xml</loc>
-    <lastmod>2024-09-13</lastmod>
+    <lastmod>2024-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

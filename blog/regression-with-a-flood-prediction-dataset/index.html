@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Regression with a Flood Prediction Dataset</title>
+    <meta name="description" content="Day 3 of Kaggle challenge: flood probability prediction using regression models and project automation.">
+    <meta name="author" content="Suraj Wate">
+    <meta name="keywords" content="Data Science, Machine Learning, Python">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Regression with a Flood Prediction Dataset">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://surajwate.com/blog/regression-with-a-flood-prediction-dataset/">
+    <meta property="og:description" content="Day 3 of Kaggle challenge: flood probability prediction using regression models and project automation.">
+    
+    <meta property="og:site_name" content="Suraj Wate's Blog">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Regression with a Flood Prediction Dataset">
+    <meta name="twitter:description" content="Day 3 of Kaggle challenge: flood probability prediction using regression models and project automation.">
+    
+
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"> <!-- Prism CSS -->
+    <!-- Font Awesome for Icons -->
+    <script defer="" src="https://kit.fontawesome.com/c39a85ddd3.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/icons/site.webmanifest">
+
+    <!-- IndieAuth -->
+    <link rel="me" href="https://fosstodon.org/@suraj">
+    <link rel="me" href="https://github.com/surajwate">
+    <link rel="me" href="https://twitter.com/surajwate">
+    <link rel="me" href="https://linkedin.com/in/surajwate">
+    <link rel="webmention" href="https://webmention.io/surajwate.com/webmention">
+
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+    <link rel="microsub" href="https://aperture.p3k.io/microsub/978">
+
+         
+<link rel="stylesheet" href="/assets/css/post.css">
+
+<!-- Custom Prism CSS -->
+<link rel="stylesheet" href="/assets/css/prism-custom.css">
+<!--- Custom Table Styles -->
+<link rel="stylesheet" href="/assets/css/table-styles.css">
+
+<meta property="og:type" content="article">
+
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [
+                ["$", "$"],
+                ["\\(", "\\)"],
+            ],
+            displayMath: [
+                ["$$", "$$"],
+                ["\\[", "\\]"],
+            ],
+        },
+    };
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Regression with a Flood Prediction Dataset",
+        "description": "Day 3 of Kaggle challenge: flood probability prediction using regression models and project automation.",
+        "datePublished": "Fri Sep 13 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
+        "author": {
+            "@type": "Person",
+            "name": "Suraj Wate"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Suraj Wate's Blog"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://surajwate.com/blog/regression-with-a-flood-prediction-dataset/"
+        },
+        "image": ["/path/to/lead-image.png"],
+        "articleSection": "Kaggle Challenges, Machine Learning Projects",
+        "keywords": "CatBoost, Kaggle, Flood-Prediction, Regression",
+        "inLanguage": "en"
+    }
+</script>
+
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VGQDQ5YQV');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">Suraj Wate</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/blog"><i class="fa-regular fa-newspaper"></i> Blog</a></li>
+                <li><a href="/projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        
+<div class="post-container container">
+    <h1>Regression with a Flood Prediction Dataset</h1>
+    <p class="post-date">Sep 13, 2024</p>
+    <h2>Day 3 of Kaggle Challenge: Improving Workflow</h2>
+<p>Today is the third day of my challenge, and writing about each problem in the same manner is getting monotonous. I already have the <a href="https://www.kaggle.com/competitions/playground-series-s4e5">Kaggle notebook</a> if anyone is interested in code. So, from now on, I will write less code in each blog. Instead, I will write about the experience and the thought process behind each step. In that way, the blog will look more like a blog and less like coding documentation as I can always write detailed documents in the <a href="https://github.com/surajwate/S4E5-Flood-Prediction-Dataset">GitHub repository</a>.</p>
+<h2>The Problem: Flood Probability Prediction</h2>
+<p>In today’s problem, we must predict the probability of flooding in the region. We are given the data with various features which might be responsible for the flood.</p>
+<h3>Dataset Overview</h3>
+<p>We start by checking for missing values in the dataset. This is cleaned data, so there are no missing values. The size is normal. The train data set has 1117957 rows and 22 columns, while the test dataset has 745305 rows. If we remove the <code>id</code> and <code>FloodProbability</code> columns, we have 20 features. The goal is to predict the probability of floods.</p>
+<h3>Initial Exploration</h3>
+<p>I check the count of unique values in the train set to understand the nature of the data. It is as follows:</p>
+<pre class="language-txt"><code class="language-txt">Monsoon Intensity                    17
+Topography Drainage                  19
+River Management                     17
+Deforestation                        18
+Urbanization                         18
+ClimateChange                        18
+Dams Quality                         17
+Siltation                            17
+Agricultural Practices               17
+Encroachments                        19
+Ineffective Disaster Preparedness    17
+Drainage Systems                     18
+Coastal Vulnerability                18
+Land slides                          17
+Water sheds                          17
+Deteriorating Infrastructure         18
+Population Score                     19
+Wetland Loss                         20
+Inadequate Planning                  17
+Political Factors                    17
+Flood Probability                    83</code></pre>
+<p>All the features have 17 to 19 unique values. Unfortunately, I can’t see what each of these values means. The repository of the original dataset from which the dataset for this challenge is synthetically generated is not available. Most probably, the user deleted that dataset. If any of the readers found the original data, please leave a comment, and I will try to incorporate that information in this blog.</p>
+<h3>Assumptions and Next Steps</h3>
+<p>Since the unique values for each feature are quite high, I will consider each feature a numerical feature.</p>
+<p>I checked the distribution of the target variable, ie. <code>FloodProbability</code>. It follows the bell curve; their distribution is normal, with around 0.5% outliers.</p>
+<p><img src="/assets/images/Kaggle-S4E5-Distribution-of-Target-Feature.png" alt="Kaggle S4E5: Distribution of Target Variable (FloodProbability)" loading="lazy"></p>
+<h2>Preprocessing</h2>
+<p>I have created a stratified k-fold from the train set. The only preprocessing I did was scaling the data using StandardScaler().</p>
+<h2>Project Structure</h2>
+<p>Today, I spent most of the time building a good project structure rather than building a machine-learning model, but I like the result. You can check all the code in this project’s GitHub repository. The following is the diagram of all files. I have automated all the processes, so you can build any model with a single command line.</p>
+<p>You run the single command line, like:</p>
+<pre class="language-cmd"><code class="language-cmd">python main.py --model xgboost</code></pre>
+<p>This command runs <code>main.py</code>, which in turn will <code>train.py</code>. The <code>train.py</code> imports model from <code>model_dispatcher</code> and other configuration like location of files and logging setting from <code>config.py</code>. Below is a diagram of the project structure:</p>
+<pre class="mermaid">graph TD;
+    Main[main.py] --&gt; |calls| Train[train.py];
+    Main --&gt; |imports| Config[config.py];
+    Train --&gt; |imports| Config[config.py];
+    Train --&gt; |imports| ModelDispatcher[model_dispatcher.py];
+
+    click Main href "https://github.com/yourusername/yourrepo/blob/main/main.py" "View main.py on GitHub"
+    click Train href "https://github.com/yourusername/yourrepo/blob/main/train.py" "View train.py on GitHub"
+    click Config href "https://github.com/yourusername/yourrepo/blob/main/config.py" "View config.py on GitHub"
+    click ModelDispatcher href "https://github.com/yourusername/yourrepo/blob/main/src/model_dispatcher.py" "View model_dispatcher.py on GitHub"
+
+
+	Config --&gt; |contains| LogFile["LOG_FILE"];
+    Config --&gt; |contains| TrainFile["TRAINING_FILE"];
+    Config --&gt; |contains| ModelOutput["MODEL_OUTPUT"];
+</pre>
+<h2>Model Performance</h2>
+<h3>CatBoostRegressor</h3>
+<p>Through this pipeline, I have run 10 different ML models. <code>CatBoostRegressor()</code> has given me the best result. These are as follows:</p>
+<pre class="language-cmd"><code class="language-cmd">Fold=0, R2 Score=0.8469, Time Taken=45.84sec
+Fold=1, R2 Score=0.8468, Time Taken=47.96sec
+Fold=2, R2 Score=0.8459, Time Taken=47.61sec
+Fold=3, R2 Score=0.8463, Time Taken=49.09sec
+Fold=4, R2 Score=0.8456, Time Taken=51.46sec</code></pre>
+<h3>Linear Regression</h3>
+<p>Interestingly, the second-best result came from <code>LinearRegressor()</code>, a simple model that performed surprisingly well:</p>
+<pre class="language-cmd"><code class="language-cmd">Fold=0, R2 Score=0.8455, Time Taken=0.53sec
+Fold=1, R2 Score=0.8454, Time Taken=0.42sec
+Fold=2, R2 Score=0.8445, Time Taken=0.45sec
+Fold=3, R2 Score=0.8450, Time Taken=0.55sec
+Fold=4, R2 Score=0.8443, Time Taken=0.49sec</code></pre>
+<h3>Insights</h3>
+<p>The results of these two are similar, but if you check the time each takes to fit the data, there is a vast difference. If you don’t need a marginal gain of prediction improvement at the cost of time, you better go with linear regression. It will save a lot of time and is easy to interpret. But we are doing a Kaggle problem where marginal gain is very important.</p>
+<p>I decided to build the final model on both and submit it. Check if the final score is different. According to our validation, <code>CatBoostRegressor()</code> should get a marginally higher score than <code>LinearRegressor()</code>.</p>
+<h2>Final Result</h2>
+<p>I submitted both models to compare their final scores:</p>
+<p><strong>Model</strong>: <code>CatBoostRegressor()</code><br>
+<strong>$R^2$ Score</strong>: 0.84558</p>
+<p><strong>Model</strong>: <code>LinearRegressor()</code><br>
+<strong>$R^2$ Score</strong>: 0.84426</p>
+<p>The result was on the expected line. There is a very marginal difference in score.</p>
+<h2>Conclusion</h2>
+<p>Today was the third day of the challenge, and I concentrated on building the workflow rather than a proper model. I realised the importance of proper workflow. It’s unnecessary to write a full code each day. Therefore, I decided to build a proper system so that all things are in place and I can concentrate on feature engineering and preprocessing. I am happy that I have built a primary pipeline. From tomorrow, I will focus more on feature engineering.</p>
+<p><strong>Links</strong>:</p>
+<p>GitHub Repository: <a href="https://github.com/surajwate/S4E5-Flood-Prediction-Dataset">Flood Prediction Dataset</a><br>
+Kaggle Notebook: <a href="https://www.kaggle.com/competitions/playground-series-s4e5">Regression with a Flood Prediction</a></p>
+
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+<!-- Add Giscus Comment Section Here -->
+
+
+    <section id="giscus-comments">
+        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
+    </section>
+</div>
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 Suraj Wate. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Prism JS -->
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation links
+            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        });
+    </script>
+    <script type="module"> 
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+</body></html>
