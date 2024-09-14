@@ -71,6 +71,14 @@ Each day, I will focus on a specific Kaggle Playground problem and document my a
 **Notebook**: [Kaggle Notebook for S4E6](https://www.kaggle.com/code/surajwate/academic-success-xgboost)
 **Code**: [GitHub Repository for Day 2](https://github.com/surajwate/S4E6-Academic-Success)
 
+
+### Day 3: [Regression with a Flood Prediction Dataset](https://surajwate.com/blog/regression-with-a-flood-prediction-dataset/)
+
+**Description**: Developed a regression model to predict the probability of flooding in different regions. This challenge focused on feature analysis and automating the machine learning workflow for running multiple models efficiently. The project was enhanced by building a reusable project structure that can handle multiple model runs with a single command.
+
+**Notebook**: [Kaggle Notebook for S4E5](https://www.kaggle.com/competitions/playground-series-s4e5)
+**Code**: [GitHub Repository for Day 3](https://github.com/surajwate/S4E5-Flood-Prediction-Dataset)
+
 ## Conclusion 
 
 This journey is not just about solving 30 problems, but about embracing the learning process, enjoying the challenge, and exploring different data science techniques. Feel free to follow along, and I hope to inspire others who are passionate about data science to take on similar challenges.
