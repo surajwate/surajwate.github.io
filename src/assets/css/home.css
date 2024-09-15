@@ -2,7 +2,7 @@
   max-width: 1000px; /* Consistent with other containers */
   margin: 0 auto;
   padding: 3em 1.5em; /* Adjusted for uniformity */
-  background-color: transparent;
+  background-color: var(--background-color);
   color: var(--text-color);
   border-radius: 0;
   box-shadow: none;

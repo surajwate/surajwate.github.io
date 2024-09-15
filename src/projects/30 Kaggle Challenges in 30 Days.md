@@ -79,6 +79,14 @@ Each day, I will focus on a specific Kaggle Playground problem and document my a
 **Notebook**: [Kaggle Notebook for S4E5](https://www.kaggle.com/competitions/playground-series-s4e5)
 **Code**: [GitHub Repository for Day 3](https://github.com/surajwate/S4E5-Flood-Prediction-Dataset)
 
+
+### Day 4: [Regression with an Abalone Dataset](https://surajwate.com/blog/regression-with-an-abalone-dataset/)
+
+**Description**: Build a regression model to predict the age of abalone from physical measurements. Utilize the pipelines from sklearn to streamline all preprocessing and model building.
+
+**Notebook**: [Kaggle Notebook for S4E4](https://www.kaggle.com/code/surajwate/s4e4-abalone-catboost)
+**Code**: [GitHub Repository for Day 4](https://github.com/surajwate/S4E4-Regression-with-an-Abalone-Dataset)
+
 ## Conclusion 
 
 This journey is not just about solving 30 problems, but about embracing the learning process, enjoying the challenge, and exploring different data science techniques. Feel free to follow along, and I hope to inspire others who are passionate about data science to take on similar challenges.
