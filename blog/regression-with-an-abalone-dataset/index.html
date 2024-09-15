@@ -1,0 +1,476 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Regression with an Abalone Dataset</title>
+    <meta name="description" content="A deep dive into hyperparameter tuning with CatBoost for predicting abalone age using the RMSLE evaluation metric, as part of the 30 Kaggle Challenges in 30 Days series.">
+    <meta name="author" content="Suraj Wate">
+    <meta name="keywords" content="Data Science, Machine Learning, Python">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Regression with an Abalone Dataset">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://surajwate.com/blog/regression-with-an-abalone-dataset/">
+    <meta property="og:description" content="A deep dive into hyperparameter tuning with CatBoost for predicting abalone age using the RMSLE evaluation metric, as part of the 30 Kaggle Challenges in 30 Days series.">
+    
+    <meta property="og:site_name" content="Suraj Wate's Blog">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Regression with an Abalone Dataset">
+    <meta name="twitter:description" content="A deep dive into hyperparameter tuning with CatBoost for predicting abalone age using the RMSLE evaluation metric, as part of the 30 Kaggle Challenges in 30 Days series.">
+    
+
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"> <!-- Prism CSS -->
+    <!-- Font Awesome for Icons -->
+    <script defer="" src="https://kit.fontawesome.com/c39a85ddd3.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/icons/site.webmanifest">
+
+    <!-- IndieAuth -->
+    <link rel="me" href="https://fosstodon.org/@suraj">
+    <link rel="me" href="https://github.com/surajwate">
+    <link rel="me" href="https://twitter.com/surajwate">
+    <link rel="me" href="https://linkedin.com/in/surajwate">
+    <link rel="webmention" href="https://webmention.io/surajwate.com/webmention">
+
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+    <link rel="microsub" href="https://aperture.p3k.io/microsub/978">
+
+         
+<link rel="stylesheet" href="/assets/css/post.css">
+
+<!-- Custom Prism CSS -->
+<link rel="stylesheet" href="/assets/css/prism-custom.css">
+<!--- Custom Table Styles -->
+<link rel="stylesheet" href="/assets/css/table-styles.css">
+
+<meta property="og:type" content="article">
+
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [
+                ["$", "$"],
+                ["\\(", "\\)"],
+            ],
+            displayMath: [
+                ["$$", "$$"],
+                ["\\[", "\\]"],
+            ],
+        },
+    };
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Regression with an Abalone Dataset",
+        "description": "A deep dive into hyperparameter tuning with CatBoost for predicting abalone age using the RMSLE evaluation metric, as part of the 30 Kaggle Challenges in 30 Days series.",
+        "datePublished": "Sat Sep 14 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
+        "author": {
+            "@type": "Person",
+            "name": "Suraj Wate"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Suraj Wate's Blog"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://surajwate.com/blog/regression-with-an-abalone-dataset/"
+        },
+        "image": ["/path/to/lead-image.png"],
+        "articleSection": "Kaggle Challenges, Machine Learning Projects",
+        "keywords": "RMSLE, Pipelines, CatBoost, Data-Science, Regression",
+        "inLanguage": "en"
+    }
+</script>
+
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VGQDQ5YQV');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">Suraj Wate</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/blog"><i class="fa-regular fa-newspaper"></i> Blog</a></li>
+                <li><a href="/projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        
+<div class="post-container container">
+    <h1>Regression with an Abalone Dataset</h1>
+    <p class="post-date">Sep 14, 2024</p>
+    <h2>Overview</h2>
+<p>Today is the fourth day of <a href="https://surajwate.com/projects/30-days-of-kaggle-challenges/">30 Kaggle Challenges in 30 Days</a>. In the last three challenges, I concentrated on basic models and building a basic pipeline for the Kaggle competition. Today, I will deep-dive into other areas, like feature engineering or hyperparameter tuning, to optimize the model’s performance.</p>
+<h2>Problem Description</h2>
+<p>Today, we are solving the Kaggle Playground Season 4 Episode 4 problem. The dataset for this problem is synthetically generated by using the dataset from the UC Irvine Machine Learning Repository. Links for both are given below:</p>
+<p><strong>Kaggle Playground</strong>: <a href="https://www.kaggle.com/competitions/playground-series-s4e4">Season 4, Episode 4</a><br>
+<strong>Abalone Dataset on UCI</strong>: <a href="https://archive.ics.uci.edu/dataset/1/abalone">Original Dataset</a></p>
+<p>In this problem, we have to build a model to predict the age of an abalone from physical measurements. The evaluation metric for this competition is Root Mean Squared Logarithmic Error.</p>
+<h2>Data Exploration</h2>
+<p><strong>Train Data</strong>: 90615 rows and 9 columns<br>
+<strong>Test Data</strong>: 60411 rows and 8 columns</p>
+<p>The train data have one more column because it contains the target feature, <code>Rings</code>. You may wonder that our target must be <em>age</em>, so why does the train dataset have the target feature <code>Rings</code>? Well, in the original dataset, you calculate age by adding 1.5 to the number of rings, and the same goes here as well.</p>
+<p>Missing Values</p>
+<p>The train dataset doesn’t have any missing values. All features except <code>Sex</code> are numerical. The number of unique values for each of the features is given below:</p>
+<pre class="language-txt"><code class="language-txt">Sex                  3
+Length             157
+Diameter           126
+Height              90
+Whole weight      3175
+Whole weight.1    1799
+Whole weight.2     979
+Shell weight      1129
+Rings               28</code></pre>
+<p>The following is the variable table from the source. Kaggle has replaced <code>Shucked_weight</code> with <code>Whole weight.1</code> and <code>Viscera_weight</code> with <code>Whole weight.2</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Role</th>
+<th>Type</th>
+<th>Description</th>
+<th>Units</th>
+<th>Missing Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sex</td>
+<td>Feature</td>
+<td>Categorical</td>
+<td>M, F, and I (infant)</td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>Feature</td>
+<td>Continuous</td>
+<td>Longest shell measurement</td>
+<td>mm</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Diameter</td>
+<td>Feature</td>
+<td>Continuous</td>
+<td>Perpendicular to length</td>
+<td>mm</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Height</td>
+<td>Feature</td>
+<td>Continuous</td>
+<td>With meat in shell</td>
+<td>mm</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Whole_weight</td>
+<td>Feature</td>
+<td>Continuous</td>
+<td>Whole abalone</td>
+<td>grams</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Shucked_weight</td>
+<td>Feature</td>
+<td>Continuous</td>
+<td>Weight of meat</td>
+<td>grams</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Viscera_weight</td>
+<td>Feature</td>
+<td>Continuous</td>
+<td>Gut weight (after bleeding)</td>
+<td>grams</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Shell_weight</td>
+<td>Feature</td>
+<td>Continuous</td>
+<td>After being dried</td>
+<td>grams</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Rings</td>
+<td>Target</td>
+<td>Integer</td>
+<td>+1.5 gives the age in years</td>
+<td></td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p>I got this pictures from <a href="https://www.flickr.com/photos/sackerman519/9725080863">flickr</a> and <a href="https://www.dimensions.com/element/white-abalone-haliotis-sorenseni">dimension website</a> to understand the dimension.</p>
+<p><img src="/assets/images/abalone.jpg" alt="Abalone" loading="lazy"></p>
+<p><img src="/assets/images/abalones-dimensions.png" alt="" loading="lazy"></p>
+<h3>Target Feature: Rings</h3>
+<p>The rings are used to calculate age. The age of an abalone is determined by cutting the shell through the cone, staining it, and counting the number of rings through a microscope—a boring and time-consuming task, according to the researchers who collected data for this project.</p>
+<p><img src="/assets/images/Kaggle-S4E4-Distribution-of-Rings.png" alt="Distribution of Kaggle S4E4 Target Variable (Rings)" loading="lazy"></p>
+<p>From the plot, we can see that there are some outliers. The median rings are 9, and most of the abalone have rings between 8 and 11.</p>
+<h3>Pipeline</h3>
+<p>Today, I tried using the pipeline to run all the preprocessing. Pipelines in scikit-learn help streamline the process by handling preprocessing and model training in one step, ensuring that all folds receive the same transformations and making the code modular and reusable.</p>
+<p>In our dataset, we have only one categorical variable, <code>Sex</code>, which I encoded using OneHotEncoder. The rest of the features are numerical features, which I scaled using the standard scaler from Sklearn.</p>
+<pre class="language-python"><code class="language-python">
+<span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>fold<span class="token punctuation">,</span> model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Import the data</span>
+    df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span>config<span class="token punctuation">.</span>TRAINING_FILE<span class="token punctuation">)</span>
+
+    <span class="token comment"># Split the data into training and testing</span>
+    train <span class="token operator">=</span> df<span class="token punctuation">[</span>df<span class="token punctuation">.</span>kfold <span class="token operator">!=</span> fold<span class="token punctuation">]</span><span class="token punctuation">.</span>reset_index<span class="token punctuation">(</span>drop<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    test <span class="token operator">=</span> df<span class="token punctuation">[</span>df<span class="token punctuation">.</span>kfold <span class="token operator">==</span> fold<span class="token punctuation">]</span><span class="token punctuation">.</span>reset_index<span class="token punctuation">(</span>drop<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Split the data into features and target</span>
+    X_train <span class="token operator">=</span> train<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'Rings'</span><span class="token punctuation">,</span> <span class="token string">'kfold'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    X_test <span class="token operator">=</span> test<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'Rings'</span><span class="token punctuation">,</span> <span class="token string">'kfold'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+    y_train <span class="token operator">=</span> train<span class="token punctuation">.</span>Rings<span class="token punctuation">.</span>values
+    y_test <span class="token operator">=</span> test<span class="token punctuation">.</span>Rings<span class="token punctuation">.</span>values
+
+    <span class="token comment"># Define categorical and numerical columns</span>
+    categorical_cols <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Sex'</span><span class="token punctuation">]</span>
+    numerical_cols <span class="token operator">=</span> <span class="token punctuation">[</span>col <span class="token keyword">for</span> col <span class="token keyword">in</span> X_train<span class="token punctuation">.</span>columns <span class="token keyword">if</span> col <span class="token keyword">not</span> <span class="token keyword">in</span> categorical_cols<span class="token punctuation">]</span>
+
+    <span class="token comment"># Create a column transformer for one-hot encoding and standard scaling</span>
+    preprocessor <span class="token operator">=</span> ColumnTransformer<span class="token punctuation">(</span>
+        transformers<span class="token operator">=</span><span class="token punctuation">[</span>
+            <span class="token punctuation">(</span><span class="token string">'num'</span><span class="token punctuation">,</span> StandardScaler<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> numerical_cols<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">(</span><span class="token string">'cat'</span><span class="token punctuation">,</span> OneHotEncoder<span class="token punctuation">(</span>drop<span class="token operator">=</span><span class="token string">'first'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> categorical_cols<span class="token punctuation">)</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">)</span>
+
+    <span class="token comment"># Create a pipeline with the preprocessor and the model</span>
+    pipeline <span class="token operator">=</span> Pipeline<span class="token punctuation">(</span>steps<span class="token operator">=</span><span class="token punctuation">[</span>
+        <span class="token punctuation">(</span><span class="token string">'preprocessor'</span><span class="token punctuation">,</span> preprocessor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token string">'model'</span><span class="token punctuation">,</span> model_dispatcher<span class="token punctuation">.</span>models<span class="token punctuation">[</span>model<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+	<span class="token comment"># Fit the model</span>
+	pipeline<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span>
+
+	<span class="token comment"># make predictions</span>
+	preds <span class="token operator">=</span> pipeline<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>X_test<span class="token punctuation">)</span>
+
+	<span class="token comment"># Clip predictions to avoid negative values</span>
+	preds <span class="token operator">=</span> np<span class="token punctuation">.</span>clip<span class="token punctuation">(</span>preds<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">)</span>
+
+	end <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	time_taken <span class="token operator">=</span> end <span class="token operator">-</span> start
+
+	<span class="token comment"># Calculate the R2 score</span>
+	rmsle <span class="token operator">=</span> root_mean_squared_log_error<span class="token punctuation">(</span>y_test<span class="token punctuation">,</span> preds<span class="token punctuation">)</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Fold=</span><span class="token interpolation"><span class="token punctuation">{</span>fold<span class="token punctuation">}</span></span><span class="token string">, rmsle=</span><span class="token interpolation"><span class="token punctuation">{</span>rmsle<span class="token punctuation">:</span><span class="token format-spec">.4f</span><span class="token punctuation">}</span></span><span class="token string">, Time=</span><span class="token interpolation"><span class="token punctuation">{</span>time_taken<span class="token punctuation">:</span><span class="token format-spec">.2f</span><span class="token punctuation">}</span></span><span class="token string">sec"</span></span><span class="token punctuation">)</span>
+    </code></pre>
+<h3>Analysis of Results (RMSLE and Time Taken):</h3>
+<p>I have built five cross-validation sets to validate the model. I used a total of 10 models and fit them on every validation set. The results are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Fold 0 RMSLE</th>
+<th>Fold 1 RMSLE</th>
+<th>Fold 2 RMSLE</th>
+<th>Fold 3 RMSLE</th>
+<th>Fold 4 RMSLE</th>
+<th>Avg RMSLE</th>
+<th>Avg Time (seconds)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linear Regression</td>
+<td>0.1646</td>
+<td>0.1648</td>
+<td>0.1662</td>
+<td>0.1665</td>
+<td>0.1627</td>
+<td>0.1649</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td>0.1552</td>
+<td>0.1543</td>
+<td>0.1558</td>
+<td>0.1547</td>
+<td>0.1536</td>
+<td>0.1547</td>
+<td>3.91</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>0.1512</td>
+<td>0.1506</td>
+<td>0.1526</td>
+<td>0.1508</td>
+<td>0.1498</td>
+<td>0.1510</td>
+<td>0.37</td>
+</tr>
+<tr>
+<td>LightGBM</td>
+<td>0.1505</td>
+<td>0.1500</td>
+<td>0.1518</td>
+<td>0.1503</td>
+<td>0.1494</td>
+<td>0.1504</td>
+<td>0.24</td>
+</tr>
+<tr>
+<td>CatBoost</td>
+<td>0.1497</td>
+<td>0.1489</td>
+<td>0.1506</td>
+<td>0.1492</td>
+<td>0.1483</td>
+<td>0.1493</td>
+<td>6.28</td>
+</tr>
+<tr>
+<td>Gradient Boosting</td>
+<td>0.1529</td>
+<td>0.1529</td>
+<td>0.1543</td>
+<td>0.1527</td>
+<td>0.1520</td>
+<td>0.1530</td>
+<td>6.59</td>
+</tr>
+<tr>
+<td>SVR</td>
+<td>0.1532</td>
+<td>0.1535</td>
+<td>0.1546</td>
+<td>0.1535</td>
+<td>0.1517</td>
+<td>0.1533</td>
+<td>253.64</td>
+</tr>
+<tr>
+<td>KNeighbors Regressor</td>
+<td>0.1658</td>
+<td>0.1655</td>
+<td>0.1671</td>
+<td>0.1653</td>
+<td>0.1646</td>
+<td>0.1657</td>
+<td>0.52</td>
+</tr>
+<tr>
+<td>Ridge Regression</td>
+<td>0.1646</td>
+<td>0.1648</td>
+<td>0.1662</td>
+<td>0.1665</td>
+<td>0.1627</td>
+<td>0.1650</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>Lasso Regression</td>
+<td>0.2161</td>
+<td>0.2165</td>
+<td>0.2177</td>
+<td>0.2159</td>
+<td>0.2160</td>
+<td>0.2164</td>
+<td>0.08</td>
+</tr>
+</tbody>
+</table>
+<p>I got the best score from CatBoost without doing any feature engineering. The next best models are LightGBM and XGBoost, which also took very little time to run.</p>
+<p>After this initial run, we have the following three options:</p>
+<ul>
+<li>Hyperparameter Tuning: Using techniques like Grid Search, Randomized Search, and Bayesian Optimization (e.g., using Optuna).</li>
+<li>Feature Engineering: Transformation, feature selection, creating new features.</li>
+<li>Ensembling: Blending, Stacking, Bagging.</li>
+</ul>
+<p>I will begin with hyperparameter tuning using Sklearn’s <code>RandomizedGridSearchCV</code> on CatBoost because that model achieves our best score.</p>
+<p>Now, after running various grids for 3 hours, the score doesn’t improve. After multiple rounds of grid search and randomized search, the best RMSLE remained very similar to the default CatBoost model. This indicates that CatBoost’s default parameters are well-optimized for this dataset.</p>
+<p>I should have begun with feature engineering, but for today, let’s finalize the CatBoost. I will explore the rest of the options for this problem in the future, and some I will use for tomorrow’s problem.</p>
+<h2>Final Result</h2>
+<p>I have used <code>CatBoostRegressor</code> on a full train set to build a model for submission and got the following result.</p>
+<p><strong>Model</strong>: CatBoost<br>
+<strong>Score</strong>: 0.14783<br>
+<strong>Rank Range</strong>: 1064-1069</p>
+<h2>Conclusion</h2>
+<p>Today was the fourth day of the challenge. I solved today’s problem using a pipeline. I tried to optimize the model using grid search, but it didn’t improve the performance. I spent around three hours doing that. Tomorrow, I will concentrate on feature engineering first after the initial stage of building base models.</p>
+<h2>Links</h2>
+<p><strong>Notebook</strong>: <a href="https://www.kaggle.com/code/surajwate/s4e4-abalone-catboost">Kaggle Notebook for S4E4</a><br>
+<strong>Code</strong>: <a href="https://github.com/surajwate/S4E4-Regression-with-an-Abalone-Dataset">GitHub Repository for Day 4</a></p>
+
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+<!-- Add Giscus Comment Section Here -->
+
+
+    <section id="giscus-comments">
+        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
+    </section>
+</div>
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 Suraj Wate. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Prism JS -->
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation links
+            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        });
+    </script>
+    <script type="module"> 
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+</body></html>

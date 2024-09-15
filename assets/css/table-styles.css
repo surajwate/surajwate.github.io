@@ -10,7 +10,7 @@ table {
 
 /* Header styles */
 th {
-  background-color: transparent; /* Use your site's primary color */
+  background-color: var(--background-color); /* Use your site's primary color */
   color: var(--primary-color); /* White text for headers */
   padding: 12px; /* Add padding for headers */
   text-align: left; /* Align text to the left */
@@ -58,7 +58,7 @@ tr:hover {
 
 /* First column special styling (row numbers or labels) */
 td:first-child, th:first-child {
-  background-color: transparent; /* Make first column stand out */
+  background-color: var(--background-color); /* Make first column stand out */
   color: var(--primary-color); /* White text */
   text-align: center; /* Center align the first column */
   width: 80px; /* Set a fixed width for the first column */

@@ -2,7 +2,7 @@
 
 /* Only apply border and background to <pre>, not <code> */
 pre[class*="language-"] {
-    background-color: transparent; /* Set your desired background color */
+    background-color: var(--background-color); /* Set your desired background color */
     border: 1px solid #ccc; /* Border around the entire code block */
     border-radius: 5px; /* Optional: Rounded corners */
     padding: 1em; /* Padding inside the code block */
@@ -11,7 +11,7 @@ pre[class*="language-"] {
 
 /* Style the <code> element but no border or background */
 code[class*="language-"] {
-    background-color: transparent; /* Keep transparent */
+    background-color: var(--background-color); /* Keep transparent */
     padding: 0; /* Remove padding inside individual lines */
     font-family: "Fira Code", monospace;
     font-size: 0.9em;
