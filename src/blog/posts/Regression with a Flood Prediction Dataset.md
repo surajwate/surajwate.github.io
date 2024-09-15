@@ -20,7 +20,7 @@ draft: false
 ## Day 3 of Kaggle Challenge: Improving Workflow
 
 
-Today is the third day of my challenge, and writing about each problem in the same manner is getting monotonous. I already have the [Kaggle notebook](https://www.kaggle.com/competitions/playground-series-s4e5) if anyone is interested in code. So, from now on, I will write less code in each blog. Instead, I will write about the experience and the thought process behind each step. In that way, the blog will look more like a blog and less like coding documentation as I can always write detailed documents in the [GitHub repository](https://github.com/surajwate/S4E5-Flood-Prediction-Dataset). 
+Today is the third day of my challenge, and writing about each problem in the same manner is getting monotonous. I already have the [Kaggle notebook](https://www.kaggle.com/code/surajwate/s4e5-flood-prediction) if anyone is interested in code. So, from now on, I will write less code in each blog. Instead, I will write about the experience and the thought process behind each step. In that way, the blog will look more like a blog and less like coding documentation as I can always write detailed documents in the [GitHub repository](https://github.com/surajwate/S4E5-Flood-Prediction-Dataset). 
 
 ## The Problem: Flood Probability Prediction
 
@@ -96,10 +96,10 @@ graph TD;
     Train --> |imports| Config[config.py];
     Train --> |imports| ModelDispatcher[model_dispatcher.py];
 
-    click Main href "https://github.com/yourusername/yourrepo/blob/main/main.py" "View main.py on GitHub"
-    click Train href "https://github.com/yourusername/yourrepo/blob/main/train.py" "View train.py on GitHub"
-    click Config href "https://github.com/yourusername/yourrepo/blob/main/config.py" "View config.py on GitHub"
-    click ModelDispatcher href "https://github.com/yourusername/yourrepo/blob/main/src/model_dispatcher.py" "View model_dispatcher.py on GitHub"
+    click Main href "https://github.com/surajwate/S4E5-Flood-Prediction-Dataset/blob/master/main.py" "View main.py on GitHub"
+    click Train href "https://github.com/surajwate/S4E5-Flood-Prediction-Dataset/blob/master/src/train.py" "View train.py on GitHub"
+    click Config href "https://github.com/surajwate/S4E5-Flood-Prediction-Dataset/blob/master/src/config.py" "View config.py on GitHub"
+    click ModelDispatcher href "https://github.com/surajwate/S4E5-Flood-Prediction-Dataset/blob/master/src/model_dispatcher.py" "View model_dispatcher.py on GitHub"
 
 
 	Config --> |contains| LogFile["LOG_FILE"];
@@ -164,5 +164,5 @@ Today was the third day of the challenge, and I concentrated on building the wor
 **Links**:
 
 GitHub Repository: [Flood Prediction Dataset](https://github.com/surajwate/S4E5-Flood-Prediction-Dataset)
-Kaggle Notebook: [Regression with a Flood Prediction](https://www.kaggle.com/competitions/playground-series-s4e5)
+Kaggle Notebook: [Regression with a Flood Prediction](https://www.kaggle.com/code/surajwate/s4e5-flood-prediction)
 
