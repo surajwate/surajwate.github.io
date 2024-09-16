@@ -87,6 +87,17 @@ Each day, I will focus on a specific Kaggle Playground problem and document my a
 **Notebook**: [Kaggle Notebook for S4E4](https://www.kaggle.com/code/surajwate/s4e4-abalone-catboost)
 **Code**: [GitHub Repository for Day 4](https://github.com/surajwate/S4E4-Regression-with-an-Abalone-Dataset)
 
+
+
+### Day 5: [Steel Plate Defect Prediction](https://surajwate.com/blog/steel-plate-defect-prediction/)
+
+**Description**: Build a multiclass classifier to identify a type of steel plate. The dataset contains multiple labels corresponding to seven distinct fault types, making this problem a multi-label classification task.
+
+
+**Notebook**: [Kaggle Notebook for S4E3](https://www.kaggle.com/code/surajwate/s4e3-streel-plate-defect)
+**Code**: [GitHub Repository for Day 5](https://github.com/surajwate/S4E3-Steel-Plate-Defect-Prediction)
+
+
 ## Conclusion 
 
 This journey is not just about solving 30 problems, but about embracing the learning process, enjoying the challenge, and exploring different data science techniques. Feel free to follow along, and I hope to inspire others who are passionate about data science to take on similar challenges.
