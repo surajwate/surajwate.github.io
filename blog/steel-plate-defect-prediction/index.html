@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Steel Plate Defect Prediction</title>
+    <meta name="description" content="Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost to identify steel plate defects.">
+    <meta name="author" content="Suraj Wate">
+    <meta name="keywords" content="Data Science, Machine Learning, Python">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Steel Plate Defect Prediction">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://surajwate.com/blog/steel-plate-defect-prediction/">
+    <meta property="og:description" content="Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost to identify steel plate defects.">
+    
+    <meta property="og:site_name" content="Suraj Wate's Blog">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Steel Plate Defect Prediction">
+    <meta name="twitter:description" content="Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost to identify steel plate defects.">
+    
+
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"> <!-- Prism CSS -->
+    <!-- Font Awesome for Icons -->
+    <script defer="" src="https://kit.fontawesome.com/c39a85ddd3.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/icons/site.webmanifest">
+
+    <!-- IndieAuth -->
+    <link rel="me" href="https://fosstodon.org/@suraj">
+    <link rel="me" href="https://github.com/surajwate">
+    <link rel="me" href="https://twitter.com/surajwate">
+    <link rel="me" href="https://linkedin.com/in/surajwate">
+    <link rel="webmention" href="https://webmention.io/surajwate.com/webmention">
+
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+    <link rel="microsub" href="https://aperture.p3k.io/microsub/978">
+
+         
+<link rel="stylesheet" href="/assets/css/post.css">
+
+<!-- Custom Prism CSS -->
+<link rel="stylesheet" href="/assets/css/prism-custom.css">
+<!--- Custom Table Styles -->
+<link rel="stylesheet" href="/assets/css/table-styles.css">
+
+<meta property="og:type" content="article">
+
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [
+                ["$", "$"],
+                ["\\(", "\\)"],
+            ],
+            displayMath: [
+                ["$$", "$$"],
+                ["\\[", "\\]"],
+            ],
+        },
+    };
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Steel Plate Defect Prediction",
+        "description": "Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost to identify steel plate defects.",
+        "datePublished": "Sun Sep 15 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
+        "author": {
+            "@type": "Person",
+            "name": "Suraj Wate"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Suraj Wate's Blog"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://surajwate.com/blog/steel-plate-defect-prediction/"
+        },
+        "image": ["/path/to/lead-image.png"],
+        "articleSection": "Kaggle Challenges, Machine Learning Projects",
+        "keywords": "Multilabel-Classification, Steel-Plate-Faults, CatBoost, AUC",
+        "inLanguage": "en"
+    }
+</script>
+
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VGQDQ5YQV');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">Suraj Wate</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/blog"><i class="fa-regular fa-newspaper"></i> Blog</a></li>
+                <li><a href="/projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        
+<div class="post-container container">
+    <h1>Steel Plate Defect Prediction</h1>
+    <p class="post-date">Sep 15, 2024</p>
+    <h2>Introduction</h2>
+<p>Today is the fourth day of <a href="https://surajwate.com/projects/30-days-of-kaggle-challenges/">30 Kaggle Challenges in 30 Days</a> challenge. Today we will concentrate on the feature engineering of the dataset to improve the performance of the model.</p>
+<h2>Problem Statement</h2>
+<p>Build a classifier to identify the type of steel plate fault. Kaggle have provided a synthetically generated dataset from the dataset of steel plates faults from UCI Repository. The steel plate have 7 types of faults and the task is to build a classifier to identify the type of faults in test dataset. The evaluation metric for this competition is area under the ROC curve.</p>
+<p>To calculate the final score, AUC is calculated for each of the 7 defect categories and then averaged. In other words, the score is the average of the individual AUC of each predicted column.</p>
+<ul>
+<li>Kaggle Dataset: <a href="https://www.kaggle.com/competitions/playground-series-s4e3/data">Playground Series: Season 4, Episode 3</a></li>
+<li>UCI Repository Dataset: <a href="https://archive.ics.uci.edu/dataset/198/steel+plates+faults">Steel Plates Faults</a></li>
+</ul>
+<h2>Data Exploration</h2>
+<p>Two datasets have been provided, train and test. The sizes of the datasets are as follows:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Rows</th>
+<th>Columns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Train</td>
+<td>19219</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Test</td>
+<td>12814</td>
+<td>28</td>
+</tr>
+</tbody>
+</table>
+<p>The seven extra columns in the train dataset is the seven types of faults in steel plates. In the submission, the probability of each of those fault in test data have to be submitted.</p>
+<p>If id column is removed from analysis, there are total 27 features. The detailed description of these features are not provided. I check on the UCI Repository, but there also detailed description has not been provided.</p>
+<h2>Exploratory Data Analysis</h2>
+<h3>Distribution of Steel Plates</h3>
+<p>The dataset does not have any missing values. All the features are numerical. I checked the total number of faulty plates in training set.</p>
+<table>
+<thead>
+<tr>
+<th>Fault Present</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Yes</td>
+<td>18401</td>
+</tr>
+<tr>
+<td>No</td>
+<td>818</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/assets/images/Kaggel-S4E3-Target-Distribution.png" alt="Kaggle S4E3: Distribution of faulty steel plates" loading="lazy"></p>
+<h4>Distribution of Faulty Steel Plates</h4>
+<p><img src="/assets/images/Kaggle-S4E3-Distribution-of-Faulty-Steel-Plates.png" alt="Kaggle-S4E3: Distribution of faulty steel plates" loading="lazy"></p>
+<h2>Models</h2>
+<h3>Logistic Regression</h3>
+<p>The first model I tried is logistic regression. When I run logistic regression I stumble upon first problem. I can’t run logistic regression for multi label classification problem. So I have to wrap it in <code>OneVsRestClassifier</code>.</p>
+<h3>Random Forest Classifier</h3>
+<p>This is the next model I tried where I learned that in tree based classifier (lie Random Forest), in multi-label classification, <code>predict_proba</code> will return a list, where each entry corresponds to the predicted probabilities for each class. You need to loop through each label and extract the second column of probabilities for each class (since <code>predict_proba</code> returns two columns: one for class 0 and one for class 1). Following code was used to extract the probabilities of the positive class (index=1) for each class.</p>
+<pre class="language-python"><code class="language-python">auc <span class="token operator">=</span> roc_auc_score<span class="token punctuation">(</span>y_test<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> i<span class="token punctuation">]</span><span class="token punctuation">,</span> preds<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<h3>Validation Result</h3>
+<p>I train total 9 models in initial run. The score are as follows:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Model</th>
+<th style="text-align:right">Fold 0 AUC</th>
+<th style="text-align:right">Fold 1 AUC</th>
+<th style="text-align:right">Fold 2 AUC</th>
+<th style="text-align:right">Fold 3 AUC</th>
+<th style="text-align:right">Fold 4 AUC</th>
+<th style="text-align:right">Avg AUC</th>
+<th style="text-align:right">Avg Time (seconds)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">logistic_regression</td>
+<td style="text-align:right">0.8652</td>
+<td style="text-align:right">0.8564</td>
+<td style="text-align:right">0.8633</td>
+<td style="text-align:right">0.8587</td>
+<td style="text-align:right">0.8553</td>
+<td style="text-align:right">0.8598</td>
+<td style="text-align:right">0.32</td>
+</tr>
+<tr>
+<td style="text-align:left">random_forest</td>
+<td style="text-align:right">0.879</td>
+<td style="text-align:right">0.8747</td>
+<td style="text-align:right">0.8732</td>
+<td style="text-align:right">0.8726</td>
+<td style="text-align:right">0.8699</td>
+<td style="text-align:right">0.8739</td>
+<td style="text-align:right">7.75</td>
+</tr>
+<tr>
+<td style="text-align:left">xgboost</td>
+<td style="text-align:right">0.8766</td>
+<td style="text-align:right">0.8721</td>
+<td style="text-align:right">0.8725</td>
+<td style="text-align:right">0.8719</td>
+<td style="text-align:right">0.8722</td>
+<td style="text-align:right">0.8731</td>
+<td style="text-align:right">1.18</td>
+</tr>
+<tr>
+<td style="text-align:left">lightgbm</td>
+<td style="text-align:right">0.8851</td>
+<td style="text-align:right">0.8822</td>
+<td style="text-align:right">0.8802</td>
+<td style="text-align:right">0.8811</td>
+<td style="text-align:right">0.8801</td>
+<td style="text-align:right">0.8817</td>
+<td style="text-align:right">1.04</td>
+</tr>
+<tr>
+<td style="text-align:left">catboost</td>
+<td style="text-align:right">0.8888</td>
+<td style="text-align:right">0.8832</td>
+<td style="text-align:right">0.8838</td>
+<td style="text-align:right">0.8854</td>
+<td style="text-align:right">0.8831</td>
+<td style="text-align:right">0.8849</td>
+<td style="text-align:right">60.02</td>
+</tr>
+<tr>
+<td style="text-align:left">mlp</td>
+<td style="text-align:right">0.8709</td>
+<td style="text-align:right">0.866</td>
+<td style="text-align:right">0.8656</td>
+<td style="text-align:right">0.8692</td>
+<td style="text-align:right">0.8607</td>
+<td style="text-align:right">0.8665</td>
+<td style="text-align:right">30.3</td>
+</tr>
+<tr>
+<td style="text-align:left">gradient_boosting</td>
+<td style="text-align:right">0.8866</td>
+<td style="text-align:right">0.8832</td>
+<td style="text-align:right">0.883</td>
+<td style="text-align:right">0.8865</td>
+<td style="text-align:right">0.8787</td>
+<td style="text-align:right">0.8836</td>
+<td style="text-align:right">34.72</td>
+</tr>
+<tr>
+<td style="text-align:left">knn</td>
+<td style="text-align:right">0.7829</td>
+<td style="text-align:right">0.786</td>
+<td style="text-align:right">0.7817</td>
+<td style="text-align:right">0.7789</td>
+<td style="text-align:right">0.7803</td>
+<td style="text-align:right">0.7819</td>
+<td style="text-align:right">0.69</td>
+</tr>
+<tr>
+<td style="text-align:left">svm</td>
+<td style="text-align:right">0.8268</td>
+<td style="text-align:right">0.8313</td>
+<td style="text-align:right">0.8238</td>
+<td style="text-align:right">0.8282</td>
+<td style="text-align:right">0.8251</td>
+<td style="text-align:right">0.827</td>
+<td style="text-align:right">163.8</td>
+</tr>
+</tbody>
+</table>
+<p>Among all model, <code>catboost</code> performs the best. Hence I decided to do feature engineering and test on this model.</p>
+<h2>Feature Engineering</h2>
+<p>I have tried the following new features improvement.</p>
+<pre class="language-python"><code class="language-python">X<span class="token punctuation">[</span><span class="token string">'X_Range'</span><span class="token punctuation">]</span> <span class="token operator">=</span> X<span class="token punctuation">[</span><span class="token string">'X_Maximum'</span><span class="token punctuation">]</span> <span class="token operator">-</span> X<span class="token punctuation">[</span><span class="token string">'X_Minimum'</span><span class="token punctuation">]</span>
+X<span class="token punctuation">[</span><span class="token string">'Y_Range'</span><span class="token punctuation">]</span> <span class="token operator">=</span> X<span class="token punctuation">[</span><span class="token string">'Y_Maximum'</span><span class="token punctuation">]</span> <span class="token operator">-</span> X<span class="token punctuation">[</span><span class="token string">'Y_Minimum'</span><span class="token punctuation">]</span>
+X<span class="token punctuation">[</span><span class="token string">'Area_Perimeter_Ratio'</span><span class="token punctuation">]</span> <span class="token operator">=</span> X<span class="token punctuation">[</span><span class="token string">'Pixels_Areas'</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token punctuation">(</span>X<span class="token punctuation">[</span><span class="token string">'X_Perimeter'</span><span class="token punctuation">]</span> <span class="token operator">+</span> X<span class="token punctuation">[</span><span class="token string">'Y_Perimeter'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+X<span class="token punctuation">[</span><span class="token string">'Luminosity_Range'</span><span class="token punctuation">]</span> <span class="token operator">=</span> X<span class="token punctuation">[</span><span class="token string">'Maximum_of_Luminosity'</span><span class="token punctuation">]</span> <span class="token operator">-</span> X<span class="token punctuation">[</span><span class="token string">'Minimum_of_Luminosity'</span><span class="token punctuation">]</span>
+X<span class="token punctuation">[</span><span class="token string">'Volume'</span><span class="token punctuation">]</span> <span class="token operator">=</span> X<span class="token punctuation">[</span><span class="token string">'X_Range'</span><span class="token punctuation">]</span> <span class="token operator">*</span> X<span class="token punctuation">[</span><span class="token string">'Y_Range'</span><span class="token punctuation">]</span> <span class="token operator">*</span> X<span class="token punctuation">[</span><span class="token string">'Steel_Plate_Thickness'</span><span class="token punctuation">]</span>
+X<span class="token punctuation">[</span><span class="token string">'Thickness_Deviation'</span><span class="token punctuation">]</span> <span class="token operator">=</span> X<span class="token punctuation">[</span><span class="token string">'Steel_Plate_Thickness'</span><span class="token punctuation">]</span> <span class="token operator">-</span> self<span class="token punctuation">.</span>mean_thickness</code></pre>
+<p>The performance did not increased after adding new features. Some of the reasons are as follows:</p>
+<ul>
+<li>The new feature might now have added any new information to the model, as all the features have explained most of the variation.</li>
+<li>The data is already cleaned and pre engineered, because the main dataset is used in academic setting.</li>
+</ul>
+<h2>Result</h2>
+<p><code>Catboost</code> is selected for final submission. I train it on full training data and predicted probabilities on testing data for submission. These are the score.</p>
+<p><strong>Model</strong>: Catboost<br>
+<strong>Score</strong>: 0.88169<br>
+<strong>Ranking Range</strong>: 950-951</p>
+<h2>Key Learning</h2>
+<ol>
+<li>Not all model support multi label classification.</li>
+<li>The predict methods returns different data types for different model, so be cautious and double check if you are using correct format.</li>
+<li>Feature engineering is not always necessary.</li>
+</ol>
+<h2>Conclusion</h2>
+<p>This was the first multi label problem I tackled since I started solving playground problem. I learned a lot by solving new type of problem. I added one more file to increase the automation. Hopefully tomorrow I will solve the problem little faster.</p>
+<h2>Links</h2>
+<p><strong>Notebook</strong>: <a href="https://www.kaggle.com/code/surajwate/s4e3-streel-plate-defect">Kaggle Notebook for S4E3</a><br>
+<strong>Code</strong>: <a href="https://github.com/surajwate/S4E3-Steel-Plate-Defect-Prediction">GitHub Repository for Day 5</a></p>
+
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+<!-- Add Giscus Comment Section Here -->
+
+
+    <section id="giscus-comments">
+        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
+    </section>
+</div>
+
+<a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 Suraj Wate. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Prism JS -->
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Show/hide the navigation links
+            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        });
+    </script>
+    <script type="module"> 
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+</body></html>

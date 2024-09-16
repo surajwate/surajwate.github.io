@@ -61,7 +61,7 @@ td:first-child, th:first-child {
   background-color: var(--background-color); /* Make first column stand out */
   color: var(--primary-color); /* White text */
   text-align: center; /* Center align the first column */
-  width: 80px; /* Set a fixed width for the first column */
+  width: 120px; /* Set a fixed width for the first column */
   font-weight: bold; /* Make text bold */
   border-right: 1px solid #ddd; /* Add a border to the right */
 }
