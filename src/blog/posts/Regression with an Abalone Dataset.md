@@ -1,20 +1,22 @@
 ---
-title: Regression with an Abalone Dataset
-date: 2024-09-14
-lastUpdated: 2024-09-14
-tags:
-  - RMSLE
-  - Pipelines
-  - CatBoost
-  - Data-Science
-  - Regression
-description: A deep dive into hyperparameter tuning with CatBoost for predicting abalone age using the RMSLE evaluation metric, as part of the 30 Kaggle Challenges in 30 Days series.
 categories:
-  - Kaggle Challenges
-  - Machine Learning Projects
+- Kaggle Challenges
+- Machine Learning Projects
+date: 2024-09-14
+description: A deep dive into hyperparameter tuning with CatBoost for predicting abalone
+  age using the RMSLE evaluation metric, as part of the 30 Kaggle Challenges in 30
+  Days series.
+draft: false
+lastUpdated: 2024-09-14
 layout: layouts/post.html
 permalink: /blog/regression-with-an-abalone-dataset/
-draft: false
+tags:
+- RMSLE
+- Pipelines
+- CatBoost
+- Data-Science
+- Regression
+title: Regression with an Abalone Dataset
 ---
 
 ## Overview

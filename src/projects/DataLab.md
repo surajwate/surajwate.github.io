@@ -1,15 +1,15 @@
 ---
-title: DataLab
+categories: null
 date: 2024-08-26
-lastUpdated: 
-tags: 
-description: DataLab is a versatile toolkit designed to simplify data exploration, analysis, and visualization for data scientists.
-categories: 
+description: DataLab is a versatile toolkit designed to simplify data exploration,
+  analysis, and visualization for data scientists.
+draft: false
+lastUpdated: null
 layout: layouts/project.html
 permalink: /projects/DataLab/
-draft: false
+tags: null
+title: DataLab
 ---
-
 
 ## Project Overview
 
@@ -29,4 +29,3 @@ For detailed usage and examples, please visit the [documentation](http://surajwa
 ## GitHub Repository
 
 You can find the source code and contribute to the project on [GitHub](https://github.com/surajwate/DataLab).
-

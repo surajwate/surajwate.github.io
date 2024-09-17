@@ -1,20 +1,21 @@
 ---
-title: 30 Kaggle Challenges in 30 Days
-date: 2024-09-11
-lastUpdated: 
-tags:
-  - Kaggle
-  - Data-Science
-  - Machine-Learning
-  - Personal-Challenge
-  - Learning-Journey
-description: A personal challenge to solve 30 Kaggle Playground problems in 30 days, to explore data science techniques and enjoy the thrill of learning.
 categories:
-  - Kaggle Challenges
-  - Projects
+- Kaggle Challenges
+- Projects
+date: 2024-09-11
+description: A personal challenge to solve 30 Kaggle Playground problems in 30 days,
+  to explore data science techniques and enjoy the thrill of learning.
+draft: false
+lastUpdated: null
 layout: layouts/project.html
 permalink: /projects/30-days-of-kaggle-challenges/
-draft: false
+tags:
+- Kaggle
+- Data-Science
+- Machine-Learning
+- Personal-Challenge
+- Learning-Journey
+title: 30 Kaggle Challenges in 30 Days
 ---
 
 ## Project Overview
@@ -97,6 +98,13 @@ Each day, I will focus on a specific Kaggle Playground problem and document my a
 **Notebook**: [Kaggle Notebook for S4E3](https://www.kaggle.com/code/surajwate/s4e3-streel-plate-defect)
 **Code**: [GitHub Repository for Day 5](https://github.com/surajwate/S4E3-Steel-Plate-Defect-Prediction)
 
+
+### Day 6: [Multi-Class Prediction of Obesity Risk](https://surajwate.com/blog/multi-class-prediction-of-obesity-risk/)
+
+**Description**: Predict obesity risk based on lifestyle and health factors using a multi-class classification approach, exploring several machine learning models.
+
+**Notebook**: [Kaggle Notebook for S4E2](https://www.kaggle.com/code/surajwate/s4e2-prediction-of-obesity-risk)
+**Code**: [GitHub Repository for Day 6](https://github.com/surajwate/S4E2-Multi-Class-Prediction-of-Obesity-Risk)
 
 ## Conclusion 
 

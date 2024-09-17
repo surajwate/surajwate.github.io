@@ -1,21 +1,21 @@
 ---
-title: Regression with a Flood Prediction Dataset
-date: 2024-09-13
-lastUpdated: 2024-09-13
-tags:
-  - CatBoost
-  - Kaggle
-  - Flood-Prediction
-  - Regression
-description: "Day 3 of Kaggle challenge: flood probability prediction using regression models and project automation."
 categories:
-  - Kaggle Challenges
-  - Machine Learning Projects
+- Kaggle Challenges
+- Machine Learning Projects
+date: 2024-09-13
+description: 'Day 3 of Kaggle challenge: flood probability prediction using regression
+  models and project automation.'
+draft: false
+lastUpdated: 2024-09-13
 layout: layouts/post.html
 permalink: /blog/regression-with-a-flood-prediction-dataset/
-draft: false
+tags:
+- CatBoost
+- Kaggle
+- Flood-Prediction
+- Regression
+title: Regression with a Flood Prediction Dataset
 ---
-
 
 ## Day 3 of Kaggle Challenge: Improving Workflow
 
@@ -165,4 +165,3 @@ Today was the third day of the challenge, and I concentrated on building the wor
 
 GitHub Repository: [Flood Prediction Dataset](https://github.com/surajwate/S4E5-Flood-Prediction-Dataset)
 Kaggle Notebook: [Regression with a Flood Prediction](https://www.kaggle.com/code/surajwate/s4e5-flood-prediction)
-

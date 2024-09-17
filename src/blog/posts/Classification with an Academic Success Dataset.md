@@ -1,22 +1,22 @@
 ---
-title: Classification with an Academic Success Dataset
-date: 2024-09-12
-lastUpdated: 2024-09-12
-tags:
-  - Kaggle
-  - XGBoost
-  - Machine-Learning
-  - Data-Science
-  - Multiclass-Classification
-description: Predict students' dropout and academic success using a multiclass classification model. Includes stratified K-fold cross-validation and model performance optimization.
 categories:
-  - Kaggle Challenges
-  - Machine Learning Projects
+- Kaggle Challenges
+- Machine Learning Projects
+date: 2024-09-12
+description: Predict students' dropout and academic success using a multiclass classification
+  model. Includes stratified K-fold cross-validation and model performance optimization.
+draft: false
+lastUpdated: 2024-09-12
 layout: layouts/post.html
 permalink: /blog/classification-with-an-academic-success-dataset/
-draft: false
+tags:
+- Kaggle
+- XGBoost
+- Machine-Learning
+- Data-Science
+- Multiclass-Classification
+title: Classification with an Academic Success Dataset
 ---
-
 
 ## Overview
 

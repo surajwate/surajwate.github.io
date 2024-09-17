@@ -1,24 +1,24 @@
 ---
-title: Educational Lead Conversion
-date: 2024-08-16
-lastUpdated: 
-tags:
-  - machine-learning
-  - logistic-regression
-  - streamlit
-  - RFE
-description: A machine learning model to predict and prioritize high-potential leads for X Education, improving lead conversion rates using logistic regression and feature selection.
 categories:
-  - Streamlit Apps
-  - Data Science Projects
-  - Python Projects
-  - Machine Learning
+- Streamlit Apps
+- Data Science Projects
+- Python Projects
+- Machine Learning
+date: 2024-08-16
+description: A machine learning model to predict and prioritize high-potential leads
+  for X Education, improving lead conversion rates using logistic regression and feature
+  selection.
+draft: false
+lastUpdated: null
 layout: layouts/project.html
 permalink: /projects/educational-lead-conversion/
-draft: false
+tags:
+- machine-learning
+- logistic-regression
+- streamlit
+- RFE
+title: Educational Lead Conversion
 ---
-
-
 
 ## Project Overview
 
@@ -155,5 +155,3 @@ Although this project was successful, one area of improvement is the use of mach
 ## Interested in learning more?
 
 Explore the full codebase on GitHub [here](https://github.com/surajwate/Education-Lead-Conversion-Model).
-
-
