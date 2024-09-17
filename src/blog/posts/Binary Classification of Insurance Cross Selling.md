@@ -1,21 +1,23 @@
 ---
-title: Binary Classification of Insurance Cross Selling
-date: 2024-09-11
-lastUpdated: 2024-09-11
-tags:
-  - Kaggle
-  - Machine-Learning
-  - XGBoost
-  - Data-Science
-  - Binary-Classification
-description: Part of my 30 Kaggle Challenges series, this blog explores binary classification models like XGBoost for predicting insurance cross-selling outcomes.
 categories:
-  - Kaggle Challenges
-  - Machine Learning Projects
+- Kaggle Challenges
+- Machine Learning Projects
+date: 2024-09-11
+description: Part of my 30 Kaggle Challenges series, this blog explores binary classification
+  models like XGBoost for predicting insurance cross-selling outcomes.
+draft: false
+lastUpdated: 2024-09-11
 layout: layouts/post.html
 permalink: /blog/binary-classification-of-insurance-cross-selling/
-draft: false
+tags:
+- Kaggle
+- Machine-Learning
+- XGBoost
+- Data-Science
+- Binary-Classification
+title: Binary Classification of Insurance Cross Selling
 ---
+
 ## Overview 
 
 In this challenge, I tackle the problem of binary classification for insurance cross-selling. The task involves predicting whether an existing insurance customer will purchase an additional product based on various customer attributes. This is part of my **30 Kaggle Challenges in 30 Days** series.
@@ -213,5 +215,4 @@ This section will be updated as I explore new techniques and models, providing a
 
 The first day of the 30 Kaggle Challenges in 30 Days journey has been both challenging and insightful, especially while experimenting with various binary classification models. After browsing some discussions on the Kaggle website, I realized there is so much more to learn. Hopefully, this challenge will increase my knowledge of machine learning. I am looking forward to completing the rest of the 29 days.
 
-For those interested in the complete code and implementation details, feel free to check out the [GitHub repository](https://github.com/surajwate/S4E7-Insurance-Cross-Selling). 
-
+For those interested in the complete code and implementation details, feel free to check out the [GitHub repository](https://github.com/surajwate/S4E7-Insurance-Cross-Selling).

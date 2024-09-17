@@ -1,19 +1,20 @@
 ---
-title: Steel Plate Defect Prediction
-date: 2024-09-15
-lastUpdated: 2024-09-15
-tags:
-  - Multilabel-Classification
-  - Steel-Plate-Faults
-  - CatBoost
-  - AUC
-description: "Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost to identify steel plate defects."
 categories:
-  - Kaggle Challenges
-  - Machine Learning Projects
+- Kaggle Challenges
+- Machine Learning Projects
+date: 2024-09-15
+description: 'Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost
+  to identify steel plate defects.'
+draft: false
+lastUpdated: 2024-09-15
 layout: layouts/post.html
 permalink: /blog/steel-plate-defect-prediction/
-draft: false
+tags:
+- Multilabel-Classification
+- Steel-Plate-Faults
+- CatBoost
+- AUC
+title: Steel Plate Defect Prediction
 ---
 
 ## Introduction
