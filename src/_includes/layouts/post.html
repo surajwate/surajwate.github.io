@@ -6,7 +6,10 @@
 <!--- Custom Table Styles -->
 <link rel="stylesheet" href="/assets/css/table-styles.css">
 
+<!-- Override the OG meta tag for blog posts -->
 <meta property="og:type" content="article" />
+<meta property="og:image" content="{{ image | default('/assets/images/default-thumbnail.jpg') }}" />
+
 
 <script
     id="MathJax-script"
@@ -47,7 +50,7 @@
             "@type": "WebPage",
             "@id": "{{ page.url | url }}"
         },
-        "image": ["/path/to/lead-image.png"],
+        "image": "{{ image | default('/assets/images/default-thumbnail.jpg') }}",
         "articleSection": "{% for category in categories %}{{ category }}{% if not loop.last %}, {% endif %}{% endfor %}",
         "keywords": "{% for tag in tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor %}",
         "inLanguage": "en"
