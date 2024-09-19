@@ -106,6 +106,22 @@ Each day, I will focus on a specific Kaggle Playground problem and document my a
 **Notebook**: [Kaggle Notebook for S4E2](https://www.kaggle.com/code/surajwate/s4e2-prediction-of-obesity-risk)
 **Code**: [GitHub Repository for Day 6](https://github.com/surajwate/S4E2-Multi-Class-Prediction-of-Obesity-Risk)
 
+
+### Day 7: [Binary Classification with a Bank Churn](https://surajwate.com/blog/binary-classification-with-a-bank-churn/)
+
+**Description**: Predict whether a customer continues with their account or closes it (e.g., churns).
+
+**Notebook**: [Kaggle Notebook for S4E1](https://www.kaggle.com/code/surajwate/s4e1-lightgbm-bank-churn)
+**Code**: [GitHub Repository for Day 7](https://github.com/surajwate/S4E1-Binary-Classification-with-a-Bank-Churn)
+
+
+### Day 8: Multi-Class Prediction of Cirrhosis Outcomes
+
+**Description**: Use a multi-class approach to predict the outcomes of patients with cirrhosis.
+
+**Notebook**: Kaggle Notebook for S3E26
+**Code**: GitHub Repository for Day 8
+
 ## Conclusion 
 
 This journey is not just about solving 30 problems, but about embracing the learning process, enjoying the challenge, and exploring different data science techniques. Feel free to follow along, and I hope to inspire others who are passionate about data science to take on similar challenges.
