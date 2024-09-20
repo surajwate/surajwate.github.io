@@ -11,17 +11,21 @@
     <meta name="generator" content="Eleventy">
 
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="About Me">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://surajwate.com/about/">
-    <meta property="og:description" content="">
     
-    <meta property="og:site_name" content="Suraj Wate's Blog">
+        <meta property="og:title" content="About Me">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://surajwate.com/about/">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="/images/default-thumbnail.jpg">
+        <meta property="og:site_name" content="Suraj Wate's Blog">
+    
     
     <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About Me">
-    <meta name="twitter:description" content="">
+    
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="About Me">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="/images/default-thumbnail.jpg">
     
 
     <link rel="stylesheet" href="/assets/css/base.css">
@@ -127,13 +131,27 @@
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
     <script>
+        // Select DOM elements
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-        
+        // const navItems = document.querySelectorAll('.nav-links li');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+
+        // Toggle menu on hamburger click
         navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Show/hide the navigation links
-            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        navLinks.classList.toggle('active');
+        navToggle.querySelector('.hamburger').classList.toggle('active');
         });
+
+        // Close menu when a nav link is clicked
+        navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.querySelector('.hamburger').classList.remove('active');
+        });
+        });
+
     </script>
     <script type="module"> 
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 

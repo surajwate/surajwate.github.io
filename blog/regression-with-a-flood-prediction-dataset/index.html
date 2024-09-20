@@ -11,17 +11,21 @@
     <meta name="generator" content="Eleventy">
 
     <!-- Open Graph Tags -->
+    
     <meta property="og:title" content="Regression with a Flood Prediction Dataset">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:url" content="https://surajwate.com/blog/regression-with-a-flood-prediction-dataset/">
     <meta property="og:description" content="Day 3 of Kaggle challenge: flood probability prediction using regression models and project automation.">
-    
+    <meta property="og:image" content="/images/default-thumbnail.jpg">
     <meta property="og:site_name" content="Suraj Wate's Blog">
+
     
     <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Regression with a Flood Prediction Dataset">
-    <meta name="twitter:description" content="Day 3 of Kaggle challenge: flood probability prediction using regression models and project automation.">
+    
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Regression with a Flood Prediction Dataset">
+        <meta name="twitter:description" content="Day 3 of Kaggle challenge: flood probability prediction using regression models and project automation.">
+        <meta name="twitter:image" content="/images/default-thumbnail.jpg">
     
 
     <link rel="stylesheet" href="/assets/css/base.css">
@@ -44,57 +48,56 @@
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
     <link rel="microsub" href="https://aperture.p3k.io/microsub/978">
 
-         
-<link rel="stylesheet" href="/assets/css/post.css">
+     
+        
+    <link rel="stylesheet" href="/assets/css/post.css">
 
-<!-- Custom Prism CSS -->
-<link rel="stylesheet" href="/assets/css/prism-custom.css">
-<!--- Custom Table Styles -->
-<link rel="stylesheet" href="/assets/css/table-styles.css">
+    <!-- Custom Prism CSS -->
+    <link rel="stylesheet" href="/assets/css/prism-custom.css">
+    <!--- Custom Table Styles -->
+    <link rel="stylesheet" href="/assets/css/table-styles.css">
 
-<meta property="og:type" content="article">
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"],
+                ],
+                displayMath: [
+                    ["$$", "$$"],
+                    ["\\[", "\\]"],
+                ],
+            },
+        };
+    </script>
 
-<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [
-                ["$", "$"],
-                ["\\(", "\\)"],
-            ],
-            displayMath: [
-                ["$$", "$$"],
-                ["\\[", "\\]"],
-            ],
-        },
-    };
-</script>
-
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Regression with a Flood Prediction Dataset",
-        "description": "Day 3 of Kaggle challenge: flood probability prediction using regression models and project automation.",
-        "datePublished": "Fri Sep 13 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
-        "author": {
-            "@type": "Person",
-            "name": "Suraj Wate"
-        },
-        "publisher": {
-            "@type": "Person",
-            "name": "Suraj Wate's Blog"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://surajwate.com/blog/regression-with-a-flood-prediction-dataset/"
-        },
-        "image": ["/path/to/lead-image.png"],
-        "articleSection": "Kaggle Challenges, Machine Learning Projects",
-        "keywords": "CatBoost, Kaggle, Flood-Prediction, Regression",
-        "inLanguage": "en"
-    }
-</script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Regression with a Flood Prediction Dataset",
+            "description": "Day 3 of Kaggle challenge: flood probability prediction using regression models and project automation.",
+            "datePublished": "Fri Sep 13 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
+            "author": {
+                "@type": "Person",
+                "name": "Suraj Wate"
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": "Suraj Wate's Blog"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://surajwate.com/blog/regression-with-a-flood-prediction-dataset/"
+            },
+            "image": "/assets/images/default-thumbnail.jpg",
+            "articleSection": "Kaggle Challenges, Machine Learning Projects",
+            "keywords": "CatBoost, Kaggle, Flood-Prediction, Regression",
+            "inLanguage": "en"
+        }
+    </script>
 
 
 
@@ -127,10 +130,10 @@
     
     <main>
         
-<div class="post-container container">
-    <h1>Regression with a Flood Prediction Dataset</h1>
-    <p class="post-date">Sep 13, 2024</p>
-    <h2>Day 3 of Kaggle Challenge: Improving Workflow</h2>
+    <div class="post-container container">
+        <h1>Regression with a Flood Prediction Dataset</h1>
+        <p class="post-date">Sep 13, 2024</p>
+        <h2>Day 3 of Kaggle Challenge: Improving Workflow</h2>
 <p>Today is the third day of my challenge, and writing about each problem in the same manner is getting monotonous. I already have the <a href="https://www.kaggle.com/code/surajwate/s4e5-flood-prediction">Kaggle notebook</a> if anyone is interested in code. So, from now on, I will write less code in each blog. Instead, I will write about the experience and the thought process behind each step. In that way, the blog will look more like a blog and less like coding documentation as I can always write detailed documents in the <a href="https://github.com/surajwate/S4E5-Flood-Prediction-Dataset">GitHub repository</a>.</p>
 <h2>The Problem: Flood Probability Prediction</h2>
 <p>In today’s problem, we must predict the probability of flooding in the region. We are given the data with various features which might be responsible for the flood.</p>
@@ -219,17 +222,17 @@ Fold=4, R2 Score=0.8443, Time Taken=0.49sec</code></pre>
 Kaggle Notebook: <a href="https://www.kaggle.com/code/surajwate/s4e5-flood-prediction">Regression with a Flood Prediction</a></p>
 
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
-<!-- Add Giscus Comment Section Here -->
+    <!-- Add Giscus Comment Section Here -->
 
 
-    <section id="giscus-comments">
-        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
-    </section>
-</div>
+        <section id="giscus-comments">
+            <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
+        </section>
+    </div>
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
 
     </main>
@@ -242,13 +245,27 @@ Kaggle Notebook: <a href="https://www.kaggle.com/code/surajwate/s4e5-flood-predi
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
     <script>
+        // Select DOM elements
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-        
+        // const navItems = document.querySelectorAll('.nav-links li');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+
+        // Toggle menu on hamburger click
         navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Show/hide the navigation links
-            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        navLinks.classList.toggle('active');
+        navToggle.querySelector('.hamburger').classList.toggle('active');
         });
+
+        // Close menu when a nav link is clicked
+        navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.querySelector('.hamburger').classList.remove('active');
+        });
+        });
+
     </script>
     <script type="module"> 
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 

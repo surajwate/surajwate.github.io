@@ -11,17 +11,21 @@
     <meta name="generator" content="Eleventy">
 
     <!-- Open Graph Tags -->
+    
     <meta property="og:title" content="Steel Plate Defect Prediction">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:url" content="https://surajwate.com/blog/steel-plate-defect-prediction/">
     <meta property="og:description" content="Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost to identify steel plate defects.">
-    
+    <meta property="og:image" content="/images/default-thumbnail.jpg">
     <meta property="og:site_name" content="Suraj Wate's Blog">
+
     
     <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Steel Plate Defect Prediction">
-    <meta name="twitter:description" content="Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost to identify steel plate defects.">
+    
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Steel Plate Defect Prediction">
+        <meta name="twitter:description" content="Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost to identify steel plate defects.">
+        <meta name="twitter:image" content="/images/default-thumbnail.jpg">
     
 
     <link rel="stylesheet" href="/assets/css/base.css">
@@ -44,57 +48,56 @@
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
     <link rel="microsub" href="https://aperture.p3k.io/microsub/978">
 
-         
-<link rel="stylesheet" href="/assets/css/post.css">
+     
+        
+    <link rel="stylesheet" href="/assets/css/post.css">
 
-<!-- Custom Prism CSS -->
-<link rel="stylesheet" href="/assets/css/prism-custom.css">
-<!--- Custom Table Styles -->
-<link rel="stylesheet" href="/assets/css/table-styles.css">
+    <!-- Custom Prism CSS -->
+    <link rel="stylesheet" href="/assets/css/prism-custom.css">
+    <!--- Custom Table Styles -->
+    <link rel="stylesheet" href="/assets/css/table-styles.css">
 
-<meta property="og:type" content="article">
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"],
+                ],
+                displayMath: [
+                    ["$$", "$$"],
+                    ["\\[", "\\]"],
+                ],
+            },
+        };
+    </script>
 
-<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [
-                ["$", "$"],
-                ["\\(", "\\)"],
-            ],
-            displayMath: [
-                ["$$", "$$"],
-                ["\\[", "\\]"],
-            ],
-        },
-    };
-</script>
-
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Steel Plate Defect Prediction",
-        "description": "Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost to identify steel plate defects.",
-        "datePublished": "Sun Sep 15 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
-        "author": {
-            "@type": "Person",
-            "name": "Suraj Wate"
-        },
-        "publisher": {
-            "@type": "Person",
-            "name": "Suraj Wate's Blog"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://surajwate.com/blog/steel-plate-defect-prediction/"
-        },
-        "image": ["/path/to/lead-image.png"],
-        "articleSection": "Kaggle Challenges, Machine Learning Projects",
-        "keywords": "Multilabel-Classification, Steel-Plate-Faults, CatBoost, AUC",
-        "inLanguage": "en"
-    }
-</script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Steel Plate Defect Prediction",
+            "description": "Day 5 of 30 Kaggle Challenges: Multilabel classification using CatBoost to identify steel plate defects.",
+            "datePublished": "Sun Sep 15 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
+            "author": {
+                "@type": "Person",
+                "name": "Suraj Wate"
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": "Suraj Wate's Blog"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://surajwate.com/blog/steel-plate-defect-prediction/"
+            },
+            "image": "/assets/images/default-thumbnail.jpg",
+            "articleSection": "Kaggle Challenges, Machine Learning Projects",
+            "keywords": "Multilabel-Classification, Steel-Plate-Faults, CatBoost, AUC",
+            "inLanguage": "en"
+        }
+    </script>
 
 
 
@@ -127,10 +130,10 @@
     
     <main>
         
-<div class="post-container container">
-    <h1>Steel Plate Defect Prediction</h1>
-    <p class="post-date">Sep 15, 2024</p>
-    <h2>Introduction</h2>
+    <div class="post-container container">
+        <h1>Steel Plate Defect Prediction</h1>
+        <p class="post-date">Sep 15, 2024</p>
+        <h2>Introduction</h2>
 <p>Today is the fourth day of <a href="https://surajwate.com/projects/30-days-of-kaggle-challenges/">30 Kaggle Challenges in 30 Days</a> challenge. Today we will concentrate on the feature engineering of the dataset to improve the performance of the model.</p>
 <h2>Problem Statement</h2>
 <p>Build a classifier to identify the type of steel plate fault. Kaggle have provided a synthetically generated dataset from the dataset of steel plates faults from UCI Repository. The steel plate have 7 types of faults and the task is to build a classifier to identify the type of faults in test dataset. The evaluation metric for this competition is area under the ROC curve.</p>
@@ -334,17 +337,17 @@ X<span class="token punctuation">[</span><span class="token string">'Thickness_D
 <strong>Code</strong>: <a href="https://github.com/surajwate/S4E3-Steel-Plate-Defect-Prediction">GitHub Repository for Day 5</a></p>
 
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
-<!-- Add Giscus Comment Section Here -->
+    <!-- Add Giscus Comment Section Here -->
 
 
-    <section id="giscus-comments">
-        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
-    </section>
-</div>
+        <section id="giscus-comments">
+            <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
+        </section>
+    </div>
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
 
     </main>
@@ -357,13 +360,27 @@ X<span class="token punctuation">[</span><span class="token string">'Thickness_D
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
     <script>
+        // Select DOM elements
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-        
+        // const navItems = document.querySelectorAll('.nav-links li');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+
+        // Toggle menu on hamburger click
         navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Show/hide the navigation links
-            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        navLinks.classList.toggle('active');
+        navToggle.querySelector('.hamburger').classList.toggle('active');
         });
+
+        // Close menu when a nav link is clicked
+        navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.querySelector('.hamburger').classList.remove('active');
+        });
+        });
+
     </script>
     <script type="module"> 
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 

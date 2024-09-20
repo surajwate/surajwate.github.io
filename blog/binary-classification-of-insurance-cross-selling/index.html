@@ -11,17 +11,21 @@
     <meta name="generator" content="Eleventy">
 
     <!-- Open Graph Tags -->
+    
     <meta property="og:title" content="Binary Classification of Insurance Cross Selling">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:url" content="https://surajwate.com/blog/binary-classification-of-insurance-cross-selling/">
     <meta property="og:description" content="Part of my 30 Kaggle Challenges series, this blog explores binary classification models like XGBoost for predicting insurance cross-selling outcomes.">
-    
+    <meta property="og:image" content="/images/default-thumbnail.jpg">
     <meta property="og:site_name" content="Suraj Wate's Blog">
+
     
     <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Binary Classification of Insurance Cross Selling">
-    <meta name="twitter:description" content="Part of my 30 Kaggle Challenges series, this blog explores binary classification models like XGBoost for predicting insurance cross-selling outcomes.">
+    
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Binary Classification of Insurance Cross Selling">
+        <meta name="twitter:description" content="Part of my 30 Kaggle Challenges series, this blog explores binary classification models like XGBoost for predicting insurance cross-selling outcomes.">
+        <meta name="twitter:image" content="/images/default-thumbnail.jpg">
     
 
     <link rel="stylesheet" href="/assets/css/base.css">
@@ -44,57 +48,56 @@
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
     <link rel="microsub" href="https://aperture.p3k.io/microsub/978">
 
-         
-<link rel="stylesheet" href="/assets/css/post.css">
+     
+        
+    <link rel="stylesheet" href="/assets/css/post.css">
 
-<!-- Custom Prism CSS -->
-<link rel="stylesheet" href="/assets/css/prism-custom.css">
-<!--- Custom Table Styles -->
-<link rel="stylesheet" href="/assets/css/table-styles.css">
+    <!-- Custom Prism CSS -->
+    <link rel="stylesheet" href="/assets/css/prism-custom.css">
+    <!--- Custom Table Styles -->
+    <link rel="stylesheet" href="/assets/css/table-styles.css">
 
-<meta property="og:type" content="article">
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"],
+                ],
+                displayMath: [
+                    ["$$", "$$"],
+                    ["\\[", "\\]"],
+                ],
+            },
+        };
+    </script>
 
-<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [
-                ["$", "$"],
-                ["\\(", "\\)"],
-            ],
-            displayMath: [
-                ["$$", "$$"],
-                ["\\[", "\\]"],
-            ],
-        },
-    };
-</script>
-
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Binary Classification of Insurance Cross Selling",
-        "description": "Part of my 30 Kaggle Challenges series, this blog explores binary classification models like XGBoost for predicting insurance cross-selling outcomes.",
-        "datePublished": "Wed Sep 11 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
-        "author": {
-            "@type": "Person",
-            "name": "Suraj Wate"
-        },
-        "publisher": {
-            "@type": "Person",
-            "name": "Suraj Wate's Blog"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://surajwate.com/blog/binary-classification-of-insurance-cross-selling/"
-        },
-        "image": ["/path/to/lead-image.png"],
-        "articleSection": "Kaggle Challenges, Machine Learning Projects",
-        "keywords": "Kaggle, Machine-Learning, XGBoost, Data-Science, Binary-Classification",
-        "inLanguage": "en"
-    }
-</script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Binary Classification of Insurance Cross Selling",
+            "description": "Part of my 30 Kaggle Challenges series, this blog explores binary classification models like XGBoost for predicting insurance cross-selling outcomes.",
+            "datePublished": "Wed Sep 11 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
+            "author": {
+                "@type": "Person",
+                "name": "Suraj Wate"
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": "Suraj Wate's Blog"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://surajwate.com/blog/binary-classification-of-insurance-cross-selling/"
+            },
+            "image": "/assets/images/default-thumbnail.jpg",
+            "articleSection": "Kaggle Challenges, Machine Learning Projects",
+            "keywords": "Kaggle, Machine-Learning, XGBoost, Data-Science, Binary-Classification",
+            "inLanguage": "en"
+        }
+    </script>
 
 
 
@@ -127,10 +130,10 @@
     
     <main>
         
-<div class="post-container container">
-    <h1>Binary Classification of Insurance Cross Selling</h1>
-    <p class="post-date">Sep 11, 2024</p>
-    <h2>Overview</h2>
+    <div class="post-container container">
+        <h1>Binary Classification of Insurance Cross Selling</h1>
+        <p class="post-date">Sep 11, 2024</p>
+        <h2>Overview</h2>
 <p>In this challenge, I tackle the problem of binary classification for insurance cross-selling. The task involves predicting whether an existing insurance customer will purchase an additional product based on various customer attributes. This is part of my <strong>30 Kaggle Challenges in 30 Days</strong> series.</p>
 <h2>Problem Description</h2>
 <p>The dataset consists of customer information, and the goal is to predict whether each customer will purchase a new insurance product. This is a classic binary classification problem with two possible outcomes:</p>
@@ -257,17 +260,17 @@ Fold=4, AUC=0.8786452067898584</code></pre>
 <p>For those interested in the complete code and implementation details, feel free to check out the <a href="https://github.com/surajwate/S4E7-Insurance-Cross-Selling">GitHub repository</a>.</p>
 
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
-<!-- Add Giscus Comment Section Here -->
+    <!-- Add Giscus Comment Section Here -->
 
 
-    <section id="giscus-comments">
-        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
-    </section>
-</div>
+        <section id="giscus-comments">
+            <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
+        </section>
+    </div>
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
 
     </main>
@@ -280,13 +283,27 @@ Fold=4, AUC=0.8786452067898584</code></pre>
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
     <script>
+        // Select DOM elements
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-        
+        // const navItems = document.querySelectorAll('.nav-links li');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+
+        // Toggle menu on hamburger click
         navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Show/hide the navigation links
-            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        navLinks.classList.toggle('active');
+        navToggle.querySelector('.hamburger').classList.toggle('active');
         });
+
+        // Close menu when a nav link is clicked
+        navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.querySelector('.hamburger').classList.remove('active');
+        });
+        });
+
     </script>
     <script type="module"> 
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 

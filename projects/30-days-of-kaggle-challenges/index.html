@@ -11,17 +11,21 @@
     <meta name="generator" content="Eleventy">
 
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="30 Kaggle Challenges in 30 Days">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://surajwate.com/projects/30-days-of-kaggle-challenges/">
-    <meta property="og:description" content="A personal challenge to solve 30 Kaggle Playground problems in 30 days, to explore data science techniques and enjoy the thrill of learning.">
     
-    <meta property="og:site_name" content="Suraj Wate's Blog">
+        <meta property="og:title" content="30 Kaggle Challenges in 30 Days">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://surajwate.com/projects/30-days-of-kaggle-challenges/">
+        <meta property="og:description" content="A personal challenge to solve 30 Kaggle Playground problems in 30 days, to explore data science techniques and enjoy the thrill of learning.">
+        <meta property="og:image" content="/images/default-thumbnail.jpg">
+        <meta property="og:site_name" content="Suraj Wate's Blog">
+    
     
     <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="30 Kaggle Challenges in 30 Days">
-    <meta name="twitter:description" content="A personal challenge to solve 30 Kaggle Playground problems in 30 days, to explore data science techniques and enjoy the thrill of learning.">
+    
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="30 Kaggle Challenges in 30 Days">
+        <meta name="twitter:description" content="A personal challenge to solve 30 Kaggle Playground problems in 30 days, to explore data science techniques and enjoy the thrill of learning.">
+        <meta name="twitter:image" content="/images/default-thumbnail.jpg">
     
 
     <link rel="stylesheet" href="/assets/css/base.css">
@@ -162,6 +166,14 @@
 <p><strong>Description</strong>: Predict obesity risk based on lifestyle and health factors using a multi-class classification approach, exploring several machine learning models.</p>
 <p><strong>Notebook</strong>: <a href="https://www.kaggle.com/code/surajwate/s4e2-prediction-of-obesity-risk">Kaggle Notebook for S4E2</a><br>
 <strong>Code</strong>: <a href="https://github.com/surajwate/S4E2-Multi-Class-Prediction-of-Obesity-Risk">GitHub Repository for Day 6</a></p>
+<h3>Day 7: <a href="https://surajwate.com/blog/binary-classification-with-a-bank-churn/">Binary Classification with a Bank Churn</a></h3>
+<p><strong>Description</strong>: Predict whether a customer continues with their account or closes it (e.g., churns).</p>
+<p><strong>Notebook</strong>: <a href="https://www.kaggle.com/code/surajwate/s4e1-lightgbm-bank-churn">Kaggle Notebook for S4E1</a><br>
+<strong>Code</strong>: <a href="https://github.com/surajwate/S4E1-Binary-Classification-with-a-Bank-Churn">GitHub Repository for Day 7</a></p>
+<h3>Day 8: Multi-Class Prediction of Cirrhosis Outcomes</h3>
+<p><strong>Description</strong>: Use a multi-class approach to predict the outcomes of patients with cirrhosis.</p>
+<p><strong>Notebook</strong>: Kaggle Notebook for S3E26<br>
+<strong>Code</strong>: GitHub Repository for Day 8</p>
 <h2>Conclusion</h2>
 <p>This journey is not just about solving 30 problems, but about embracing the learning process, enjoying the challenge, and exploring different data science techniques. Feel free to follow along, and I hope to inspire others who are passionate about data science to take on similar challenges.</p>
 
@@ -178,13 +190,27 @@
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
     <script>
+        // Select DOM elements
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-        
+        // const navItems = document.querySelectorAll('.nav-links li');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+
+        // Toggle menu on hamburger click
         navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Show/hide the navigation links
-            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        navLinks.classList.toggle('active');
+        navToggle.querySelector('.hamburger').classList.toggle('active');
         });
+
+        // Close menu when a nav link is clicked
+        navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.querySelector('.hamburger').classList.remove('active');
+        });
+        });
+
     </script>
     <script type="module"> 
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 

@@ -11,17 +11,21 @@
     <meta name="generator" content="Eleventy">
 
     <!-- Open Graph Tags -->
+    
     <meta property="og:title" content="Multi-Class Prediction of Obesity Risk">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:url" content="https://surajwate.com/blog/multi-class-prediction-of-obesity-risk/">
     <meta property="og:description" content="Sixth day of my Kaggle challenge with a multi-class prediction model for obesity risk using various ML techniques and tuning XGBoost.">
-    
+    <meta property="og:image" content="/assets/images/Multi-Class-Obesity-Prediction-with-ML.png">
     <meta property="og:site_name" content="Suraj Wate's Blog">
+
     
     <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Multi-Class Prediction of Obesity Risk">
-    <meta name="twitter:description" content="Sixth day of my Kaggle challenge with a multi-class prediction model for obesity risk using various ML techniques and tuning XGBoost.">
+    
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Multi-Class Prediction of Obesity Risk">
+        <meta name="twitter:description" content="Sixth day of my Kaggle challenge with a multi-class prediction model for obesity risk using various ML techniques and tuning XGBoost.">
+        <meta name="twitter:image" content="/assets/images/Multi-Class-Obesity-Prediction-with-ML.png">
     
 
     <link rel="stylesheet" href="/assets/css/base.css">
@@ -44,57 +48,56 @@
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
     <link rel="microsub" href="https://aperture.p3k.io/microsub/978">
 
-         
-<link rel="stylesheet" href="/assets/css/post.css">
+     
+        
+    <link rel="stylesheet" href="/assets/css/post.css">
 
-<!-- Custom Prism CSS -->
-<link rel="stylesheet" href="/assets/css/prism-custom.css">
-<!--- Custom Table Styles -->
-<link rel="stylesheet" href="/assets/css/table-styles.css">
+    <!-- Custom Prism CSS -->
+    <link rel="stylesheet" href="/assets/css/prism-custom.css">
+    <!--- Custom Table Styles -->
+    <link rel="stylesheet" href="/assets/css/table-styles.css">
 
-<meta property="og:type" content="article">
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"],
+                ],
+                displayMath: [
+                    ["$$", "$$"],
+                    ["\\[", "\\]"],
+                ],
+            },
+        };
+    </script>
 
-<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [
-                ["$", "$"],
-                ["\\(", "\\)"],
-            ],
-            displayMath: [
-                ["$$", "$$"],
-                ["\\[", "\\]"],
-            ],
-        },
-    };
-</script>
-
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Multi-Class Prediction of Obesity Risk",
-        "description": "Sixth day of my Kaggle challenge with a multi-class prediction model for obesity risk using various ML techniques and tuning XGBoost.",
-        "datePublished": "Mon Sep 16 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
-        "author": {
-            "@type": "Person",
-            "name": "Suraj Wate"
-        },
-        "publisher": {
-            "@type": "Person",
-            "name": "Suraj Wate's Blog"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://surajwate.com/blog/multi-class-prediction-of-obesity-risk/"
-        },
-        "image": ["/path/to/lead-image.png"],
-        "articleSection": "Kaggle Challenges, Machine Learning Projects",
-        "keywords": "Multiclass-Classification, XGBoost, Model-Stacking, 30-Kaggle-Challenges, Hyperparameter-Tuning",
-        "inLanguage": "en"
-    }
-</script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Multi-Class Prediction of Obesity Risk",
+            "description": "Sixth day of my Kaggle challenge with a multi-class prediction model for obesity risk using various ML techniques and tuning XGBoost.",
+            "datePublished": "Mon Sep 16 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
+            "author": {
+                "@type": "Person",
+                "name": "Suraj Wate"
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": "Suraj Wate's Blog"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://surajwate.com/blog/multi-class-prediction-of-obesity-risk/"
+            },
+            "image": "/assets/images/Multi-Class-Obesity-Prediction-with-ML.png",
+            "articleSection": "Kaggle Challenges, Machine Learning Projects",
+            "keywords": "Multiclass-Classification, XGBoost, Model-Stacking, 30-Kaggle-Challenges, Hyperparameter-Tuning",
+            "inLanguage": "en"
+        }
+    </script>
 
 
 
@@ -127,10 +130,10 @@
     
     <main>
         
-<div class="post-container container">
-    <h1>Multi-Class Prediction of Obesity Risk</h1>
-    <p class="post-date">Sep 16, 2024</p>
-    <h2>Introduction</h2>
+    <div class="post-container container">
+        <h1>Multi-Class Prediction of Obesity Risk</h1>
+        <p class="post-date">Sep 16, 2024</p>
+        <h2>Introduction</h2>
 <p>Today is the sixth day of the <a href="https://surajwate.com/projects/30-days-of-kaggle-challenges/">30 Kaggle Challenges in 30 Days</a> challenge. I am wondering if I should keep these blogs static or dynamic. I am building very basic ML models right now. Should I come back to these blogs in the future and add new ML models by updating them, or should I create new ones later on and link them to these blogs? I am unsure of it right now. Well, I will add this to my to-do list. Returning to the challenge, it is a multi-class prediction model. Keep in mind that it’s multi-class and not multi-label. There is a difference between the two. We will explore this difference as we solve the problem.</p>
 <h2>Data Overview</h2>
 <p>Kaggle Dataset: <a href="https://www.kaggle.com/competitions/playground-series-s4e2/data">Season 4, Episode 2</a><br>
@@ -473,17 +476,17 @@ After building the model, you get the result in numerical format. So, you have t
 <strong>Code</strong>: <a href="https://github.com/surajwate/S4E2-Multi-Class-Prediction-of-Obesity-Risk">GitHub Repository for Day 5</a></p>
 
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
-<!-- Add Giscus Comment Section Here -->
+    <!-- Add Giscus Comment Section Here -->
 
 
-    <section id="giscus-comments">
-        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
-    </section>
-</div>
+        <section id="giscus-comments">
+            <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
+        </section>
+    </div>
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
 
     </main>
@@ -496,13 +499,27 @@ After building the model, you get the result in numerical format. So, you have t
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
     <script>
+        // Select DOM elements
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-        
+        // const navItems = document.querySelectorAll('.nav-links li');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+
+        // Toggle menu on hamburger click
         navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Show/hide the navigation links
-            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        navLinks.classList.toggle('active');
+        navToggle.querySelector('.hamburger').classList.toggle('active');
         });
+
+        // Close menu when a nav link is clicked
+        navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.querySelector('.hamburger').classList.remove('active');
+        });
+        });
+
     </script>
     <script type="module"> 
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 

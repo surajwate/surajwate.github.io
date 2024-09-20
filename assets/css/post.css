@@ -89,11 +89,3 @@ img {
   padding: 0 1.5em; /* Same padding as the post content */
 }
 
-@media (max-width: 768px) {
-  /* Positioning the nav-links for mobile */
-  .nav-links {
-      align-items: flex-start;
-      padding-left: 20%;
-  }
-
-}

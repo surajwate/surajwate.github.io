@@ -11,17 +11,21 @@
     <meta name="generator" content="Eleventy">
 
     <!-- Open Graph Tags -->
+    
     <meta property="og:title" content="Classification with an Academic Success Dataset">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:url" content="https://surajwate.com/blog/classification-with-an-academic-success-dataset/">
     <meta property="og:description" content="Predict students' dropout and academic success using a multiclass classification model. Includes stratified K-fold cross-validation and model performance optimization.">
-    
+    <meta property="og:image" content="/images/default-thumbnail.jpg">
     <meta property="og:site_name" content="Suraj Wate's Blog">
+
     
     <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Classification with an Academic Success Dataset">
-    <meta name="twitter:description" content="Predict students' dropout and academic success using a multiclass classification model. Includes stratified K-fold cross-validation and model performance optimization.">
+    
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Classification with an Academic Success Dataset">
+        <meta name="twitter:description" content="Predict students' dropout and academic success using a multiclass classification model. Includes stratified K-fold cross-validation and model performance optimization.">
+        <meta name="twitter:image" content="/images/default-thumbnail.jpg">
     
 
     <link rel="stylesheet" href="/assets/css/base.css">
@@ -44,57 +48,56 @@
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
     <link rel="microsub" href="https://aperture.p3k.io/microsub/978">
 
-         
-<link rel="stylesheet" href="/assets/css/post.css">
+     
+        
+    <link rel="stylesheet" href="/assets/css/post.css">
 
-<!-- Custom Prism CSS -->
-<link rel="stylesheet" href="/assets/css/prism-custom.css">
-<!--- Custom Table Styles -->
-<link rel="stylesheet" href="/assets/css/table-styles.css">
+    <!-- Custom Prism CSS -->
+    <link rel="stylesheet" href="/assets/css/prism-custom.css">
+    <!--- Custom Table Styles -->
+    <link rel="stylesheet" href="/assets/css/table-styles.css">
 
-<meta property="og:type" content="article">
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"],
+                ],
+                displayMath: [
+                    ["$$", "$$"],
+                    ["\\[", "\\]"],
+                ],
+            },
+        };
+    </script>
 
-<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [
-                ["$", "$"],
-                ["\\(", "\\)"],
-            ],
-            displayMath: [
-                ["$$", "$$"],
-                ["\\[", "\\]"],
-            ],
-        },
-    };
-</script>
-
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Classification with an Academic Success Dataset",
-        "description": "Predict students&#39; dropout and academic success using a multiclass classification model. Includes stratified K-fold cross-validation and model performance optimization.",
-        "datePublished": "Thu Sep 12 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
-        "author": {
-            "@type": "Person",
-            "name": "Suraj Wate"
-        },
-        "publisher": {
-            "@type": "Person",
-            "name": "Suraj Wate's Blog"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://surajwate.com/blog/classification-with-an-academic-success-dataset/"
-        },
-        "image": ["/path/to/lead-image.png"],
-        "articleSection": "Kaggle Challenges, Machine Learning Projects",
-        "keywords": "Kaggle, XGBoost, Machine-Learning, Data-Science, Multiclass-Classification",
-        "inLanguage": "en"
-    }
-</script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Classification with an Academic Success Dataset",
+            "description": "Predict students&#39; dropout and academic success using a multiclass classification model. Includes stratified K-fold cross-validation and model performance optimization.",
+            "datePublished": "Thu Sep 12 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
+            "author": {
+                "@type": "Person",
+                "name": "Suraj Wate"
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": "Suraj Wate's Blog"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://surajwate.com/blog/classification-with-an-academic-success-dataset/"
+            },
+            "image": "/assets/images/default-thumbnail.jpg",
+            "articleSection": "Kaggle Challenges, Machine Learning Projects",
+            "keywords": "Kaggle, XGBoost, Machine-Learning, Data-Science, Multiclass-Classification",
+            "inLanguage": "en"
+        }
+    </script>
 
 
 
@@ -127,10 +130,10 @@
     
     <main>
         
-<div class="post-container container">
-    <h1>Classification with an Academic Success Dataset</h1>
-    <p class="post-date">Sep 12, 2024</p>
-    <h2>Overview</h2>
+    <div class="post-container container">
+        <h1>Classification with an Academic Success Dataset</h1>
+        <p class="post-date">Sep 12, 2024</p>
+        <h2>Overview</h2>
 <p>This is the second challenge of the <a href="https://surajwate.com/projects/30-days-of-kaggle-challenges/">30 Kaggle Challenges in 30 Days</a> series. Yesterday, we worked on a <a href="https://surajwate.com/blog/binary-classification-of-insurance-cross-selling/">binary classification for insurance cross-selling</a>, and today, we are tackling a multiclass classification problem to predict students’ academic outcomes.</p>
 <h2>Kaggle Season 4 Episode 6</h2>
 <p>The dataset for this competition was generated from a deep learning model trained on the <a href="https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success">Predict Students’ Dropout and Academic Success</a> dataset. The features are close to, but not exactly the same as, the original. Our task is to build a multiclassification model to predict students’ dropout and academic success.<br>
@@ -368,17 +371,17 @@ Fold=4, Accuracy=0.8330392733450958</code></pre>
 <p>This was the second day of the 30 Kaggle Challenges in 30 Days series, and we successfully completed a multiclass classification problem. Feel free to try the code from Kaggle Notebook and share your result!</p>
 
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
-<!-- Add Giscus Comment Section Here -->
+    <!-- Add Giscus Comment Section Here -->
 
 
-    <section id="giscus-comments">
-        <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
-    </section>
-</div>
+        <section id="giscus-comments">
+            <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
+        </section>
+    </div>
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
 
     </main>
@@ -391,13 +394,27 @@ Fold=4, Accuracy=0.8330392733450958</code></pre>
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
     <script>
+        // Select DOM elements
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-        
+        // const navItems = document.querySelectorAll('.nav-links li');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+
+        // Toggle menu on hamburger click
         navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Show/hide the navigation links
-            navToggle.querySelector('.hamburger').classList.toggle('active'); // Animate the hamburger icon
+        navLinks.classList.toggle('active');
+        navToggle.querySelector('.hamburger').classList.toggle('active');
         });
+
+        // Close menu when a nav link is clicked
+        navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.querySelector('.hamburger').classList.remove('active');
+        });
+        });
+
     </script>
     <script type="module"> 
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 

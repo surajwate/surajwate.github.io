@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Binary Classification with a Bank Churn</title>
+    <meta name="description" content="A brief summary of the post">
+    <meta name="author" content="Suraj Wate">
+    <meta name="keywords" content="Data Science, Machine Learning, Python">
+
+    <!-- Info for Eleventy Leaderboard -->
+    <meta name="generator" content="Eleventy">
+
+    <!-- Open Graph Tags -->
+    
+    <meta property="og:title" content="Binary Classification with a Bank Churn">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://surajwate.com/blog/binary-classification-with-a-bank-churn/">
+    <meta property="og:description" content="A brief summary of the post">
+    <meta property="og:image" content="/images/default-thumbnail.jpg">
+    <meta property="og:site_name" content="Suraj Wate's Blog">
+
+    
+    <!-- Twitter Card Tags -->
+    
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Binary Classification with a Bank Churn">
+        <meta name="twitter:description" content="A brief summary of the post">
+        <meta name="twitter:image" content="/images/default-thumbnail.jpg">
+    
+
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"> <!-- Prism CSS -->
+    <!-- Font Awesome for Icons -->
+    <script defer="" src="https://kit.fontawesome.com/c39a85ddd3.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/icons/site.webmanifest">
+
+    <!-- IndieAuth -->
+    <link rel="me" href="https://fosstodon.org/@suraj">
+    <link rel="me" href="https://github.com/surajwate">
+    <link rel="me" href="https://twitter.com/surajwate">
+    <link rel="me" href="https://linkedin.com/in/surajwate">
+    <link rel="webmention" href="https://webmention.io/surajwate.com/webmention">
+
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+    <link rel="microsub" href="https://aperture.p3k.io/microsub/978">
+
+     
+        
+    <link rel="stylesheet" href="/assets/css/post.css">
+
+    <!-- Custom Prism CSS -->
+    <link rel="stylesheet" href="/assets/css/prism-custom.css">
+    <!--- Custom Table Styles -->
+    <link rel="stylesheet" href="/assets/css/table-styles.css">
+
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"],
+                ],
+                displayMath: [
+                    ["$$", "$$"],
+                    ["\\[", "\\]"],
+                ],
+            },
+        };
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Binary Classification with a Bank Churn",
+            "description": "A brief summary of the post",
+            "datePublished": "Wed Sep 18 2024 00:00:00 GMT+0000 (Coordinated Universal Time)",
+            "author": {
+                "@type": "Person",
+                "name": "Suraj Wate"
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": "Suraj Wate's Blog"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://surajwate.com/blog/binary-classification-with-a-bank-churn/"
+            },
+            "image": "/assets/images/default-thumbnail.jpg",
+            "articleSection": "",
+            "keywords": "",
+            "inLanguage": "en"
+        }
+    </script>
+
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VGQDQ5YQV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VGQDQ5YQV');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">Suraj Wate</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/blog"><i class="fa-regular fa-newspaper"></i> Blog</a></li>
+                <li><a href="/projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                <li><a href="/about"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        
+    <div class="post-container container">
+        <h1>Binary Classification with a Bank Churn</h1>
+        <p class="post-date">Sep 18, 2024</p>
+        <h2>Overview</h2>
+<p>Today is the seventh day of <a href="https://surajwate.com/projects/30-days-of-kaggle-challenges/">30 Kaggle Challenges in 30 Days</a>. I took a day off after six days of continuous posting. Solving the problems, writing the blog, and posting it takes a lot of time. Additional time is also consumed because the website is new, and almost daily, I discover some bugs, which also take my time. Going at this pace and considering my other commitments, I think this challenge will take more than 30 days, maybe it will take 36 days.</p>
+<h2>Problem Description</h2>
+<p>Today’s problem is binary classification with a bank churn dataset. The task is to predict whether a customer continues with their account or closes it (e.g., churns). The evaluation metric is the area under the ROC Curve between the predicted probability and the observed target. The dataset for this competition was generated from a deep learning model trained on the bank customer churn prediction dataset. Links for both are as follows:</p>
+<p><strong>Kaggle Dataset</strong>: <a href="https://www.kaggle.com/competitions/playground-series-s4e1/data">Season 4, Episode 1</a><br>
+<strong>Original Dataset</strong>: <a href="https://www.kaggle.com/datasets/shubhammeshram579/bank-customer-churn-prediction">Bank Customer Churn Prediction</a></p>
+<h2>Data Description</h2>
+<p>The training dataset has 14 columns: two for IDs, one for the target variable ‘Exited’, and 11 for features. The sizes of each dataset are as follows:</p>
+<pre class="language-txt"><code class="language-txt">Train Shape:	Rows: 165034	Columns: 14
+Test Shape:	    Rows: 110023	Columns: 13
+</code></pre>
+<h3>Target Distribution</h3>
+<p><img src="/assets/images/Kaggle-S4E1-Distribution-of-target-feature.png" alt="Kaggle S4E1: Distribution of the target variable" loading="lazy"></p>
+<p>The difference between the two values makes the dataset highly imbalanced. We will use stratified folds to validate the model performance, which will reduce the impact of imbalanced data.</p>
+<h2>Model Performance</h2>
+<p>I have fitted the following models and ran each on five-folds I created from the training dataset. The average score of each are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Average AUC</th>
+<th>Average Time (sec)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LightGBM</strong></td>
+<td><strong>0.8893</strong></td>
+<td><strong>0.652</strong></td>
+</tr>
+<tr>
+<td>Gradient Boosting</td>
+<td>0.8885</td>
+<td>22.12</td>
+</tr>
+<tr>
+<td>CatBoost</td>
+<td>0.8885</td>
+<td>15.292</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>0.8863</td>
+<td>0.682</td>
+</tr>
+<tr>
+<td>AdaBoost (SAMME.R)</td>
+<td>0.8803</td>
+<td>6.376</td>
+</tr>
+<tr>
+<td>AdaBoost (SAMME)</td>
+<td>0.8735</td>
+<td>5.536</td>
+</tr>
+<tr>
+<td>Logistic Regression</td>
+<td>0.8707</td>
+<td>0.394</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td>0.8705</td>
+<td>16.806</td>
+</tr>
+<tr>
+<td>Extra Trees</td>
+<td>0.8572</td>
+<td>14.394</td>
+</tr>
+<tr>
+<td>Bagging</td>
+<td>0.8422</td>
+<td>6.86</td>
+</tr>
+<tr>
+<td>K-Nearest Neighbors</td>
+<td>0.8177</td>
+<td>3.58</td>
+</tr>
+<tr>
+<td>Decision Tree</td>
+<td>0.7022</td>
+<td>1.128</td>
+</tr>
+<tr>
+<td><strong>Table: Average AUC Score and Average Training Time per Model</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>I got the best score by using the LightGBM model.</p>
+<h2>Result</h2>
+<p>I have finalized the LightGBM model for final submission.</p>
+<p><strong>Kaggle Score</strong>: 0.89197</p>
+<h2>Progress on Challenge</h2>
+<p>This challenge is taking up all of my time. I barely do anything else than solve Kaggle’s problems. The first 5 days were fun, but now it’s getting repetitive, and the format is fixed. I think now I should up my game, and instead of just reporting on scores achieved and results of submission, I should try to explore certain parts of the code and explain the logic behind it and the reason for doing that certain task in a certain way. The problem with the Kaggle competition is that I spend a lot of time on hyperparameter tuning and feature engineering instead of learning new models. The internal functioning and algorithm of each model. So, from tomorrow onward, I won’t try to improve the score but to understand why specific models are working and why others are getting low scores.</p>
+<h2>Links</h2>
+<p><strong>Notebook</strong>: <a href="https://www.kaggle.com/code/surajwate/s4e1-lightgbm-bank-churn">Kaggle Notebook for S4E1</a><br>
+<strong>Code</strong>: <a href="https://github.com/surajwate/S4E1-Binary-Classification-with-a-Bank-Churn">GitHub Repository for Day 7</a></p>
+
+
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+    <!-- Add Giscus Comment Section Here -->
+
+
+        <section id="giscus-comments">
+            <script src="https://giscus.app/client.js" data-repo="surajwate/surajwate.github.io" data-repo-id="R_kgDOMRXrqQ" data-category="General" data-category-id="DIC_kwDOMRXrqc4CiRIe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async=""></script>
+        </section>
+    </div>
+
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 Suraj Wate. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Prism JS -->
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+    <script>
+        // Select DOM elements
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        // const navItems = document.querySelectorAll('.nav-links li');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+
+        // Toggle menu on hamburger click
+        navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        navToggle.querySelector('.hamburger').classList.toggle('active');
+        });
+
+        // Close menu when a nav link is clicked
+        navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.querySelector('.hamburger').classList.remove('active');
+        });
+        });
+
+    </script>
+    <script type="module"> 
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.2.0/+esm' 
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+</body></html>
