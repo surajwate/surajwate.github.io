@@ -1,91 +1,103 @@
-{% extends "layouts/base.html" %} {% block head %} {{ super() }}
-<link rel="stylesheet" href="/assets/css/post.css" />
+{% extends "layouts/base.html" %} 
 
-<!-- Custom Prism CSS -->
-<link rel="stylesheet" href="/assets/css/prism-custom.css">
-<!--- Custom Table Styles -->
-<link rel="stylesheet" href="/assets/css/table-styles.css">
+{% block opengraph %}
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ page.url | url }}" />
+    <meta property="og:description" content="{{ description | safe }}" />
+    <meta property="og:image" content="{{ image | default('/images/default-thumbnail.jpg') }}" />
+    <meta property="og:site_name" content="Suraj Wate's Blog" />
+{% endblock %}
 
-<meta property="og:type" content="article" />
+{% block head %} 
+    {{ super() }}
+    <link rel="stylesheet" href="/assets/css/post.css" />
 
-<script
-    id="MathJax-script"
-    async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-></script>
-<script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [
-                ["$", "$"],
-                ["\\(", "\\)"],
-            ],
-            displayMath: [
-                ["$$", "$$"],
-                ["\\[", "\\]"],
-            ],
-        },
-    };
-</script>
+    <!-- Custom Prism CSS -->
+    <link rel="stylesheet" href="/assets/css/prism-custom.css">
+    <!--- Custom Table Styles -->
+    <link rel="stylesheet" href="/assets/css/table-styles.css">
 
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "{{ title }}",
-        "description": "{{ description }}",
-        "datePublished": "{{ date }}",
-        "author": {
-            "@type": "Person",
-            "name": "Suraj Wate"
-        },
-        "publisher": {
-            "@type": "Person",
-            "name": "Suraj Wate's Blog"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "{{ page.url | url }}"
-        },
-        "image": ["/path/to/lead-image.png"],
-        "articleSection": "{% for category in categories %}{{ category }}{% if not loop.last %}, {% endif %}{% endfor %}",
-        "keywords": "{% for tag in tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor %}",
-        "inLanguage": "en"
-    }
-</script>
+    <script
+        id="MathJax-script"
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"],
+                ],
+                displayMath: [
+                    ["$$", "$$"],
+                    ["\\[", "\\]"],
+                ],
+            },
+        };
+    </script>
 
-{% endblock %} {% block content %}
-<div class="post-container container">
-    <h1>{{ title }}</h1>
-    <p class="post-date">{{ date | readableDate }}</p>
-    {{ content | safe }}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "{{ title }}",
+            "description": "{{ description }}",
+            "datePublished": "{{ date }}",
+            "author": {
+                "@type": "Person",
+                "name": "Suraj Wate"
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": "Suraj Wate's Blog"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ page.url | url }}"
+            },
+            "image": "{{ image | default('/assets/images/default-thumbnail.jpg') }}",
+            "articleSection": "{% for category in categories %}{{ category }}{% if not loop.last %}, {% endif %}{% endfor %}",
+            "keywords": "{% for tag in tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor %}",
+            "inLanguage": "en"
+        }
+    </script>
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+{% endblock %} 
 
-<!-- Add Giscus Comment Section Here -->
+{% block content %}
+    <div class="post-container container">
+        <h1>{{ title }}</h1>
+        <p class="post-date">{{ date | readableDate }}</p>
+        {{ content | safe }}
+
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
+
+    <!-- Add Giscus Comment Section Here -->
 
 
-    <section id="giscus-comments">
-        <script
-            src="https://giscus.app/client.js"
-            data-repo="surajwate/surajwate.github.io"
-            data-repo-id="R_kgDOMRXrqQ"
-            data-category="General"
-            data-category-id="DIC_kwDOMRXrqc4CiRIe"
-            data-mapping="pathname"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="light"
-            data-lang="en"
-            data-loading="lazy"
-            crossorigin="anonymous"
-            async
-        ></script>
-    </section>
-</div>
+        <section id="giscus-comments">
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="surajwate/surajwate.github.io"
+                data-repo-id="R_kgDOMRXrqQ"
+                data-category="General"
+                data-category-id="DIC_kwDOMRXrqc4CiRIe"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="light"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+        </section>
+    </div>
 
-<a href="/blog" class="back-to-blog">← Back to Blog</a>
+    <a href="/blog" class="back-to-blog">← Back to Blog</a>
 
 {% endblock %}
