@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond:wght@400;700&display=swap');
+
 
 :root {
     --primary-color: #1A6FB0; 
@@ -8,6 +11,8 @@
     --text-light-color: #666;
     --border-radius: 8px;
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    --primany-font: 'Special Elite', monospace; /* For headings */
+    --secondary-font: 'EB Garamond', serif; /* For paragraphs */
 }
 
 * {
@@ -25,7 +30,8 @@ body {
 }
 
 body {
-    font-family: "Lora", serif;
+    font-family: var(--secondary-font);
+    font-size: 1.2rem;
     line-height: 1.8;
     display: flex;
     height: 100%;
@@ -69,6 +75,9 @@ footer {
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center; /* Ensure text is centered */
+    font-family: var(--primany-font);
+    font-optical-sizing: auto;
+    font-size: 1.0rem;
 }
 
 footer .footer-container {
@@ -76,9 +85,6 @@ footer .footer-container {
     margin: 0 auto; /* Center the footer content */
     padding: 1em 0;
     text-align: center;
-    font-family: "Dancing Script", cursive;
-    font-optical-sizing: auto;
-    font-size: 1.3rem;
 }
 
 footer p {
@@ -91,41 +97,28 @@ section {
     border-bottom: 1px solid #eee; /* Optional light border for separation */
 }
 
-/* .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2em;
-    background-color: transparent;
-    border-radius: 0; 
-    box-shadow: none; 
-} */
-
 h1 {
-    color: var(--primary-color);
-    font-size: 2.6em; /* Larger font for h1 */
+    font-size: 2.4em; /* Larger font for h1 */
     font-weight: 700; /* Bold weight for primary heading */
 }
 
 h2 {
-    color: var(--primary-color);
     margin-bottom: 0.8em;
-    font-size: 2.2em; /* Slightly smaller for h2 */
+    font-size: 2.0em; /* Slightly smaller for h2 */
     font-weight: 600; /* Semi-bold for subheading */
     margin-top: 1.2em; /* Add some spacing above the heading */
 }
 
 h3 {
-    color: var(--primary-color);
     margin-bottom: 0.7em;
-    font-size: 1.8em; /* Smaller than h2 */
+    font-size: 1.6em; /* Smaller than h2 */
     font-weight: 500; /* Medium weight */
     margin-top: 1em; /* Add some spacing above the heading */
 }
 
 h4 {
-    color: var(--primary-color);
     margin-bottom: 0.6em;
-    font-size: 1.5em; /* Standard size for h4 */
+    font-size: 1.4em; /* Standard size for h4 */
     font-weight: 500;
     margin-top: 0.8em; /* Add some spacing above the heading */
 }
@@ -133,7 +126,8 @@ h4 {
 
 /* Headings should have similar left alignment */
 h1, h2, h3, h4 {
-    font-family: "Dancing Script", cursive;
+    color: var(--primary-color);
+    font-family: var(--primany-font);
     font-optical-sizing: auto;
     padding: 0;
     text-align: left;
@@ -153,10 +147,15 @@ p {
 a {
     text-decoration: none;
     color: var(--primary-color);
-    font-family: "Dancing Script", cursive;
+    font-family: var(--primany-font);
     font-optical-sizing: auto;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
     transition: color 0.3s ease;
+}
+
+body a {
+    /* font-size: 1.3rem; */
 }
 
 a:focus,
@@ -244,7 +243,7 @@ button:hover {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0.5em 1.25em; /* Consistent padding */
-    font-family: "Dancing Script", cursive;
+    font-family: var(--primany-font);
     font-optical-sizing: auto;
     border-bottom: 2px solid #ddd;
 }

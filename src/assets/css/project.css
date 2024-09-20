@@ -2,18 +2,18 @@
 .project-container h1 {
   color: var(--primary-color); 
   text-align: left;
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
   /* margin-bottom: 0.5em; */
   line-height: 1.2em;
   display: block;
 }
 
 .project-container h3 a {
-  font-size: 1.8rem;
+  /* font-size: 1.8rem; */
 }
 
 .project-container p a {
-  font-size: 1.35rem;
+  /* font-size: 1.35rem; */
 }
 
 /* Project date */
