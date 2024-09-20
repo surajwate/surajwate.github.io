@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 :root {
-    --primary-color: #1A6FB0; /* Modern blue */
-    --secondary-color: #FEC601; /* Accent color */
-    --background-color: transparent; /* Light gray background */
-    --text-color: #333; /* Darker text for better readability */
+    --primary-color: #1A6FB0; 
+    --secondary-color: #FEC601; 
+    --background-color: transparent; 
+    --text-color: #333; 
     --text-light-color: #666;
     --border-radius: 8px;
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
@@ -67,7 +67,6 @@ main {
 footer {
     background-color: var(--background-color);
     color: var(--text-color);
-    /* padding: 1em 0; */
     text-align: center; /* Ensure text is centered */
 }
 
@@ -76,8 +75,6 @@ footer .footer-container {
     margin: 0 auto; /* Center the footer content */
     padding: 1em 0;
     text-align: center;
-    /* display: flex; */
-    /* justify-content: center; */
     font-family: "Dancing Script", cursive;
     font-optical-sizing: auto;
     font-size: 1.3rem;
@@ -105,10 +102,8 @@ section {
 h1 {
     color: var(--primary-color);
     text-align: left;
-    /* margin-bottom: 1em; */
     font-size: 2.6em; /* Larger font for h1 */
     font-weight: 700; /* Bold weight for primary heading */
-    /* margin-top: 1.5em;  */
 }
 
 h2 {
@@ -146,13 +141,11 @@ p {
     padding: 0;
     line-height: 1.8;
     color: var(--text-color);
-    /* font-size: 1.1em; */
     text-align: justify;
 }
 
 /* Headings should have similar left alignment */
 h1, h2, h3, h4 {
-    /* margin: 0 0 1.5em; */
     font-family: "Dancing Script", cursive;
     font-optical-sizing: auto;
     padding: 0;
@@ -230,7 +223,6 @@ button:hover {
     transform: scale(1.05); /* Slight growth for interaction */
 }
 
-/* base.css */
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -248,17 +240,14 @@ button:hover {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0.5em 1.25em; /* Consistent padding */
-    /* background-color: var(--background-color); */
     font-family: "Dancing Script", cursive;
     font-optical-sizing: auto;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); Subtle shadow */
     border-bottom: 2px solid #ddd;
 }
 
 .logo {
     font-size: 2.5rem;
     font-weight: bold;
-    /* color: var(--primary-color); */
     color: var(--primary-color);
     margin-right: auto;
 }
@@ -276,9 +265,7 @@ button:hover {
 }
 
 .nav-links a {
-    /* color: var(--text-color); */
     color: var(--primary-color);
-    /* font-size: 1.2rem; */
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -291,7 +278,6 @@ button:hover {
 }
 
 .nav-links a:hover {
-    /* color: var(--primary-color); */
     color: var(--secondary-color);
 }
 
@@ -299,7 +285,6 @@ button:hover {
 /* Updated Hamburger Menu Styles */
 .nav-toggle {
     display: none; /* Always display on mobile */
-    /* position: absolute; */
     top: 10px; /* Adjust as needed */
     right: 20px; /* Align to the right */
     z-index: 1001; /* Make sure it's on top of the menu */
@@ -354,7 +339,6 @@ button:hover {
 @media (max-width: 768px) {
     .nav-toggle {
         display: block;
-        /* position: fixed; */
         top: 10px;
         right: 20px;
         z-index: 1001;
@@ -371,7 +355,7 @@ button:hover {
         right: 0;
         height: 100vh;
         display: flex;
-        background-color: var(--background-color);
+        background-color: #ffffff;
         z-index: 1000; /* Ensure menu is below the hamburger */
         display: none;
         flex-direction: column;
