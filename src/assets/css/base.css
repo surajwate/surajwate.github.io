@@ -21,13 +21,14 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    display: flex;
     flex-direction: column;
 }
 
 body {
     font-family: "Lora", serif;
     line-height: 1.8;
+    display: flex;
+    height: 100%;
     color: var(--text-color);
 }
 
@@ -101,14 +102,12 @@ section {
 
 h1 {
     color: var(--primary-color);
-    text-align: left;
     font-size: 2.6em; /* Larger font for h1 */
     font-weight: 700; /* Bold weight for primary heading */
 }
 
 h2 {
     color: var(--primary-color);
-    text-align: left;
     margin-bottom: 0.8em;
     font-size: 2.2em; /* Slightly smaller for h2 */
     font-weight: 600; /* Semi-bold for subheading */
@@ -117,7 +116,6 @@ h2 {
 
 h3 {
     color: var(--primary-color);
-    text-align: left;
     margin-bottom: 0.7em;
     font-size: 1.8em; /* Smaller than h2 */
     font-weight: 500; /* Medium weight */
@@ -126,13 +124,20 @@ h3 {
 
 h4 {
     color: var(--primary-color);
-    text-align: left;
     margin-bottom: 0.6em;
     font-size: 1.5em; /* Standard size for h4 */
     font-weight: 500;
     margin-top: 0.8em; /* Add some spacing above the heading */
 }
 
+
+/* Headings should have similar left alignment */
+h1, h2, h3, h4 {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    padding: 0;
+    text-align: left;
+}
 
 
 /* Paragraphs */
@@ -144,14 +149,6 @@ p {
     text-align: justify;
 }
 
-/* Headings should have similar left alignment */
-h1, h2, h3, h4 {
-    font-family: "Dancing Script", cursive;
-    font-optical-sizing: auto;
-    padding: 0;
-    text-align: left;
-}
-
 
 a {
     text-decoration: none;
@@ -161,6 +158,13 @@ a {
     font-size: 1.3rem;
     transition: color 0.3s ease;
 }
+
+a:focus,
+button:focus {
+    outline: 2px dashed var(--secondary-color);
+    outline-offset: 2px;
+}
+
 
 a:hover {
     color: var(--secondary-color);
@@ -336,6 +340,7 @@ button:hover {
 
 /* Hide navigation links by default on small screens */
 /* Mobile-specific styles */
+/* Mobile-specific styles */
 @media (max-width: 768px) {
     .nav-toggle {
         display: block;
@@ -352,20 +357,23 @@ button:hover {
         position: fixed;
         top: 0;
         left: 0;
-        right: 0;
+        width: 100%; /* Use width instead of right: 0; */
         height: 100vh;
-        display: flex;
-        background-color: #ffffff;
-        z-index: 1000; /* Ensure menu is below the hamburger */
-        display: none;
+        display: flex; /* Keep display: flex; */
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: #ffffff;
+        z-index: 1000; /* Ensure menu is below the hamburger */
+        /* Remove display: none; */
+        /* Add the following properties */
+        transform: translateX(-100%); /* Hide menu off-screen to the left */
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
     }
 
     /* Show the nav links when active */
     .nav-links.active {
-        display: flex;
+        transform: translateX(0); /* Slide menu into view */
     }
 
     .nav-links li {
