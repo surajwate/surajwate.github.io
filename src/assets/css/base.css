@@ -5,8 +5,8 @@
 
 :root {
     --primary-color: #1A6FB0; 
-    --secondary-color: #FEC601; 
-    --background-color: transparent; 
+    --secondary-color: #c58301; 
+    --background-color: #fdf6e3; 
     --text-color: #333; 
     --text-light-color: #666;
     --border-radius: 8px;
@@ -90,11 +90,12 @@ footer .footer-container {
 footer p {
     margin: 0;
     width: 100%; /* Ensure paragraph takes up full width */
+    text-align: center; /* Center the text */
 }
 
 section {
-    /* padding: 3em 0; */
-    border-bottom: 1px solid #eee; /* Optional light border for separation */
+    padding: 3em 0;
+    border-bottom: 1px dotted #ccc; /* Optional light border for separation */
 }
 
 h1 {
@@ -131,6 +132,7 @@ h1, h2, h3, h4 {
     font-optical-sizing: auto;
     padding: 0;
     text-align: left;
+    letter-spacing: 0.05em;
 }
 
 
@@ -143,6 +145,16 @@ p {
     text-align: justify;
 }
 
+/* First letter of paragraph */
+/* I have commented this out because it's not aligned with the rest of the content. Will have to apply this to individual contained where needed.
+    I am saving this as a reference. Delete this after shifting this code where required. */
+/* p:first-letter {
+    font-size: 2.5rem;
+    float: left;
+    margin-right: 0.1em;
+    font-family: 'Playfair Display', serif;
+  } */
+  
 
 a {
     text-decoration: none;
@@ -151,7 +163,7 @@ a {
     font-optical-sizing: auto;
     font-size: 1.1rem;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 body a {
@@ -188,7 +200,7 @@ ol {
 ul li,
 ol li {
     padding-left: 0; /* Ensure no extra padding */
-    margin-bottom: 0.5em; /* Maintain spacing between items */
+    margin-bottom: 0.75em; /* Maintain spacing between items */
     text-align: left; /* Align list items with the text */
 }
 
@@ -215,7 +227,7 @@ button {
     padding: 10px 20px;
     background-color: var(--primary-color);
     color: white;
-    border: none;
+    border: 1px solid #ccc;
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: background-color 0.3s ease;
