@@ -1,0 +1,66 @@
+/*!
+ * Custom Vintage Theme
+ * Inspired by classic typewriter and newspaper aesthetics.
+ */
+
+ main {
+    --color-prettylights-syntax-comment: #7a7563; /* Muted beige, like old paper */
+    --color-prettylights-syntax-constant: #b58900; /* Warm mustard, for highlighting */
+    --color-prettylights-syntax-entity: #d33682; /* Soft magenta for subtle contrast */
+    --color-prettylights-syntax-storage-modifier-import: #586e75; /* Cool grey */
+    --color-prettylights-syntax-entity-tag: #859900; /* Olive green for a vintage touch */
+    --color-prettylights-syntax-keyword: #cb4b16; /* Burnt orange for key elements */
+    --color-prettylights-syntax-string: #2aa198; /* Soft teal, vintage ink feel */
+    --color-prettylights-syntax-variable: #b58900; /* Matches mustard highlights */
+    --color-prettylights-syntax-brackethighlighter-unmatched: #dc322f; /* Slightly faded red */
+    --color-prettylights-syntax-invalid-illegal-text: #eee8d5; /* Light beige, readable on dark */
+    --color-prettylights-syntax-invalid-illegal-bg: #cc342b; /* Deeper vintage red */
+    --color-btn-text: #3b3a36; /* Dark brown, readable yet subtle */
+    --color-btn-bg: #fdf6e3; /* Paper-like light background */
+    --color-btn-border: #b3a18e; /* Muted border to match the overall tone */
+    --color-btn-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    --color-btn-primary-text: #ffffff; /* White text on primary buttons */
+    --color-btn-primary-bg: #6c757d; /* Greyish blue for primary actions */
+    --color-btn-primary-hover-bg: #5a6268; /* Slightly darker on hover */
+    --color-fg-default: #3b3a36; /* Muted dark grey for text */
+    --color-fg-muted: #7a7563; /* A softer grey for less important text */
+    --color-canvas-default: #fdf6e3; /* Light parchment-like background */
+    --color-canvas-subtle: #f4f1ea; /* Slight variation of the background */
+    --color-border-default: #d3c5b4; /* Soft beige borders */
+    --color-border-muted: #b3a18e; /* Slightly darker than the main border */
+    --color-accent-fg: #b58900; /* Accent color, consistent with highlights */
+    --color-accent-emphasis: #cb4b16; /* Slightly more pronounced for emphasis */
+    --color-danger-fg: #dc322f; /* Red, but toned down for vintage feel */
+    --color-attention-fg: #d33682; /* Magenta for visual attention elements */
+  }
+  
+  main .gsc-header {
+    padding-bottom: 1rem;
+  }
+  
+  .gsc-timeline {
+    flex-direction: column-reverse;
+  }
+  
+  /* Custom modifications for theme consistency */
+  .gsc-comments > .gsc-header {
+    order: 1;
+  }
+  
+  .gsc-comments > .gsc-comment-box {
+    order: 2;
+    margin-bottom: 1rem;
+  }
+  
+  .gsc-comments > .gsc-timeline {
+    order: 3;
+  }
+  
+  .gsc-homepage-bg {
+    background-color: #fdf6e3; /* Matches the overall vintage paper theme */
+  }
+  
+  .gsc-loading-image {
+    background-image: url('https://github.githubassets.com/images/mona-loading-dimmed.gif');
+  }
+  

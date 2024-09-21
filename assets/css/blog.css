@@ -1,10 +1,11 @@
 /* Blog headings */
 .blog-container h1 {
   text-align: left;
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
   color: var(--primary-color);
   margin-bottom: 1.0em;
   padding-left: 0em; /* Align heading with content */
+  letter-spacing: 0.15em;
 }
 
 /* Blog post items */
@@ -35,7 +36,7 @@
 .blog-container p.post-date {
   color: var(--text-light-color);
   font-size: 0.9em;
-  margin: 0.5em 0;
+  margin: 0 0 0.5em 0;
 }
 
 /* Post excerpts */
@@ -58,4 +59,18 @@
 }
 .post-item a {
   font-size: 1.6rem;
+}
+
+@media (max-width: 768px) {
+  .blog-container li.post-item {
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+  }
+}
+
+.blog-container p.post-description:first-letter {
+  font-size: 1.1em; /* Slightly larger for emphasis */
+  font-family: var(--primary-font); /* Use the primary font */
+  line-height: 0.05; /* Keeps the first letter aligned with the text */
+  color: var(--primary-color); /* Adds a touch of color for emphasis */
 }
