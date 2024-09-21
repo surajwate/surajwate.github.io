@@ -20,6 +20,7 @@ img {
   margin-bottom: 1.2em;
   font-size: 2rem;
   font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 /* Post content */
@@ -88,12 +89,3 @@ img {
   margin-right: auto;
   padding: 0 1.5em; /* Same padding as the post content */
 }
-
-
-/* Drop cap for the first letter of the post */
-/* .post-container p:first-letter {
-  font-size: 2.5rem;
-  float: left;
-  margin-right: 0.1em;
-  font-family: 'Playfair Display', serif;
-} */

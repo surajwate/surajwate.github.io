@@ -72,6 +72,7 @@ I have fitted the following models and ran each on five-folds I created from the
 | Bagging             | 0.8422      | 6.86               |
 | K-Nearest Neighbors | 0.8177      | 3.58               |
 | Decision Tree       | 0.7022      | 1.128              |
+
 **Table: Average AUC Score and Average Training Time per Model**
 
 
