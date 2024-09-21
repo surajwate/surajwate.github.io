@@ -1,12 +1,20 @@
 ---
-categories: null
+categories:
+- Machine Learning Projects
+- Kaggle Challenges
 date: 2024-09-18
-description: A brief summary of the post
+description: Day 7 of 30 Kaggle Challenges focuses on binary classification using
+  the bank churn dataset, comparing multiple models with LightGBM achieving the best
+  score.
 draft: false
 lastUpdated: 2024-09-18
 layout: layouts/post.html
 permalink: /blog/binary-classification-with-a-bank-churn/
-tags: null
+tags:
+- Bank-Churn
+- Learning-Journey
+- Binary-Classification
+- LightGBM
 title: Binary Classification with a Bank Churn
 ---
 
@@ -64,6 +72,7 @@ I have fitted the following models and ran each on five-folds I created from the
 | Bagging             | 0.8422      | 6.86               |
 | K-Nearest Neighbors | 0.8177      | 3.58               |
 | Decision Tree       | 0.7022      | 1.128              |
+
 **Table: Average AUC Score and Average Training Time per Model**
 
 

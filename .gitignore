@@ -152,3 +152,4 @@ _site/
 # Dev files
 
 blogpost_transfer.py
+venv/
