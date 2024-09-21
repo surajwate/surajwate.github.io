@@ -1,12 +1,20 @@
 ---
-categories: null
+categories:
+- Machine Learning Projects
+- Kaggle Challenges
 date: 2024-09-18
-description: A brief summary of the post
+description: Day 7 of 30 Kaggle Challenges focuses on binary classification using
+  the bank churn dataset, comparing multiple models with LightGBM achieving the best
+  score.
 draft: false
 lastUpdated: 2024-09-18
 layout: layouts/post.html
 permalink: /blog/binary-classification-with-a-bank-churn/
-tags: null
+tags:
+- Bank-Churn
+- Learning-Journey
+- Binary-Classification
+- LightGBM
 title: Binary Classification with a Bank Churn
 ---
 
